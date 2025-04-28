@@ -1,0 +1,207 @@
+---
+title: "ggplot2 extensions"
+execute:
+  echo: true
+  cache: false
+  message: false
+  warning: false
+format: 
+  revealjs:
+    width: 1152
+    height: 648
+    highlight-style: joyce.theme
+    theme: [simple, custom3.scss]
+    scrollable: true
+    chalkboard: true
+    slide-number: true
+    code-fold: true
+
+knitr:
+  opts_chunk: 
+    fig.width: 6
+    fig.height: 4
+    fig.align: center
+    out.width: 100%
+    
+language:
+  code-summary: ""
+---    
+
+
+# Classifying packages
+
+IN GRAMMAR
+
+## New Geoms
+
+`ggforce` -- arcs, bezier curves, splines, voronai, hulls, delaunay, and others
+
+`geomtextpath` -- curved text
+
+## `ggforce`
+
+```{r}
+#| fig-width: 12
+#| fig-height: 4
+library(ggforce)
+library(patchwork)
+df <- data.frame(r = 1:48, 
+                 start = runif(48, 0, 2*pi), 
+                 end = runif(48, 0, 2*pi))
+
+p1 <- ggplot(df, aes(x0 = 0, y0 = 0, r = r, 
+               start = start, end = end,
+               color = r)) + 
+  geom_arc() + 
+#  coord_fixed() + 
+  scale_color_viridis_c() +
+  labs(title = "geom_arc()") +
+  theme_bw() +
+  theme(legend.position = "none",
+        title = element_text(family = "courier", face = "bold"))
+
+control_points <- data.frame(
+  x = c(0, 2, 3, 5, 1, 1.25, 1.25, 3.75, 3.5, 4.25, 4.5),
+  y = c(4, 5, 3, 4.25, 1, 1.5, 4.25, 3.75, 2, 0, 1.5),
+  group = c(1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3)
+)
+
+p2 <- ggplot(control_points, aes(x = x, y = y, group = group, color = factor(group))) +
+  geom_bezier(linewidth = 2, alpha = .75) +
+  geom_point() +
+#  coord_fixed() +
+  scale_x_continuous(name = NULL) +
+  scale_y_continuous(name = NULL, breaks = 0:5) +
+  labs(title = "geom_bezier()") +
+  theme_bw() +
+  theme(legend.position = "none",
+        panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
+
+p3 <- ggplot(iris, aes(Petal.Length, Petal.Width, color = Species)) + 
+  geom_point() + 
+  geom_mark_ellipse(aes(label = Species), label.fontsize = 8) +
+  scale_x_continuous(expand = c(.2, .2)) +
+  scale_y_continuous(expand = c(.2, .2)) +
+  labs(title = "geom_mark_ellipse()", x = NULL, y = NULL) +
+  theme_bw() +
+  theme(legend.position = "none",
+        panel.grid.minor = element_blank(),
+        plot.title = element_text(family = "courier", face = "bold"))
+
+p1 + p2 + p3
+```
+
+
+## Altered Geoms
+
+`ggpattern`
+
+
+
+## New Facets
+
+`ggside` -- implemented as `geoms` but really adds facets
+
+
+## Chart type built modularly
+
+`ggalluvial` -- alluvial diagrams
+
+`gggenomes` -- 
+
+
+## `gggenomes`
+
+```{r}
+library(gggenomes)
+# to inspect the example data shipped with gggenomes
+data(package="gggenomes")
+
+gfull <- gggenomes(
+  genes = emale_genes, seqs = emale_seqs, links = emale_ava,
+  feats = list(emale_tirs, ngaros=emale_ngaros, gc=emale_gc)) |> 
+  add_sublinks(emale_prot_ava) |>
+  sync() + # synchronize genome directions based on links
+  geom_feat(position="identity", size=6) +
+  geom_seq() +
+  geom_link(data=links(2)) +
+  geom_bin_label() +
+  geom_gene(aes(fill=name)) +
+  geom_gene_tag(aes(label=name), nudge_y=0.1, check_overlap = TRUE) +
+  geom_feat(data=feats(ngaros), alpha=.3, size=10, position="identity") +
+  geom_feat_note(aes(label="Ngaro-transposon"), data=feats(ngaros),
+      nudge_y=.1, vjust=0) +
+  geom_wiggle(aes(z=score, linetype="GC-content"), feats(gc),
+      fill="lavenderblush4", position=position_nudge(y=-.2), height = .2) +
+  scale_fill_brewer("Genes", palette="Dark2", na.value="cornsilk3")
+
+gfull
+```
+
+:::{.pt5}
+Code source: [https://thackl.github.io/gggenomes/](https://thackl.github.io/gggenomes/)
+:::
+
+## Modular components
+
+```{r}
+#| layout-ncol: 2
+g <- gggenomes(
+  genes = emale_genes, seqs = emale_seqs, links = emale_ava,
+  feats = list(emale_tirs, ngaros=emale_ngaros, gc=emale_gc)) |> 
+  add_sublinks(emale_prot_ava) |>
+  sync() + # synchronize genome directions based on links
+  geom_seq(color = NA) +
+  geom_bin_label(color = NA) +
+  scale_fill_brewer("Genes", palette="Dark2", na.value="cornsilk3") + 
+  theme(legend.position = "none",
+        title = element_text(size = 8, family = "courier", face = "bold"))
+g1 <- g + geom_feat(position="identity", size=6) +
+  labs(title = "geom_feat()")
+g2 <- g + geom_seq() + labs(title = "geom_seq()")
+g3 <- g + geom_link(data=links(2)) + labs(title = "geom_link()")
+g4 <- g + geom_bin_label(size = 2) + labs(title = "geom_bin_label()")
+g5 <- g + geom_gene(aes(fill=name)) + labs(title = "geom_gene()")
+g6 <- g + geom_gene_tag(aes(label=name), nudge_y=0.1, check_overlap = TRUE) + labs(title = "geom_gene_tag()")
+g7 <- g + geom_feat(data=feats(ngaros), alpha=.3, size=10, position="identity") + labs(title = "geom_feat()")
+g8 <- g + geom_feat_note(aes(label="Ngaro-transposon"), data=feats(ngaros), nudge_y=.1, vjust=0) +
+   labs(title = "geom_feat_note()")
+g9 <- g + geom_wiggle(aes(z=score, linetype="GC-content"), feats(gc), fill="lavenderblush4", position=position_nudge(y=-.2), height = .2) + labs(title = "geom_wiggle()")
+gfull
+g1 + g2 + g3 + g4 + g5 + g6 + g7 + g8 + g9
+```
+
+
+## Modular components
+
+```{r}
+g1 + g2 + g3 + g4 + g5 + g6 + g7 + g8 + g9
+```
+
+
+## Non-cartesian extensions
+
+(Or are these new coordinate systems?)
+
+`ggraph` -- networks 
+
+`ggtern` -- ternary diagrams (3 axes)
+
+## Interactivity
+
+`ggiraph`
+
+## Animation
+
+`ggreveal` -- add parts incrementally
+
+## Add stuff to plots
+
+`ggpp` -- tables, inset plots, images
+
+## Complete plots, nonmodular
+
+`see` -- effect plots and others
+
+`ggstats` -- `ggcoef_model()`, `ggcoef_table()`, `ggcoef_compare()`, `ggsurvey()`, `gglikert()`, `ggcascade()`
