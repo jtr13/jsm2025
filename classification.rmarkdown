@@ -28,6 +28,8 @@ language:
 ---    
 
 
+
+
 # Classifying by construct:
 
 GGPLOT2 GRAMMAR
@@ -43,6 +45,8 @@ GGPLOT2 GRAMMAR
 `geomtextpath` -- curved text
 
 ## `ggforce`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -96,7 +100,11 @@ p3 <- ggplot(iris, aes(Petal.Length, Petal.Width, color = Species)) +
 p1 + p2 + p3
 ```
 
+
+
 ## `ggalt`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -150,11 +158,15 @@ p3 <- ggplot(df, aes(y=trt, x=l, xend=r)) +
 p1 + p2 + p3
 ```
 
+
+
 :::{.pt5}
 Code source: [https://github.com/hrbrmstr/ggalt](https://github.com/hrbrmstr/ggalt)
 :::
 
 ## `ggsignif`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -193,11 +205,15 @@ p2 <- ggplot(diamonds, aes(x = cut, y = carat)) +
 p1 + p2
 ```
 
+
+
 :::{.pt5}
 Code source: [https://github.com/const-ae/ggsignif](https://github.com/const-ae/ggsignif)
 :::
 
 ## `geomtextpath`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -246,6 +262,8 @@ p3 <- ggplot(iris, aes(x = Sepal.Length, colour = Species, label = Species)) +
 p1 + p2 + p3
 ```
 
+
+
 :::{.pt5}
 Code source: [https://allancameron.github.io/geomtextpath/](https://allancameron.github.io/geomtextpath/)
 :::
@@ -259,6 +277,8 @@ Code source: [https://allancameron.github.io/geomtextpath/](https://allancameron
 `ggbreak` -- set breakpoints for truncating the plot
 
 ## `ggsci`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -314,11 +334,15 @@ p3_gsea <- p3 + scale_fill_gsea() +
 p1_npg + p1_uchicago + p3_gsea
 ```
 
+
+
 :::{.pt5}
 Code source: [https://nanx.me/ggsci/articles/ggsci.html](https://nanx.me/ggsci/articles/ggsci.html)
 :::
 
 ## `ggnewscale`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -348,11 +372,15 @@ ggplot(mapping = aes(x, y)) +
 
 ```
 
+
+
 :::{.pt5}
 Code source: [https://github.com/eliocamp/ggnewscale/](https://github.com/eliocamp/ggnewscale/)
 :::
 
 ## `ggbreak`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -397,6 +425,8 @@ p3 <- ggplot(d, aes(x, y)) +
 
 p1 + p2 + p3
 ```
+
+
 :::{.pt5}
 Code source: [https://cran.r-project.org/web/packages/ggbreak/vignettes/ggbreak.html](https://cran.r-project.org/web/packages/ggbreak/vignettes/ggbreak.html)
 :::
@@ -410,6 +440,8 @@ Code source: [https://cran.r-project.org/web/packages/ggbreak/vignettes/ggbreak.
 `ggpmisc` -- 
 
 ## `ggstats`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -444,11 +476,15 @@ p2 <- ggplot(as.data.frame(Titanic)) +
 
 p1 + p2
 ```
+
+
 :::{.pt5}
 Code source: [https://larmarange.github.io/ggstats/](https://larmarange.github.io/ggstats/)
 :::
 
 ## `ggpmisc`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -493,6 +529,8 @@ p2 <- ggplot(cars, aes(speed, dist)) +
 
 p1 + p2
 ```
+
+
 :::{.pt5}
 Code source: [https://github.com/aphalo/ggpmisc](https://github.com/aphalo/ggpmisc)
 :::
@@ -506,6 +544,8 @@ Code source: [https://github.com/aphalo/ggpmisc](https://github.com/aphalo/ggpmi
 `ggside` -- implemented as `geoms` but really adds facets
 
 ## `geofacet`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -525,11 +565,15 @@ p1 <- ggplot(state_unemp, aes(year, rate)) +
 
 p1
 ```
+
+
 :::{.pt5}
 Code source: [https://github.com/hafen/geofacet/](https://github.com/hafen/geofacet/)
 :::
 
 ## `ggh4x`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -565,11 +609,15 @@ p2 <- ggplot(mpg, aes(displ, hwy, colour = as.factor(cyl))) + geom_point() +
 
 p1 + p2
 ```
+
+
 :::{.pt5}
 Code source: [https://teunbrand.github.io/ggh4x/articles/Facets.html](https://teunbrand.github.io/ggh4x/articles/Facets.html)
 :::
 
 ## `ggside`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -590,6 +638,8 @@ p1 <- ggplot(mpg, aes(displ, hwy, colour = class)) +
 
 p1
 ```
+
+
 :::{.pt5}
 Code source: [https://github.com/jtlandis/ggside](https://github.com/jtlandis/ggside)
 :::
@@ -611,6 +661,8 @@ ALTERNATIVE INITALIZE PLOT FUNCTION
 
 ## `waterfalls`
 
+
+
 ```{r}
 #| fig-width: 12
 #| fig-height: 4
@@ -629,6 +681,8 @@ p1 <- waterfall(dt)  +
 
 p1
 ```
+
+
 :::{.pt5}
 Code source: [https://rpubs.com/techanswers88/waterfall-chart-ggplot](https://rpubs.com/techanswers88/waterfall-chart-ggplot)
 :::
@@ -640,6 +694,8 @@ Code source: [https://rpubs.com/techanswers88/waterfall-chart-ggplot](https://rp
 `gge` -- GGE (genotype plus genotype-by-environment) biplots
 
 ## `gge`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -655,6 +711,8 @@ gge <- gge(dat1, yield~gen*env, scale=FALSE)
 biplot(gge, main="yan.winterwheat - GGE biplot",
        flip=c(1,0), origin=0, hull=TRUE)
 ```
+
+
 :::{.pt5}
 Code source: [https://github.com/kwstat/gge/](https://github.com/kwstat/gge/)
 :::
@@ -666,6 +724,8 @@ Code source: [https://github.com/kwstat/gge/](https://github.com/kwstat/gge/)
 `ggformula`
 
 ## `gggenomes`
+
+
 
 ```{r}
 library(gggenomes)
@@ -693,11 +753,15 @@ gfull <- gggenomes(
 gfull
 ```
 
+
+
 :::{.pt5}
 Code source: [https://thackl.github.io/gggenomes/](https://thackl.github.io/gggenomes/)
 :::
 
 ## Modular components
+
+
 
 ```{r}
 #| layout-ncol: 2
@@ -726,19 +790,29 @@ gfull
 g1 + g2 + g3 + g4 + g5 + g6 + g7 + g8 + g9
 ```
 
+
+
 ## Modular components
+
+
 
 ```{r}
 g1 + g2 + g3 + g4 + g5 + g6 + g7 + g8 + g9
 ```
 
+
+
 ## `ggformula`
+
+
 
 ```{r}
 #| fig-width: 12
 #| fig-height: 4
 
 ```
+
+
 
 # Classifying by purpose:
 
@@ -751,6 +825,8 @@ g1 + g2 + g3 + g4 + g5 + g6 + g7 + g8 + g9
 `ggVennDiagram` -- venn diagram
 
 ## `ggraph`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -773,11 +849,15 @@ p1 <- ggraph(graph, layout = 'kk') +
 
 p1
 ```
+
+
 :::{.pt5}
 Code source: [https://ggraph.data-imaginist.com/](https://ggraph.data-imaginist.com/)
 :::
 
 ## `ggdendro`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -791,11 +871,15 @@ p1 <- ggdendrogram(hc, rotate = FALSE, size = 2) +
         title = element_text(family = "courier", face = "bold"))
 p1
 ```
+
+
 :::{.pt5}
 Code source: [https://cran.r-project.org/web/packages/ggdendro/vignettes/ggdendro.html](https://cran.r-project.org/web/packages/ggdendro/vignettes/ggdendro.html)
 :::
 
 ## `ggVennDiagram`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -816,6 +900,8 @@ p1 <- ggVennDiagram(x) +
 
 p1
 ```
+
+
 :::{.pt5}
 Code source: [https://github.com/gaospecial/ggVennDiagram](https://github.com/gaospecial/ggVennDiagram)
 :::
@@ -827,6 +913,8 @@ Code source: [https://github.com/gaospecial/ggVennDiagram](https://github.com/ga
 `ggfittext` -- fit text into boxes
 
 ## `ggrepel`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -852,11 +940,15 @@ p2 <- ggplot(mtcars, aes(wt, mpg, label = rownames(mtcars))) +
 
 p1 + p2
 ```
+
+
 :::{.pt5}
 Code source: [https://ggrepel.slowkow.com/](https://ggrepel.slowkow.com/)
 :::
 
 ## `ggfittext`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -893,6 +985,8 @@ p3 <- ggplot(gold, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax,
 
 p1 + p2 + p3
 ```
+
+
 :::{.pt5}
 Code source: [https://github.com/wilkox/ggfittext](https://github.com/wilkox/ggfittext)
 :::
@@ -904,6 +998,8 @@ Code source: [https://github.com/wilkox/ggfittext](https://github.com/wilkox/ggf
 `ggstance` -- horizontal versions of geoms
 
 ## `ggstance`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -939,6 +1035,8 @@ p3 <- ggplot(df, aes(Result, Subject))+
 
 p1 + p2 + p3
 ```
+
+
 :::{.pt5}
 Code source: [https://github.com/lionel-/ggstance](https://github.com/lionel-/ggstance)
 :::
@@ -961,6 +1059,8 @@ Code source: [https://github.com/lionel-/ggstance](https://github.com/lionel-/gg
 `lindia` -- streamlined plotting features of linear model diagnostic plots
 
 ## `ggsignif`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -996,11 +1096,15 @@ p2 <- ggplot(diamonds, aes(x = cut, y = carat)) +
 
 p1 + p2
 ```
+
+
 :::{.pt5}
 Code source: [https://github.com/const-ae/ggsignif](https://github.com/const-ae/ggsignif)
 :::
 
 ## `lindia`
+
+
 
 ```{r}
 #| fig-width: 12
@@ -1013,6 +1117,8 @@ cars_lm <- lm(Price ~ Passengers + Length + RPM, data = MASS::Cars93)
 # visualize diagnostic plots
 gg_diagnose(cars_lm)
 ```
+
+
 :::{.pt5}
 Code source: [https://github.com/yeukyul/lindia](https://github.com/yeukyul/lindia)
 :::
