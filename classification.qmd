@@ -25,8 +25,9 @@ knitr:
     
 language:
   code-summary: ""
----    
+---  
 
+# Introduction to ggplot2 and Grammar of Graphics
 
 # Classifying by construct:
 
@@ -39,8 +40,6 @@ GGPLOT2 GRAMMAR
 `ggalt` -- splines, encircling points, dumbbell and lollipop charts, and others
 
 `ggsignif` -- significance brackets with p values
-
-`geomtextpath` -- curved text
 
 ## `ggforce`
 
@@ -187,7 +186,9 @@ p2 <- ggplot(diamonds, aes(x = cut, y = carat)) +
   theme_bw() +
   theme(legend.position = "none",
         panel.grid.minor = element_blank(),
-        title = element_text(family = "courier", face = "bold")) +
+        title = element_text(family = "courier", face = "bold"),
+        strip.text = element_text(size = 6, margin = margin(1, 1, 1, 1)),
+        strip.background = element_rect(size = 0.2)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 p1 + p2
@@ -195,6 +196,85 @@ p1 + p2
 
 :::{.pt5}
 Code source: [https://github.com/const-ae/ggsignif](https://github.com/const-ae/ggsignif)
+:::
+
+## New Geoms for Labels/Text
+
+`ggrepel` -- repel overlapping text labels
+
+`ggfittext` -- fit text into boxes
+
+`geomtextpath` -- curved text
+
+## `ggrepel`
+
+```{r}
+#| fig-width: 12
+#| fig-height: 4
+library(ggrepel)
+p1 <- ggplot(mtcars, aes(wt, mpg, label = rownames(mtcars))) +
+  geom_text() +
+  geom_point(color = 'red') +
+  theme_classic(base_size = 16)  +
+  labs(title = "geom_text()") +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
+
+p2 <- ggplot(mtcars, aes(wt, mpg, label = rownames(mtcars))) +
+  geom_text_repel() +
+  geom_point(color = 'red') +
+  theme_classic(base_size = 16)  +
+  labs(title = "geom_text_repel()") +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
+
+p1 + p2
+```
+:::{.pt5}
+Code source: [https://ggrepel.slowkow.com/](https://ggrepel.slowkow.com/)
+:::
+
+## `ggfittext`
+
+```{r}
+#| fig-width: 12
+#| fig-height: 4
+library(ggfittext)
+
+p1 <- ggplot(animals, aes(x = type, y = flies, label = animal)) +
+  geom_tile(fill = "white", colour = "black") +
+  geom_text()  +
+  labs(title = "geom_text()") +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
+
+p2 <- ggplot(animals, aes(x = type, y = flies, label = animal)) +
+  geom_tile(fill = "white", colour = "black") +
+  geom_fit_text()  +
+  labs(title = "geom_fit_text()") +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
+
+p3 <- ggplot(gold, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, 
+                      fill = linenumber, label = line)) +
+  coord_polar() +
+  geom_rect() +
+  scale_fill_gradient(low = "#fee391", high = "#238443") +
+  geom_fit_text(min.size = 0, grow = TRUE, flip = TRUE) +
+  labs(title = "coord_polar(), geom_fit_text()") +
+  theme_bw() +
+  theme(legend.position = "none",
+        panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
+
+p1 + p2 + p3
+```
+:::{.pt5}
+Code source: [https://github.com/wilkox/ggfittext](https://github.com/wilkox/ggfittext)
 :::
 
 ## `geomtextpath`
@@ -334,18 +414,17 @@ topography$z <- c(volcano)
 set.seed(42)
 measurements <- data.frame(x = runif(30, 1, 80),
                            y = runif(30, 1, 60),
-                           thing = rnorm(30))
+                           rainfall = rnorm(30))
 
 ggplot(mapping = aes(x, y)) +
   geom_contour(data = topography, aes(z = z, color = stat(level))) +
   # Color scale for topography
-  scale_color_viridis_c(option = "D") +
+  scale_color_viridis_c(option = "A") +
   # geoms below will use another color scale
   new_scale_color() +
-  geom_point(data = measurements, size = 3, aes(color = thing)) +
+  geom_point(data = measurements, size = 3, aes(color = rainfall)) +
   # Color scale applied to geoms added after new_scale_color()
-  scale_color_viridis_c(option = "A")
-
+  scale_colour_continuous()
 ```
 
 :::{.pt5}
@@ -360,40 +439,39 @@ Code source: [https://github.com/eliocamp/ggnewscale/](https://github.com/elioca
 library(ggbreak)
 
 d <- data.frame(x = 1:20,
-   y = c(rnorm(5) + 4, rnorm(5) + 20, rnorm(5) + 5, rnorm(5) + 22)
+                y = c(rnorm(5) + 2, rnorm(5) + 50, rnorm(5) + 4, rnorm(5) + 100)
 )
- 
+
 p1 <- ggplot(d, aes(y, x)) + geom_col(orientation="y") +
-  scale_x_break(c(7, 17), scales = 1.5) + scale_x_break(c(18, 21), scales=2) +
+  labs(title = "without scale breaks") +
+  theme_bw() +
+  theme(legend.position = "none",
+        panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold")) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+p2 <- ggplot(d, aes(y, x)) + geom_col(orientation="y") +
+  scale_x_break(c(10, 40)) + scale_x_break(c(60,90)) +
   labs(title = "scale_x_break()") +
   theme_bw() +
   theme(legend.position = "none",
-      panel.grid.minor = element_blank(),
-      title = element_text(family = "courier", face = "bold")) +
+        panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold")) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-p2 <- ggplot(economics, aes(x=date, y = unemploy, colour = uempmed)) +
+p3 <- ggplot(economics, aes(x=date, y = unemploy, colour = uempmed)) +
   geom_line() +
   scale_wrap(n=4) +
   labs(title = "scale_wrap()") +
   theme_bw() +
   theme(legend.position = "none",
-      panel.grid.minor = element_blank(),
-      title = element_text(family = "courier", face = "bold"))
+        panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
 
 d <- data.frame(
-     x = 1:20,
-     y = c(rnorm(5) + 4, rnorm(5) + 20, rnorm(5) + 5, rnorm(5) + 22)
- )
-
-p3 <- ggplot(d, aes(x, y)) +
-  geom_col() +
-  scale_y_cut(breaks=c(7, 18), which=c(1, 3), scales=c(3, 0.5)) +  scale_y_cut(breaks=c(7, 18), which=c(1, 3), scales=c(3, 0.5), space=.5) +
-  labs(title = "scale_y_cut()") +
-  theme_bw() +
-  theme(legend.position = "none",
-      panel.grid.minor = element_blank(),
-      title = element_text(family = "courier", face = "bold"))
+  x = 1:20,
+  y = c(rnorm(5) + 4, rnorm(5) + 20, rnorm(5) + 5, rnorm(5) + 22)
+)
 
 p1 + p2 + p3
 ```
@@ -403,11 +481,11 @@ Code source: [https://cran.r-project.org/web/packages/ggbreak/vignettes/ggbreak.
 
 ## New Stats
 
-`ggstats` -- 
+`ggstats` -- new stat functions for weighted mean and proportions
 
-`ggdist` -- 
+`ggridges` -- ridgeline plots (partially overlapping line plots)
 
-`ggpmisc` -- 
+`ggpmisc` -- displays model fit statistics and summaries
 
 ## `ggstats`
 
@@ -417,35 +495,53 @@ Code source: [https://cran.r-project.org/web/packages/ggbreak/vignettes/ggbreak.
 library(ggstats)
 
 data(tips, package = "reshape")
+
 p1 <- ggplot(tips) +
   aes(x = day, y = total_bill, fill = sex) +
   stat_weighted_mean(geom = "bar", position = "dodge") +
   ylab("Mean total bill per day and sex") +
-  labs(title = "stat_weighted_mean()") +
+  labs(title = "stat_weighted_mean(geom = 'bar')") +
   theme_bw() +
-  theme(legend.position = "none",
-      panel.grid.minor = element_blank(),
-      title = element_text(family = "courier", face = "bold"))
-
+  theme(panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
 
 p2 <- ggplot(as.data.frame(Titanic)) +
-  aes(
-    x = Class, y = Survived, weight = Freq,
-    size = after_stat(observed), fill = after_stat(std.resid)
-  ) +
-  stat_cross(shape = 22) +
-  scale_fill_steps2(breaks = c(-3, -2, 2, 3), show.limits = TRUE) +
-  scale_size_area(max_size = 20) +
-  labs(title = "stat_cross()") +
+  aes(x = Class, fill = Survived, weight = Freq, by = Class) +
+  geom_bar(position = "fill") +
+  stat_prop(geom = "text", position = position_fill(.5)) +
+  labs(title = "stat_prop(geom = 'text')") +
   theme_bw() +
-  theme(legend.position = "none",
-      panel.grid.minor = element_blank(),
-      title = element_text(family = "courier", face = "bold"))
+  theme(panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
 
 p1 + p2
 ```
 :::{.pt5}
 Code source: [https://larmarange.github.io/ggstats/](https://larmarange.github.io/ggstats/)
+:::
+
+## `ggridges`
+
+```{r}
+#| fig-width: 12
+#| fig-height: 4
+library(ggridges)
+
+p <- ggplot(diamonds, aes(x = price, y = cut)) +
+  stat_density_ridges(geom = "density_ridges", scale = 4) + 
+  scale_y_discrete(expand = c(0, 0)) +     # will generally have to set the `expand` option
+  scale_x_continuous(expand = c(0, 0)) +   # for both axes to remove unneeded padding
+  coord_cartesian(clip = "off") + # to avoid clipping of the very top of the top ridgeline
+  labs(title = "stat_density_ridges(geom = 'density_ridges')") +
+  theme_bw() +
+  theme(legend.position = "none",
+        panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
+  
+p
+```
+:::{.pt5}
+Code source: [https://github.com/wilkelab/ggridges](https://github.com/wilkelab/ggridges)
 :::
 
 ## `ggpmisc`
@@ -503,13 +599,13 @@ Code source: [https://github.com/aphalo/ggpmisc](https://github.com/aphalo/ggpmi
 
 `ggh4x` -- nested facets
 
-`ggside` -- implemented as `geoms` but really adds facets
+`ggside` -- implemented as geoms but really adds facets
 
 ## `geofacet`
 
 ```{r}
 #| fig-width: 12
-#| fig-height: 4
+#| fig-height: 6
 library(geofacet)
 
 p1 <- ggplot(state_unemp, aes(year, rate)) +
@@ -521,7 +617,9 @@ p1 <- ggplot(state_unemp, aes(year, rate)) +
   theme_bw() +
   theme(legend.position = "none",
         panel.grid.minor = element_blank(),
-        title = element_text(family = "courier", face = "bold"))
+        title = element_text(family = "courier", face = "bold"),
+        strip.text = element_text(size = 6, margin = margin(1, 1, 1, 1)),
+        strip.background = element_rect(size = 0.2))
 
 p1
 ```
@@ -548,7 +646,9 @@ p1 <- ggplot(new_iris, aes(Sepal.Width, Sepal.Length)) +
   theme_bw() +
   theme(legend.position = "none",
         panel.grid.minor = element_blank(),
-        title = element_text(family = "courier", face = "bold"))
+        title = element_text(family = "courier", face = "bold"),
+        strip.text = element_text(size = 6, margin = margin(1, 1, 1, 1)),
+        strip.background = element_rect(size = 0.2))
 
 p2 <- ggplot(mpg, aes(displ, hwy, colour = as.factor(cyl))) + geom_point() +
   labs(x = "Engine displacement", y = "Highway miles per gallon") +
@@ -561,7 +661,9 @@ p2 <- ggplot(mpg, aes(displ, hwy, colour = as.factor(cyl))) + geom_point() +
   theme_bw() +
   theme(legend.position = "none",
         panel.grid.minor = element_blank(),
-        title = element_text(family = "courier", face = "bold"))
+        title = element_text(family = "courier", face = "bold"),
+        strip.text = element_text(size = 6, margin = margin(1, 1, 1, 1)),
+        strip.background = element_rect(size = 0.2))
 
 p1 + p2
 ```
@@ -573,7 +675,7 @@ Code source: [https://teunbrand.github.io/ggh4x/articles/Facets.html](https://te
 
 ```{r}
 #| fig-width: 12
-#| fig-height: 8
+#| fig-height: 6
 library(ggside)
 
 p1 <- ggplot(mpg, aes(displ, hwy, colour = class)) + 
@@ -581,12 +683,12 @@ p1 <- ggplot(mpg, aes(displ, hwy, colour = class)) +
   geom_xsideboxplot(aes(y =class), orientation = "y") +
   geom_ysidedensity(aes(x = after_stat(density)), position = "stack") +
   scale_ysidex_continuous(guide = guide_axis(angle = 90), minor_breaks = NULL) +
-  theme(ggside.panel.scale = .3) +
   labs(title = "geom_xsideboxplot(), geom_ysidedensity()") +
   theme_bw() +
   theme(legend.position = "none",
         panel.grid.minor = element_blank(),
-        title = element_text(family = "courier", face = "bold"))
+        title = element_text(family = "courier", face = "bold")) +
+  theme(ggside.panel.scale = .5)
 
 p1
 ```
@@ -596,11 +698,119 @@ Code source: [https://github.com/jtlandis/ggside](https://github.com/jtlandis/gg
 
 ## New Themes
 
-`ggthemes` -- 
+`hrbrthemes` -- typography-centric themes and theme components for ggplot2
 
-`hrbrthemes` -- 
+`tvthemes` -- various ggplot2 themes and color/fill palettes based on popular TV shows
 
-`ggokabeito` --
+## `hrbrthemes`
+
+```{r}
+#| fig-width: 12
+#| fig-height: 4
+library(hrbrthemes)
+
+ggplot(mtcars, aes(mpg, wt)) +
+  geom_point() +
+  labs(x="Fuel efficiency (mpg)", y="Weight (tons)",
+       title="ggplot2 scatterplot example using theme_ipsum()",
+       subtitle="A plot that is only useful for demonstration purposes",
+       caption="Brought to you by...") +
+  theme_ipsum()
+```
+:::{.pt5}
+Code source: [https://github.com/hrbrmstr/hrbrthemes](https://github.com/hrbrmstr/hrbrthemes)
+:::
+
+## `tvthemes`
+
+```{r}
+#| fig-width: 12
+#| fig-height: 4
+library(tvthemes)
+
+bobspog_plot <- ggplot(mpg, aes(displ)) +
+  geom_histogram(aes(fill = class), col = "black", size = 0.1) +
+  scale_fill_spongeBob() +
+  labs(title = "F is for Fire that burns down the whole town!",
+       subtitle = "U is for Uranium... bombs! N is for No survivors when you're-",
+       caption = "Plankton, those things aren't what fun is about!") +
+  theme_spongeBob(title.font = "Some Time Later",
+                  text.font = "Some Time Later",
+                  title.size = 22,
+                  subtitle.size = 16,
+                  axis.title.size = 16,
+                  axis.text.size = 14,
+                  legend.title.size = 14)+
+  labs(title = "theme_spongeBob()")
+
+bobspog_plot
+```
+:::{.pt5}
+Code source: [https://ryo-n7.github.io/tvthemes/articles/examples.html](https://ryo-n7.github.io/tvthemes/articles/examples.html)
+:::
+
+## Misc
+
+`patchwork` -- easily combine separate ggplots into the same graphic
+
+`gganimate` -- adds animation through new grammar classes
+
+## `patchwork`
+
+```{r}
+#| fig-width: 12
+#| fig-height: 4
+library(patchwork)
+
+p1 <- ggplot(mtcars) + geom_point(aes(mpg, disp)) +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold")) +
+  labs(title = "(p1 | p2 | p3) / p4")
+p2 <- ggplot(mtcars) + geom_boxplot(aes(gear, disp, group = gear)) +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
+p3 <- ggplot(mtcars) + geom_smooth(aes(disp, qsec)) +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
+p4 <- ggplot(mtcars) + geom_bar(aes(carb)) +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
+
+(p1 | p2 | p3) / p4
+```
+:::{.pt5}
+Code source: [https://patchwork.data-imaginist.com/](https://patchwork.data-imaginist.com/)
+:::
+
+## `gganimate`
+
+```{r}
+#| fig-width: 12
+#| fig-height: 4
+library(gganimate)
+library(gapminder)
+
+ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, colour = country)) +
+  geom_point(alpha = 0.7, show.legend = FALSE) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  scale_x_log10() +
+  facet_wrap(~continent) +
+  # Here comes the gganimate specific bits
+  labs(title = 'transition_time() | Year: {frame_time}', x = 'GDP per capita', y = 'life expectancy') +
+  transition_time(year) +
+  ease_aes('linear') +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
+```
+:::{.pt5}
+Code source: [https://gganimate.com/](https://gganimate.com/)
+:::
 
 # Classifying by construct:
 ALTERNATIVE INITALIZE PLOT FUNCTION
@@ -620,129 +830,30 @@ dt <- data.frame(funding = c('Monthly Income', 'Shares Income' , 'Fixed Deposit 
                  Amounts = c(100000, 20000, 15000, -30000, -15000, -10000)
 )
 
-p1 <- waterfall(dt)  +
+p1 <- waterfall(dt) +
   labs(title = "waterfall()") +
   theme_bw() +
   theme(legend.position = "none",
         panel.grid.minor = element_blank(),
-        title = element_text(family = "courier", face = "bold"))
+        title = element_text(family = "courier", face = "bold"),
+        axis.text.x = element_text(angle = 45, hjust = 1))
 
-p1
+p2 <- waterfall(dt) +
+  geom_point() + 
+  labs(title = "waterfall() + geom_point()") +
+  theme_bw() +
+  theme(legend.position = "none",
+        panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"),
+        axis.text.x = element_text(angle = 45, hjust = 1))
+
+p1 + p2
 ```
 :::{.pt5}
 Code source: [https://rpubs.com/techanswers88/waterfall-chart-ggplot](https://rpubs.com/techanswers88/waterfall-chart-ggplot)
 :::
 
-## Does Not Return ggplot2 Object
-
-`survminer` -- 
-
-`gge` -- GGE (genotype plus genotype-by-environment) biplots
-
-## `gge`
-
-```{r}
-#| fig-width: 12
-#| fig-height: 4
-library(gge)
-library(agridat)
-
-data(yan.winterwheat)
-dat1 <- yan.winterwheat
-
-gge <- gge(dat1, yield~gen*env, scale=FALSE)
-
-biplot(gge, main="yan.winterwheat - GGE biplot",
-       flip=c(1,0), origin=0, hull=TRUE)
-```
-:::{.pt5}
-Code source: [https://github.com/kwstat/gge/](https://github.com/kwstat/gge/)
-:::
-
-## New Components
-
-`gggenomes` -- 
-
-`ggformula`
-
-## `gggenomes`
-
-```{r}
-library(gggenomes)
-# to inspect the example data shipped with gggenomes
-data(package="gggenomes")
-
-gfull <- gggenomes(
-  genes = emale_genes, seqs = emale_seqs, links = emale_ava,
-  feats = list(emale_tirs, ngaros=emale_ngaros, gc=emale_gc)) |> 
-  add_sublinks(emale_prot_ava) |>
-  sync() + # synchronize genome directions based on links
-  geom_feat(position="identity", size=6) +
-  geom_seq() +
-  geom_link(data=links(2)) +
-  geom_bin_label() +
-  geom_gene(aes(fill=name)) +
-  geom_gene_tag(aes(label=name), nudge_y=0.1, check_overlap = TRUE) +
-  geom_feat(data=feats(ngaros), alpha=.3, size=10, position="identity") +
-  geom_feat_note(aes(label="Ngaro-transposon"), data=feats(ngaros),
-      nudge_y=.1, vjust=0) +
-  geom_wiggle(aes(z=score, linetype="GC-content"), feats(gc),
-      fill="lavenderblush4", position=position_nudge(y=-.2), height = .2) +
-  scale_fill_brewer("Genes", palette="Dark2", na.value="cornsilk3")
-
-gfull
-```
-
-:::{.pt5}
-Code source: [https://thackl.github.io/gggenomes/](https://thackl.github.io/gggenomes/)
-:::
-
-## Modular components
-
-```{r}
-#| layout-ncol: 2
-g <- gggenomes(
-  genes = emale_genes, seqs = emale_seqs, links = emale_ava,
-  feats = list(emale_tirs, ngaros=emale_ngaros, gc=emale_gc)) |> 
-  add_sublinks(emale_prot_ava) |>
-  sync() + # synchronize genome directions based on links
-  geom_seq(color = NA) +
-  geom_bin_label(color = NA) +
-  scale_fill_brewer("Genes", palette="Dark2", na.value="cornsilk3") + 
-  theme(legend.position = "none",
-        title = element_text(size = 8, family = "courier", face = "bold"))
-g1 <- g + geom_feat(position="identity", size=6) +
-  labs(title = "geom_feat()")
-g2 <- g + geom_seq() + labs(title = "geom_seq()")
-g3 <- g + geom_link(data=links(2)) + labs(title = "geom_link()")
-g4 <- g + geom_bin_label(size = 2) + labs(title = "geom_bin_label()")
-g5 <- g + geom_gene(aes(fill=name)) + labs(title = "geom_gene()")
-g6 <- g + geom_gene_tag(aes(label=name), nudge_y=0.1, check_overlap = TRUE) + labs(title = "geom_gene_tag()")
-g7 <- g + geom_feat(data=feats(ngaros), alpha=.3, size=10, position="identity") + labs(title = "geom_feat()")
-g8 <- g + geom_feat_note(aes(label="Ngaro-transposon"), data=feats(ngaros), nudge_y=.1, vjust=0) +
-   labs(title = "geom_feat_note()")
-g9 <- g + geom_wiggle(aes(z=score, linetype="GC-content"), feats(gc), fill="lavenderblush4", position=position_nudge(y=-.2), height = .2) + labs(title = "geom_wiggle()")
-gfull
-g1 + g2 + g3 + g4 + g5 + g6 + g7 + g8 + g9
-```
-
-## Modular components
-
-```{r}
-g1 + g2 + g3 + g4 + g5 + g6 + g7 + g8 + g9
-```
-
-## `ggformula`
-
-```{r}
-#| fig-width: 12
-#| fig-height: 4
-
-```
-
-# Classifying by purpose:
-
-## Specialized Plots
+## Full Specialized Plots (returns ggplot2 object)
 
 `ggraph` -- network visualization
 
@@ -820,229 +931,114 @@ p1
 Code source: [https://github.com/gaospecial/ggVennDiagram](https://github.com/gaospecial/ggVennDiagram)
 :::
 
-## Labels/Text
+## Does Not Return ggplot2 Object
 
-`ggrepel` -- repel overlapping text labels
+`survminer` -- provides functions for survival analysis and visualization
 
-`ggfittext` -- fit text into boxes
+## `survminer`
 
-## `ggrepel`
-
+::: columns
+::: {.column width="65%"}
 ```{r}
 #| fig-width: 12
-#| fig-height: 4
-library(ggrepel)
-p1 <- ggplot(mtcars, aes(wt, mpg, label = rownames(mtcars))) +
-  geom_text() +
-  geom_point(color = 'red') +
-  theme_classic(base_size = 16)  +
-  labs(title = "geom_text()") +
-  theme_bw() +
-  theme(panel.grid.minor = element_blank(),
-        title = element_text(family = "courier", face = "bold"))
+#| fig-height: 7
+library(survminer)
+require("survival")
 
-p2 <- ggplot(mtcars, aes(wt, mpg, label = rownames(mtcars))) +
-  geom_text_repel() +
-  geom_point(color = 'red') +
-  theme_classic(base_size = 16)  +
-  labs(title = "geom_text_repel()") +
-  theme_bw() +
-  theme(panel.grid.minor = element_blank(),
-        title = element_text(family = "courier", face = "bold"))
+fit <- survfit(Surv(time, status) ~ sex, data = lung)
 
-p1 + p2
-```
-:::{.pt5}
-Code source: [https://ggrepel.slowkow.com/](https://ggrepel.slowkow.com/)
-:::
-
-## `ggfittext`
-
-```{r}
-#| fig-width: 12
-#| fig-height: 4
-library(ggfittext)
-
-p1 <- ggplot(animals, aes(x = type, y = flies, label = animal)) +
-  geom_tile(fill = "white", colour = "black") +
-  geom_text()  +
-  labs(title = "geom_text()") +
-  theme_bw() +
-  theme(panel.grid.minor = element_blank(),
-        title = element_text(family = "courier", face = "bold"))
-
-p2 <- ggplot(animals, aes(x = type, y = flies, label = animal)) +
-  geom_tile(fill = "white", colour = "black") +
-  geom_fit_text()  +
-  labs(title = "geom_fit_text()") +
-  theme_bw() +
-  theme(panel.grid.minor = element_blank(),
-        title = element_text(family = "courier", face = "bold"))
-
-p3 <- ggplot(gold, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, 
-                      fill = linenumber, label = line)) +
-  coord_polar() +
-  geom_rect() +
-  scale_fill_gradient(low = "#fee391", high = "#238443") +
-  geom_fit_text(min.size = 0, grow = TRUE, flip = TRUE) +
-  labs(title = "coord_polar(), geom_fit_text()") +
-  theme_bw() +
-  theme(legend.position = "none",
-        panel.grid.minor = element_blank(),
-        title = element_text(family = "courier", face = "bold"))
-
-p1 + p2 + p3
-```
-:::{.pt5}
-Code source: [https://github.com/wilkox/ggfittext](https://github.com/wilkox/ggfittext)
-:::
-
-## Plot Positioning
-
-`patchwork` -- arrange multiple ggplot2 plots
-
-`ggstance` -- horizontal versions of geoms
-
-## `ggstance`
-
-```{r}
-#| fig-width: 12
-#| fig-height: 4
-library(ggstance)
-
-df <- data.frame(
-  Group = factor(rep(1:3, each = 4), labels = c("Drug A", "Drug B", "Control")),
-  Subject = factor(rep(1:6, each = 2), labels = c("A", "B", "C", "D", "E", "F")),
-  Result = rnorm(12)
+ggsurvplot(
+  fit, 
+  data = lung, 
+  size = 1,                 # change line size
+  palette = 
+    c("#E7B800", "#2E9FDF"),# custom color palettes
+  conf.int = TRUE,          # Add confidence interval
+  pval = TRUE,              # Add p-value
+  risk.table = TRUE,        # Add risk table
+  risk.table.col = "strata",# Risk table color by groups
+  legend.labs = 
+    c("Male", "Female"),    # Change legend labels
+  risk.table.height = 0.25, # Useful to change when you have multiple groups
+  ggtheme = theme_bw()      # Change ggplot2 theme
 )
-
-p1 <- ggplot(df, aes(Subject, Result)) +
-  geom_boxplot(aes(fill = Group)) +
-  facet_grid(. ~ Group, scales = "free_x") +
-  labs(title = "geom_boxplot()") +
-  theme_bw() +
-  theme(legend.position = "none",
-        panel.grid.minor = element_blank(),
-        title = element_text(family = "courier", face = "bold"))
-
-p2 <- p1 + coord_flip()  +
-  labs(title = "coord_flip()")
-
-p3 <- ggplot(df, aes(Result, Subject))+
-  geom_boxploth(aes(fill = Group))+
-  facet_grid(Group ~ ., scales = "free_y") +
-  labs(title = "geom_boxploth()") +
-  theme_bw() +
-  theme(legend.position = "none",
-        panel.grid.minor = element_blank(),
-        title = element_text(family = "courier", face = "bold"))
-
-p1 + p2 + p3
 ```
+:::
+::: {.column width="35%"}
+![error - not ggplot2 object](images/survminer_error.jpg)
+:::
+:::
 :::{.pt5}
-Code source: [https://github.com/lionel-/ggstance](https://github.com/lionel-/ggstance)
+Code source: [https://github.com/kassambara/survminer](https://github.com/kassambara/survminer)
 :::
 
-## Interactivity
+## New Components
 
-`ggiraph`
+`gggenomes` -- package for comparative genomics that adds dedicated plot functions for genes
 
-
-## Animation
-
-`ggreveal` -- add parts incrementally
-
-## Biostatistics
-
-## Statistical
-
-`ggsignif` -- add significance brackets to plots
-
-`lindia` -- streamlined plotting features of linear model diagnostic plots
-
-## `ggsignif`
+## `gggenomes`
 
 ```{r}
-#| fig-width: 12
-#| fig-height: 4
-library(ggsignif)
+library(gggenomes)
+# to inspect the example data shipped with gggenomes
+data(package="gggenomes")
 
-p1 <- ggplot(mpg, aes(class, hwy)) +
-  geom_boxplot() +
-  geom_signif(
-    comparisons = list(c("compact", "midsize"), c("minivan", "suv")),
-    map_signif_level = TRUE, textsize = 6
-  ) +
-  ylim(NA, 48) +
-  labs(title = "geom_signif()") +
-  theme_bw() +
-  theme(legend.position = "none",
-        panel.grid.minor = element_blank(),
-        title = element_text(family = "courier", face = "bold"))
+gfull <- gggenomes(
+  genes = emale_genes, seqs = emale_seqs, links = emale_ava,
+  feats = list(emale_tirs, ngaros=emale_ngaros, gc=emale_gc)) |> 
+  add_sublinks(emale_prot_ava) |>
+  sync() + # synchronize genome directions based on links
+  geom_feat(position="identity", size=6) +
+  geom_seq() +
+  geom_link(data=links(2)) +
+  geom_bin_label() +
+  geom_gene(aes(fill=name)) +
+  geom_gene_tag(aes(label=name), nudge_y=0.1, check_overlap = TRUE) +
+  geom_feat(data=feats(ngaros), alpha=.3, size=10, position="identity") +
+  geom_feat_note(aes(label="Ngaro-transposon"), data=feats(ngaros),
+      nudge_y=.1, vjust=0) +
+  geom_wiggle(aes(z=score, linetype="GC-content"), feats(gc),
+      fill="lavenderblush4", position=position_nudge(y=-.2), height = .2) +
+  scale_fill_brewer("Genes", palette="Dark2", na.value="cornsilk3")
 
-p2 <- ggplot(diamonds, aes(x = cut, y = carat)) +
-  geom_boxplot(aes(fill = color)) +
-  geom_signif(comparisons = list(
-    c("Fair", "Good"),
-    c("Very Good", "Ideal")
-  )) +
-  facet_wrap(~color) +
-  ylim(NA, 6.3) +
-  labs(title = "geom_signif() with faceting") +
-  theme_bw() +
-  theme(legend.position = "none",
-        panel.grid.minor = element_blank(),
-        title = element_text(family = "courier", face = "bold"))
-
-p1 + p2
+gfull
 ```
+
 :::{.pt5}
-Code source: [https://github.com/const-ae/ggsignif](https://github.com/const-ae/ggsignif)
+Code source: [https://thackl.github.io/gggenomes/](https://thackl.github.io/gggenomes/)
 :::
 
-## `lindia`
+## Modular components
 
 ```{r}
-#| fig-width: 12
-#| fig-height: 4
-library(lindia)
-
-# create linear model
-cars_lm <- lm(Price ~ Passengers + Length + RPM, data = MASS::Cars93)
-
-# visualize diagnostic plots
-gg_diagnose(cars_lm)
+#| layout-ncol: 2
+g <- gggenomes(
+  genes = emale_genes, seqs = emale_seqs, links = emale_ava,
+  feats = list(emale_tirs, ngaros=emale_ngaros, gc=emale_gc)) |> 
+  add_sublinks(emale_prot_ava) |>
+  sync() + # synchronize genome directions based on links
+  geom_seq(color = NA) +
+  geom_bin_label(color = NA) +
+  scale_fill_brewer("Genes", palette="Dark2", na.value="cornsilk3") + 
+  theme(legend.position = "none",
+        title = element_text(size = 8, family = "courier", face = "bold"))
+g1 <- g + geom_feat(position="identity", size=6) +
+  labs(title = "geom_feat()")
+g2 <- g + geom_seq() + labs(title = "geom_seq()")
+g3 <- g + geom_link(data=links(2)) + labs(title = "geom_link()")
+g4 <- g + geom_bin_label(size = 2) + labs(title = "geom_bin_label()")
+g5 <- g + geom_gene(aes(fill=name)) + labs(title = "geom_gene()")
+g6 <- g + geom_gene_tag(aes(label=name), nudge_y=0.1, check_overlap = TRUE) + labs(title = "geom_gene_tag()")
+g7 <- g + geom_feat(data=feats(ngaros), alpha=.3, size=10, position="identity") + labs(title = "geom_feat()")
+g8 <- g + geom_feat_note(aes(label="Ngaro-transposon"), data=feats(ngaros), nudge_y=.1, vjust=0) +
+   labs(title = "geom_feat_note()")
+g9 <- g + geom_wiggle(aes(z=score, linetype="GC-content"), feats(gc), fill="lavenderblush4", position=position_nudge(y=-.2), height = .2) + labs(title = "geom_wiggle()")
+gfull
+g1 + g2 + g3 + g4 + g5 + g6 + g7 + g8 + g9
 ```
-:::{.pt5}
-Code source: [https://github.com/yeukyul/lindia](https://github.com/yeukyul/lindia)
-:::
 
-## Altered Geoms
+## Modular components
 
-`ggpattern`
-
-
-## Chart type built modularly
-
-`ggalluvial` -- alluvial diagrams
-
-
-
-## Non-cartesian extensions
-
-(Or are these new coordinate systems?)
-
-`ggraph` -- networks 
-
-`ggtern` -- ternary diagrams (3 axes)
-
-
-## Add stuff to plots
-
-`ggpp` -- tables, inset plots, images
-
-## Complete plots, nonmodular
-
-`see` -- effect plots and others
-
-`ggstats` -- `ggcoef_model()`, `ggcoef_table()`, `ggcoef_compare()`, `ggsurvey()`, `gglikert()`, `ggcascade()`
+```{r}
+g1 + g2 + g3 + g4 + g5 + g6 + g7 + g8 + g9
+```

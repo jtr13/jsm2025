@@ -3,7 +3,8 @@ Presentation Structure
 Section 1: Introduction
 - ggplot2
 - grammar of graphics - concept of layering and in grammar
-- introduce two tier classification system, by construct/grammar as previously discussed and by purpose/topic
+- Introduce classification system by construct/grammar
+- Can mention that classification can also occur by purpose/topic
 
 Section 2: Classification by construct
 - Subsection 1: ggplot2 grammar
@@ -11,6 +12,8 @@ Section 2: Classification by construct
 - Subsection 2: alternative initialize plot function
 - Give example code block for each: transforms data, does not return ggplot2 object, new components (maintains layering system)
 
+
+SCRAP:
 Section 3: Classification by purpose/topic
 - Specialized full plots
 - Statistical functions
