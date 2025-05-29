@@ -10,14 +10,5 @@ Section 2: Classification by construct
 - Subsection 1: ggplot2 grammar
 - Give example code block for each: packages for new geoms, new scales, new stats, new facet, new themes
 - Subsection 2: alternative initialize plot function
-- Give example code block for each: transforms data, does not return ggplot2 object, new components (maintains layering system)
+- Give example code block for each: transforms data, full plot (ggplot2 object), does not return ggplot2 object, new components (maintains layering system)
 
-
-SCRAP:
-Section 3: Classification by purpose/topic
-- Specialized full plots
-- Statistical functions
-- Biology
-- Labels/text
-- Plot positioning
-- Interactivity

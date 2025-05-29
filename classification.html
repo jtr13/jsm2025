@@ -711,156 +711,6 @@
 <p>Code source: <a href="https://allancameron.github.io/geomtextpath/">https://allancameron.github.io/geomtextpath/</a></p>
 </div>
 </section>
-<section id="new-scales" class="slide level2">
-<h2>New Scales</h2>
-<p><code>ggsci</code> – color palettes inspired by colors used in scientific journals, data visualization libraries, science fiction movies, and TV shows</p>
-<p><code>ggnewscale</code> – use multiple fill/color scales in one plot</p>
-<p><code>ggbreak</code> – set breakpoints for truncating the plot</p>
-</section>
-<section id="ggsci" class="slide level2">
-<h2><code>ggsci</code></h2>
-<div class="cell" data-layout-align="center">
-<details class="code-fold">
-<summary></summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">library</span>(ggsci)</span>
-<span id="cb7-2"><a href=""></a></span>
-<span id="cb7-3"><a href=""></a><span class="fu">data</span>(<span class="st">"diamonds"</span>)</span>
-<span id="cb7-4"><a href=""></a></span>
-<span id="cb7-5"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
-<span id="cb7-6"><a href=""></a>  <span class="fu">subset</span>(diamonds, carat <span class="sc">&gt;=</span> <span class="fl">2.2</span>),</span>
-<span id="cb7-7"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> table, <span class="at">y =</span> price, <span class="at">colour =</span> cut)</span>
-<span id="cb7-8"><a href=""></a>) <span class="sc">+</span></span>
-<span id="cb7-9"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb7-10"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">span =</span> <span class="dv">1</span>)</span>
-<span id="cb7-11"><a href=""></a></span>
-<span id="cb7-12"><a href=""></a>p1_npg <span class="ot">&lt;-</span> p1 <span class="sc">+</span> <span class="fu">scale_color_npg</span>() <span class="sc">+</span></span>
-<span id="cb7-13"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"scale_color_npg()"</span>) <span class="sc">+</span></span>
-<span id="cb7-14"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb7-15"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb7-16"><a href=""></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb7-17"><a href=""></a>      <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
-<span id="cb7-18"><a href=""></a></span>
-<span id="cb7-19"><a href=""></a>p1_uchicago <span class="ot">&lt;-</span> p1 <span class="sc">+</span> <span class="fu">scale_color_uchicago</span>() <span class="sc">+</span></span>
-<span id="cb7-20"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"scale_color_uchicago()"</span>) <span class="sc">+</span></span>
-<span id="cb7-21"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb7-22"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb7-23"><a href=""></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb7-24"><a href=""></a>      <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
-<span id="cb7-25"><a href=""></a></span>
-<span id="cb7-26"><a href=""></a><span class="fu">data</span>(<span class="st">"mtcars"</span>)</span>
-<span id="cb7-27"><a href=""></a>cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(<span class="fu">unname</span>(mtcars))</span>
-<span id="cb7-28"><a href=""></a>cor_melt <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb7-29"><a href=""></a>  <span class="at">Var1 =</span> <span class="fu">rep</span>(<span class="fu">seq_len</span>(<span class="fu">nrow</span>(cor)), <span class="at">times =</span> <span class="fu">ncol</span>(cor)),</span>
-<span id="cb7-30"><a href=""></a>  <span class="at">Var2 =</span> <span class="fu">rep</span>(<span class="fu">seq_len</span>(<span class="fu">ncol</span>(cor)), <span class="at">each =</span> <span class="fu">nrow</span>(cor)),</span>
-<span id="cb7-31"><a href=""></a>  <span class="at">value =</span> <span class="fu">as.vector</span>(cor)</span>
-<span id="cb7-32"><a href=""></a>)</span>
-<span id="cb7-33"><a href=""></a></span>
-<span id="cb7-34"><a href=""></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(cor_melt, <span class="fu">aes</span>(<span class="at">x =</span> Var1, <span class="at">y =</span> Var2, <span class="at">fill =</span> value)) <span class="sc">+</span></span>
-<span id="cb7-35"><a href=""></a>  <span class="fu">geom_tile</span>(<span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb7-36"><a href=""></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb7-37"><a href=""></a>  <span class="fu">theme</span>(</span>
-<span id="cb7-38"><a href=""></a>    <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb7-39"><a href=""></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb7-40"><a href=""></a>  )</span>
-<span id="cb7-41"><a href=""></a></span>
-<span id="cb7-42"><a href=""></a>p3_gsea <span class="ot">&lt;-</span> p3 <span class="sc">+</span> <span class="fu">scale_fill_gsea</span>() <span class="sc">+</span></span>
-<span id="cb7-43"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"scale_fill_gsea()"</span>) <span class="sc">+</span></span>
-<span id="cb7-44"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb7-45"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb7-46"><a href=""></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb7-47"><a href=""></a>      <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
-<span id="cb7-48"><a href=""></a></span>
-<span id="cb7-49"><a href=""></a>p1_npg <span class="sc">+</span> p1_uchicago <span class="sc">+</span> p3_gsea</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-
-</div>
-<img data-src="classification_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div class="pt5">
-<p>Code source: <a href="https://nanx.me/ggsci/articles/ggsci.html">https://nanx.me/ggsci/articles/ggsci.html</a></p>
-</div>
-</section>
-<section id="ggnewscale" class="slide level2">
-<h2><code>ggnewscale</code></h2>
-<div class="cell" data-layout-align="center">
-<details class="code-fold">
-<summary></summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">library</span>(ggnewscale)</span>
-<span id="cb8-2"><a href=""></a><span class="co"># Equivalent to melt(volcano)</span></span>
-<span id="cb8-3"><a href=""></a>topography <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(volcano),</span>
-<span id="cb8-4"><a href=""></a>                          <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(volcano))</span>
-<span id="cb8-5"><a href=""></a>topography<span class="sc">$</span>z <span class="ot">&lt;-</span> <span class="fu">c</span>(volcano)</span>
-<span id="cb8-6"><a href=""></a></span>
-<span id="cb8-7"><a href=""></a><span class="co"># point measurements of something at a few locations</span></span>
-<span id="cb8-8"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb8-9"><a href=""></a>measurements <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">runif</span>(<span class="dv">30</span>, <span class="dv">1</span>, <span class="dv">80</span>),</span>
-<span id="cb8-10"><a href=""></a>                           <span class="at">y =</span> <span class="fu">runif</span>(<span class="dv">30</span>, <span class="dv">1</span>, <span class="dv">60</span>),</span>
-<span id="cb8-11"><a href=""></a>                           <span class="at">rainfall =</span> <span class="fu">rnorm</span>(<span class="dv">30</span>))</span>
-<span id="cb8-12"><a href=""></a></span>
-<span id="cb8-13"><a href=""></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb8-14"><a href=""></a>  <span class="fu">geom_contour</span>(<span class="at">data =</span> topography, <span class="fu">aes</span>(<span class="at">z =</span> z, <span class="at">color =</span> <span class="fu">stat</span>(level))) <span class="sc">+</span></span>
-<span id="cb8-15"><a href=""></a>  <span class="co"># Color scale for topography</span></span>
-<span id="cb8-16"><a href=""></a>  <span class="fu">scale_color_viridis_c</span>(<span class="at">option =</span> <span class="st">"A"</span>) <span class="sc">+</span></span>
-<span id="cb8-17"><a href=""></a>  <span class="co"># geoms below will use another color scale</span></span>
-<span id="cb8-18"><a href=""></a>  <span class="fu">new_scale_color</span>() <span class="sc">+</span></span>
-<span id="cb8-19"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> measurements, <span class="at">size =</span> <span class="dv">3</span>, <span class="fu">aes</span>(<span class="at">color =</span> rainfall)) <span class="sc">+</span></span>
-<span id="cb8-20"><a href=""></a>  <span class="co"># Color scale applied to geoms added after new_scale_color()</span></span>
-<span id="cb8-21"><a href=""></a>  <span class="fu">scale_colour_continuous</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-
-</div>
-<img data-src="classification_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div class="pt5">
-<p>Code source: <a href="https://github.com/eliocamp/ggnewscale/">https://github.com/eliocamp/ggnewscale/</a></p>
-</div>
-</section>
-<section id="ggbreak" class="slide level2">
-<h2><code>ggbreak</code></h2>
-<div class="cell" data-layout-align="center">
-<details class="code-fold">
-<summary></summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">library</span>(ggbreak)</span>
-<span id="cb9-2"><a href=""></a></span>
-<span id="cb9-3"><a href=""></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,</span>
-<span id="cb9-4"><a href=""></a>                <span class="at">y =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">5</span>) <span class="sc">+</span> <span class="dv">2</span>, <span class="fu">rnorm</span>(<span class="dv">5</span>) <span class="sc">+</span> <span class="dv">50</span>, <span class="fu">rnorm</span>(<span class="dv">5</span>) <span class="sc">+</span> <span class="dv">4</span>, <span class="fu">rnorm</span>(<span class="dv">5</span>) <span class="sc">+</span> <span class="dv">100</span>)</span>
-<span id="cb9-5"><a href=""></a>)</span>
-<span id="cb9-6"><a href=""></a></span>
-<span id="cb9-7"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(y, x)) <span class="sc">+</span> <span class="fu">geom_col</span>(<span class="at">orientation=</span><span class="st">"y"</span>) <span class="sc">+</span></span>
-<span id="cb9-8"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"without scale breaks"</span>) <span class="sc">+</span></span>
-<span id="cb9-9"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb9-10"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb9-11"><a href=""></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb9-12"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>)) <span class="sc">+</span></span>
-<span id="cb9-13"><a href=""></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
-<span id="cb9-14"><a href=""></a></span>
-<span id="cb9-15"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(y, x)) <span class="sc">+</span> <span class="fu">geom_col</span>(<span class="at">orientation=</span><span class="st">"y"</span>) <span class="sc">+</span></span>
-<span id="cb9-16"><a href=""></a>  <span class="fu">scale_x_break</span>(<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">40</span>)) <span class="sc">+</span> <span class="fu">scale_x_break</span>(<span class="fu">c</span>(<span class="dv">60</span>,<span class="dv">90</span>)) <span class="sc">+</span></span>
-<span id="cb9-17"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"scale_x_break()"</span>) <span class="sc">+</span></span>
-<span id="cb9-18"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb9-19"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb9-20"><a href=""></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb9-21"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>)) <span class="sc">+</span></span>
-<span id="cb9-22"><a href=""></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
-<span id="cb9-23"><a href=""></a></span>
-<span id="cb9-24"><a href=""></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(<span class="at">x=</span>date, <span class="at">y =</span> unemploy, <span class="at">colour =</span> uempmed)) <span class="sc">+</span></span>
-<span id="cb9-25"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb9-26"><a href=""></a>  <span class="fu">scale_wrap</span>(<span class="at">n=</span><span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb9-27"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"scale_wrap()"</span>) <span class="sc">+</span></span>
-<span id="cb9-28"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb9-29"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb9-30"><a href=""></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb9-31"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
-<span id="cb9-32"><a href=""></a></span>
-<span id="cb9-33"><a href=""></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb9-34"><a href=""></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,</span>
-<span id="cb9-35"><a href=""></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">5</span>) <span class="sc">+</span> <span class="dv">4</span>, <span class="fu">rnorm</span>(<span class="dv">5</span>) <span class="sc">+</span> <span class="dv">20</span>, <span class="fu">rnorm</span>(<span class="dv">5</span>) <span class="sc">+</span> <span class="dv">5</span>, <span class="fu">rnorm</span>(<span class="dv">5</span>) <span class="sc">+</span> <span class="dv">22</span>)</span>
-<span id="cb9-36"><a href=""></a>)</span>
-<span id="cb9-37"><a href=""></a></span>
-<span id="cb9-38"><a href=""></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-
-</div>
-<img data-src="classification_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div class="pt5">
-<p>Code source: <a href="https://cran.r-project.org/web/packages/ggbreak/vignettes/ggbreak.html">https://cran.r-project.org/web/packages/ggbreak/vignettes/ggbreak.html</a></p>
-</div>
-</section>
 <section id="new-stats" class="slide level2">
 <h2>New Stats</h2>
 <p><code>ggstats</code> – new stat functions for weighted mean and proportions</p>
@@ -872,33 +722,33 @@
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary></summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">library</span>(ggstats)</span>
-<span id="cb10-2"><a href=""></a></span>
-<span id="cb10-3"><a href=""></a><span class="fu">data</span>(tips, <span class="at">package =</span> <span class="st">"reshape"</span>)</span>
-<span id="cb10-4"><a href=""></a></span>
-<span id="cb10-5"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(tips) <span class="sc">+</span></span>
-<span id="cb10-6"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> day, <span class="at">y =</span> total_bill, <span class="at">fill =</span> sex) <span class="sc">+</span></span>
-<span id="cb10-7"><a href=""></a>  <span class="fu">stat_weighted_mean</span>(<span class="at">geom =</span> <span class="st">"bar"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb10-8"><a href=""></a>  <span class="fu">ylab</span>(<span class="st">"Mean total bill per day and sex"</span>) <span class="sc">+</span></span>
-<span id="cb10-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"stat_weighted_mean(geom = 'bar')"</span>) <span class="sc">+</span></span>
-<span id="cb10-10"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb10-11"><a href=""></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb10-12"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
-<span id="cb10-13"><a href=""></a></span>
-<span id="cb10-14"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">as.data.frame</span>(Titanic)) <span class="sc">+</span></span>
-<span id="cb10-15"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> Class, <span class="at">fill =</span> Survived, <span class="at">weight =</span> Freq, <span class="at">by =</span> Class) <span class="sc">+</span></span>
-<span id="cb10-16"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
-<span id="cb10-17"><a href=""></a>  <span class="fu">stat_prop</span>(<span class="at">geom =</span> <span class="st">"text"</span>, <span class="at">position =</span> <span class="fu">position_fill</span>(.<span class="dv">5</span>)) <span class="sc">+</span></span>
-<span id="cb10-18"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"stat_prop(geom = 'text')"</span>) <span class="sc">+</span></span>
-<span id="cb10-19"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb10-20"><a href=""></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb10-21"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
-<span id="cb10-22"><a href=""></a></span>
-<span id="cb10-23"><a href=""></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">library</span>(ggstats)</span>
+<span id="cb7-2"><a href=""></a></span>
+<span id="cb7-3"><a href=""></a><span class="fu">data</span>(tips, <span class="at">package =</span> <span class="st">"reshape"</span>)</span>
+<span id="cb7-4"><a href=""></a></span>
+<span id="cb7-5"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(tips) <span class="sc">+</span></span>
+<span id="cb7-6"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> day, <span class="at">y =</span> total_bill, <span class="at">fill =</span> sex, <span class="at">weight =</span> size) <span class="sc">+</span></span>
+<span id="cb7-7"><a href=""></a>  <span class="fu">stat_weighted_mean</span>(<span class="at">geom =</span> <span class="st">"bar"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb7-8"><a href=""></a>  <span class="fu">ylab</span>(<span class="st">"Mean total bill weighted by party size"</span>) <span class="sc">+</span></span>
+<span id="cb7-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"stat_weighted_mean(geom = 'bar')"</span>) <span class="sc">+</span></span>
+<span id="cb7-10"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb7-11"><a href=""></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb7-12"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
+<span id="cb7-13"><a href=""></a></span>
+<span id="cb7-14"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">as.data.frame</span>(Titanic)) <span class="sc">+</span></span>
+<span id="cb7-15"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> Class, <span class="at">fill =</span> Survived, <span class="at">weight =</span> Freq, <span class="at">by =</span> Class) <span class="sc">+</span></span>
+<span id="cb7-16"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb7-17"><a href=""></a>  <span class="fu">stat_prop</span>(<span class="at">geom =</span> <span class="st">"text"</span>, <span class="at">position =</span> <span class="fu">position_fill</span>(.<span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb7-18"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"stat_prop(geom = 'text')"</span>) <span class="sc">+</span></span>
+<span id="cb7-19"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb7-20"><a href=""></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb7-21"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
+<span id="cb7-22"><a href=""></a></span>
+<span id="cb7-23"><a href=""></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
-<img data-src="classification_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div class="pt5">
+<img data-src="classification_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div class="pt5">
 <p>Code source: <a href="https://larmarange.github.io/ggstats/">https://larmarange.github.io/ggstats/</a></p>
 </div>
 </section>
@@ -907,24 +757,24 @@
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary></summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">library</span>(ggridges)</span>
-<span id="cb11-2"><a href=""></a></span>
-<span id="cb11-3"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> cut)) <span class="sc">+</span></span>
-<span id="cb11-4"><a href=""></a>  <span class="fu">stat_density_ridges</span>(<span class="at">geom =</span> <span class="st">"density_ridges"</span>, <span class="at">scale =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
-<span id="cb11-5"><a href=""></a>  <span class="fu">scale_y_discrete</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span>     <span class="co"># will generally have to set the `expand` option</span></span>
-<span id="cb11-6"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span>   <span class="co"># for both axes to remove unneeded padding</span></span>
-<span id="cb11-7"><a href=""></a>  <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span> <span class="co"># to avoid clipping of the very top of the top ridgeline</span></span>
-<span id="cb11-8"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"stat_density_ridges(geom = 'density_ridges')"</span>) <span class="sc">+</span></span>
-<span id="cb11-9"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb11-10"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb11-11"><a href=""></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb11-12"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
-<span id="cb11-13"><a href=""></a>  </span>
-<span id="cb11-14"><a href=""></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb8-2"><a href=""></a></span>
+<span id="cb8-3"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> cut)) <span class="sc">+</span></span>
+<span id="cb8-4"><a href=""></a>  <span class="fu">stat_density_ridges</span>(<span class="at">geom =</span> <span class="st">"density_ridges"</span>, <span class="at">scale =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb8-5"><a href=""></a>  <span class="fu">scale_y_discrete</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span>     <span class="co"># will generally have to set the `expand` option</span></span>
+<span id="cb8-6"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span>   <span class="co"># for both axes to remove unneeded padding</span></span>
+<span id="cb8-7"><a href=""></a>  <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span> <span class="co"># to avoid clipping of the very top of the top ridgeline</span></span>
+<span id="cb8-8"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"stat_density_ridges(geom = 'density_ridges')"</span>) <span class="sc">+</span></span>
+<span id="cb8-9"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb8-10"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb8-11"><a href=""></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-12"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
+<span id="cb8-13"><a href=""></a>  </span>
+<span id="cb8-14"><a href=""></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
-<img data-src="classification_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div class="pt5">
+<img data-src="classification_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div class="pt5">
 <p>Code source: <a href="https://github.com/wilkelab/ggridges">https://github.com/wilkelab/ggridges</a></p>
 </div>
 </section>
@@ -933,49 +783,49 @@
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary></summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">library</span>(ggpmisc)</span>
-<span id="cb12-2"><a href=""></a><span class="fu">library</span>(ggrepel)</span>
-<span id="cb12-3"><a href=""></a><span class="fu">library</span>(broom)</span>
-<span id="cb12-4"><a href=""></a></span>
-<span id="cb12-5"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="fu">factor</span>(cyl), cty)) <span class="sc">+</span></span>
-<span id="cb12-6"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.33</span>) <span class="sc">+</span></span>
-<span id="cb12-7"><a href=""></a>  <span class="fu">stat_multcomp</span>(<span class="at">contrasts =</span> <span class="st">"Dunnet"</span>,</span>
-<span id="cb12-8"><a href=""></a>                <span class="at">p.adjust.method =</span> <span class="st">"holm"</span>,</span>
-<span id="cb12-9"><a href=""></a>                <span class="at">size =</span> <span class="fl">2.75</span>) <span class="sc">+</span></span>
-<span id="cb12-10"><a href=""></a>  <span class="fu">expand_limits</span>(<span class="at">y =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb12-11"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"stat_multcomp()"</span>) <span class="sc">+</span></span>
-<span id="cb12-12"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb12-13"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb12-14"><a href=""></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb12-15"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
-<span id="cb12-16"><a href=""></a></span>
-<span id="cb12-17"><a href=""></a>formula <span class="ot">&lt;-</span> y <span class="sc">~</span> x <span class="sc">+</span> <span class="fu">I</span>(x<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb12-18"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(speed, dist)) <span class="sc">+</span></span>
-<span id="cb12-19"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb12-20"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">formula =</span> formula) <span class="sc">+</span></span>
-<span id="cb12-21"><a href=""></a>  <span class="fu">stat_fit_tb</span>(<span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb12-22"><a href=""></a>              <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">formula =</span> formula),</span>
-<span id="cb12-23"><a href=""></a>              <span class="at">tb.type =</span> <span class="st">"fit.anova"</span>,</span>
-<span id="cb12-24"><a href=""></a>              <span class="at">tb.vars =</span> <span class="fu">c</span>(<span class="at">Effect =</span> <span class="st">"term"</span>, </span>
-<span id="cb12-25"><a href=""></a>                          <span class="st">"df"</span>,</span>
-<span id="cb12-26"><a href=""></a>                          <span class="st">"M.S."</span> <span class="ot">=</span> <span class="st">"meansq"</span>, </span>
-<span id="cb12-27"><a href=""></a>                          <span class="st">"italic(F)"</span> <span class="ot">=</span> <span class="st">"statistic"</span>, </span>
-<span id="cb12-28"><a href=""></a>                          <span class="st">"italic(P)"</span> <span class="ot">=</span> <span class="st">"p.value"</span>),</span>
-<span id="cb12-29"><a href=""></a>              <span class="at">tb.params =</span> <span class="fu">c</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="st">"x^2"</span> <span class="ot">=</span> <span class="dv">2</span>),</span>
-<span id="cb12-30"><a href=""></a>              <span class="at">label.y =</span> <span class="st">"top"</span>, <span class="at">label.x =</span> <span class="st">"left"</span>,</span>
-<span id="cb12-31"><a href=""></a>              <span class="at">size =</span> <span class="fl">2.5</span>,</span>
-<span id="cb12-32"><a href=""></a>              <span class="at">parse =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb12-33"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"stat_fit_tb()"</span>) <span class="sc">+</span></span>
-<span id="cb12-34"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb12-35"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb12-36"><a href=""></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb12-37"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
-<span id="cb12-38"><a href=""></a></span>
-<span id="cb12-39"><a href=""></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">library</span>(ggpmisc)</span>
+<span id="cb9-2"><a href=""></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb9-3"><a href=""></a><span class="fu">library</span>(broom)</span>
+<span id="cb9-4"><a href=""></a></span>
+<span id="cb9-5"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="fu">factor</span>(cyl), cty)) <span class="sc">+</span></span>
+<span id="cb9-6"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.33</span>) <span class="sc">+</span></span>
+<span id="cb9-7"><a href=""></a>  <span class="fu">stat_multcomp</span>(<span class="at">contrasts =</span> <span class="st">"Dunnet"</span>,</span>
+<span id="cb9-8"><a href=""></a>                <span class="at">p.adjust.method =</span> <span class="st">"holm"</span>,</span>
+<span id="cb9-9"><a href=""></a>                <span class="at">size =</span> <span class="fl">2.75</span>) <span class="sc">+</span></span>
+<span id="cb9-10"><a href=""></a>  <span class="fu">expand_limits</span>(<span class="at">y =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb9-11"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"stat_multcomp()"</span>) <span class="sc">+</span></span>
+<span id="cb9-12"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb9-13"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb9-14"><a href=""></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb9-15"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
+<span id="cb9-16"><a href=""></a></span>
+<span id="cb9-17"><a href=""></a>formula <span class="ot">&lt;-</span> y <span class="sc">~</span> x <span class="sc">+</span> <span class="fu">I</span>(x<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb9-18"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(speed, dist)) <span class="sc">+</span></span>
+<span id="cb9-19"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb9-20"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">formula =</span> formula) <span class="sc">+</span></span>
+<span id="cb9-21"><a href=""></a>  <span class="fu">stat_fit_tb</span>(<span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb9-22"><a href=""></a>              <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">formula =</span> formula),</span>
+<span id="cb9-23"><a href=""></a>              <span class="at">tb.type =</span> <span class="st">"fit.anova"</span>,</span>
+<span id="cb9-24"><a href=""></a>              <span class="at">tb.vars =</span> <span class="fu">c</span>(<span class="at">Effect =</span> <span class="st">"term"</span>, </span>
+<span id="cb9-25"><a href=""></a>                          <span class="st">"df"</span>,</span>
+<span id="cb9-26"><a href=""></a>                          <span class="st">"M.S."</span> <span class="ot">=</span> <span class="st">"meansq"</span>, </span>
+<span id="cb9-27"><a href=""></a>                          <span class="st">"italic(F)"</span> <span class="ot">=</span> <span class="st">"statistic"</span>, </span>
+<span id="cb9-28"><a href=""></a>                          <span class="st">"italic(P)"</span> <span class="ot">=</span> <span class="st">"p.value"</span>),</span>
+<span id="cb9-29"><a href=""></a>              <span class="at">tb.params =</span> <span class="fu">c</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="st">"x^2"</span> <span class="ot">=</span> <span class="dv">2</span>),</span>
+<span id="cb9-30"><a href=""></a>              <span class="at">label.y =</span> <span class="st">"top"</span>, <span class="at">label.x =</span> <span class="st">"left"</span>,</span>
+<span id="cb9-31"><a href=""></a>              <span class="at">size =</span> <span class="fl">2.5</span>,</span>
+<span id="cb9-32"><a href=""></a>              <span class="at">parse =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb9-33"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"stat_fit_tb()"</span>) <span class="sc">+</span></span>
+<span id="cb9-34"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb9-35"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb9-36"><a href=""></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb9-37"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
+<span id="cb9-38"><a href=""></a></span>
+<span id="cb9-39"><a href=""></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
-<img data-src="classification_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div class="pt5">
+<img data-src="classification_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div class="pt5">
 <p>Code source: <a href="https://github.com/aphalo/ggpmisc">https://github.com/aphalo/ggpmisc</a></p>
 </div>
 </section>
@@ -990,26 +840,26 @@
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary></summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">library</span>(geofacet)</span>
-<span id="cb13-2"><a href=""></a></span>
-<span id="cb13-3"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(state_unemp, <span class="fu">aes</span>(year, rate)) <span class="sc">+</span></span>
-<span id="cb13-4"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb13-5"><a href=""></a>  <span class="fu">facet_geo</span>(<span class="sc">~</span> state, <span class="at">grid =</span> <span class="st">"us_state_grid2"</span>) <span class="sc">+</span></span>
-<span id="cb13-6"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) <span class="fu">paste0</span>(<span class="st">"'"</span>, <span class="fu">substr</span>(x, <span class="dv">3</span>, <span class="dv">4</span>))) <span class="sc">+</span></span>
-<span id="cb13-7"><a href=""></a>  <span class="fu">ylab</span>(<span class="st">"Unemployment Rate (%)"</span>) <span class="sc">+</span></span>
-<span id="cb13-8"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"facet_geo(grid = 'us_state_grid2')"</span>) <span class="sc">+</span></span>
-<span id="cb13-9"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb13-10"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb13-11"><a href=""></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb13-12"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb13-13"><a href=""></a>        <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)),</span>
-<span id="cb13-14"><a href=""></a>        <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">size =</span> <span class="fl">0.2</span>))</span>
-<span id="cb13-15"><a href=""></a></span>
-<span id="cb13-16"><a href=""></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">library</span>(geofacet)</span>
+<span id="cb10-2"><a href=""></a></span>
+<span id="cb10-3"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(state_unemp, <span class="fu">aes</span>(year, rate)) <span class="sc">+</span></span>
+<span id="cb10-4"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb10-5"><a href=""></a>  <span class="fu">facet_geo</span>(<span class="sc">~</span> state, <span class="at">grid =</span> <span class="st">"us_state_grid2"</span>) <span class="sc">+</span></span>
+<span id="cb10-6"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) <span class="fu">paste0</span>(<span class="st">"'"</span>, <span class="fu">substr</span>(x, <span class="dv">3</span>, <span class="dv">4</span>))) <span class="sc">+</span></span>
+<span id="cb10-7"><a href=""></a>  <span class="fu">ylab</span>(<span class="st">"Unemployment Rate (%)"</span>) <span class="sc">+</span></span>
+<span id="cb10-8"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"facet_geo(grid = 'us_state_grid2')"</span>) <span class="sc">+</span></span>
+<span id="cb10-9"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb10-10"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb10-11"><a href=""></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-12"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb10-13"><a href=""></a>        <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)),</span>
+<span id="cb10-14"><a href=""></a>        <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">size =</span> <span class="fl">0.2</span>))</span>
+<span id="cb10-15"><a href=""></a></span>
+<span id="cb10-16"><a href=""></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
-<img data-src="classification_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div class="pt5">
+<img data-src="classification_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div class="pt5">
 <p>Code source: <a href="https://github.com/hafen/geofacet/">https://github.com/hafen/geofacet/</a></p>
 </div>
 </section>
@@ -1018,44 +868,44 @@
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary></summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">library</span>(ggh4x)</span>
-<span id="cb14-2"><a href=""></a></span>
-<span id="cb14-3"><a href=""></a>new_iris <span class="ot">&lt;-</span> <span class="fu">transform</span>(</span>
-<span id="cb14-4"><a href=""></a>  iris, </span>
-<span id="cb14-5"><a href=""></a>  <span class="at">Nester =</span> <span class="fu">ifelse</span>(Species <span class="sc">==</span> <span class="st">"setosa"</span>, <span class="st">"Short Leaves"</span>, <span class="st">"Long Leaves"</span>)</span>
-<span id="cb14-6"><a href=""></a>)</span>
-<span id="cb14-7"><a href=""></a></span>
-<span id="cb14-8"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(new_iris, <span class="fu">aes</span>(Sepal.Width, Sepal.Length)) <span class="sc">+</span></span>
-<span id="cb14-9"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb14-10"><a href=""></a>  <span class="fu">facet_nested</span>(<span class="sc">~</span> Nester <span class="sc">+</span> Species) <span class="sc">+</span></span>
-<span id="cb14-11"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"facet_nested()"</span>) <span class="sc">+</span></span>
-<span id="cb14-12"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb14-13"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb14-14"><a href=""></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb14-15"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb14-16"><a href=""></a>        <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)),</span>
-<span id="cb14-17"><a href=""></a>        <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">size =</span> <span class="fl">0.2</span>))</span>
-<span id="cb14-18"><a href=""></a></span>
-<span id="cb14-19"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> <span class="fu">as.factor</span>(cyl))) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb14-20"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Engine displacement"</span>, <span class="at">y =</span> <span class="st">"Highway miles per gallon"</span>) <span class="sc">+</span></span>
-<span id="cb14-21"><a href=""></a>  <span class="fu">facet_nested_wrap</span>(</span>
-<span id="cb14-22"><a href=""></a>    <span class="fu">vars</span>(cyl, drv), <span class="at">dir =</span> <span class="st">"v"</span>, <span class="at">strip.position =</span> <span class="st">"left"</span>,</span>
-<span id="cb14-23"><a href=""></a>    <span class="at">axes =</span> <span class="st">"all"</span>, <span class="at">remove_labels =</span> <span class="st">"x"</span></span>
-<span id="cb14-24"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb14-25"><a href=""></a>  <span class="fu">theme</span>(<span class="at">strip.placement =</span> <span class="st">"outside"</span>) <span class="sc">+</span></span>
-<span id="cb14-26"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"facet_nested_wrap()"</span>) <span class="sc">+</span></span>
-<span id="cb14-27"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb14-28"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb14-29"><a href=""></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb14-30"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb14-31"><a href=""></a>        <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)),</span>
-<span id="cb14-32"><a href=""></a>        <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">size =</span> <span class="fl">0.2</span>))</span>
-<span id="cb14-33"><a href=""></a></span>
-<span id="cb14-34"><a href=""></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">library</span>(ggh4x)</span>
+<span id="cb11-2"><a href=""></a></span>
+<span id="cb11-3"><a href=""></a>new_iris <span class="ot">&lt;-</span> <span class="fu">transform</span>(</span>
+<span id="cb11-4"><a href=""></a>  iris, </span>
+<span id="cb11-5"><a href=""></a>  <span class="at">Nester =</span> <span class="fu">ifelse</span>(Species <span class="sc">==</span> <span class="st">"setosa"</span>, <span class="st">"Short Leaves"</span>, <span class="st">"Long Leaves"</span>)</span>
+<span id="cb11-6"><a href=""></a>)</span>
+<span id="cb11-7"><a href=""></a></span>
+<span id="cb11-8"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(new_iris, <span class="fu">aes</span>(Sepal.Width, Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb11-9"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb11-10"><a href=""></a>  <span class="fu">facet_nested</span>(<span class="sc">~</span> Nester <span class="sc">+</span> Species) <span class="sc">+</span></span>
+<span id="cb11-11"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"facet_nested()"</span>) <span class="sc">+</span></span>
+<span id="cb11-12"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb11-13"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb11-14"><a href=""></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb11-15"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb11-16"><a href=""></a>        <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)),</span>
+<span id="cb11-17"><a href=""></a>        <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">size =</span> <span class="fl">0.2</span>))</span>
+<span id="cb11-18"><a href=""></a></span>
+<span id="cb11-19"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> <span class="fu">as.factor</span>(cyl))) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb11-20"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Engine displacement"</span>, <span class="at">y =</span> <span class="st">"Highway miles per gallon"</span>) <span class="sc">+</span></span>
+<span id="cb11-21"><a href=""></a>  <span class="fu">facet_nested_wrap</span>(</span>
+<span id="cb11-22"><a href=""></a>    <span class="fu">vars</span>(cyl, drv), <span class="at">dir =</span> <span class="st">"v"</span>, <span class="at">strip.position =</span> <span class="st">"left"</span>,</span>
+<span id="cb11-23"><a href=""></a>    <span class="at">axes =</span> <span class="st">"all"</span>, <span class="at">remove_labels =</span> <span class="st">"x"</span></span>
+<span id="cb11-24"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb11-25"><a href=""></a>  <span class="fu">theme</span>(<span class="at">strip.placement =</span> <span class="st">"outside"</span>) <span class="sc">+</span></span>
+<span id="cb11-26"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"facet_nested_wrap()"</span>) <span class="sc">+</span></span>
+<span id="cb11-27"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb11-28"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb11-29"><a href=""></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb11-30"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb11-31"><a href=""></a>        <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)),</span>
+<span id="cb11-32"><a href=""></a>        <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">size =</span> <span class="fl">0.2</span>))</span>
+<span id="cb11-33"><a href=""></a></span>
+<span id="cb11-34"><a href=""></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
-<img data-src="classification_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div class="pt5">
+<img data-src="classification_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div class="pt5">
 <p>Code source: <a href="https://teunbrand.github.io/ggh4x/articles/Facets.html">https://teunbrand.github.io/ggh4x/articles/Facets.html</a></p>
 </div>
 </section>
@@ -1064,26 +914,176 @@
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary></summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">library</span>(ggside)</span>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">library</span>(ggside)</span>
+<span id="cb12-2"><a href=""></a></span>
+<span id="cb12-3"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> class)) <span class="sc">+</span> </span>
+<span id="cb12-4"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb12-5"><a href=""></a>  <span class="fu">geom_xsideboxplot</span>(<span class="fu">aes</span>(<span class="at">y =</span>class), <span class="at">orientation =</span> <span class="st">"y"</span>) <span class="sc">+</span></span>
+<span id="cb12-6"><a href=""></a>  <span class="fu">geom_ysidedensity</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">after_stat</span>(density)), <span class="at">position =</span> <span class="st">"stack"</span>) <span class="sc">+</span></span>
+<span id="cb12-7"><a href=""></a>  <span class="fu">scale_ysidex_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">angle =</span> <span class="dv">90</span>), <span class="at">minor_breaks =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb12-8"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"geom_xsideboxplot(), geom_ysidedensity()"</span>) <span class="sc">+</span></span>
+<span id="cb12-9"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb12-10"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb12-11"><a href=""></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb12-12"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>)) <span class="sc">+</span></span>
+<span id="cb12-13"><a href=""></a>  <span class="fu">theme</span>(<span class="at">ggside.panel.scale =</span> .<span class="dv">5</span>)</span>
+<span id="cb12-14"><a href=""></a></span>
+<span id="cb12-15"><a href=""></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+</div>
+<img data-src="classification_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div class="pt5">
+<p>Code source: <a href="https://github.com/jtlandis/ggside">https://github.com/jtlandis/ggside</a></p>
+</div>
+</section>
+<section id="new-scales" class="slide level2">
+<h2>New Scales</h2>
+<p><code>ggsci</code> – color palettes inspired by colors used in scientific journals, data visualization libraries, science fiction movies, and TV shows</p>
+<p><code>ggnewscale</code> – use multiple fill/color scales in one plot</p>
+<p><code>ggbreak</code> – set breakpoints for truncating the plot</p>
+</section>
+<section id="ggsci" class="slide level2">
+<h2><code>ggsci</code></h2>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary></summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">library</span>(ggsci)</span>
+<span id="cb13-2"><a href=""></a></span>
+<span id="cb13-3"><a href=""></a><span class="fu">data</span>(<span class="st">"diamonds"</span>)</span>
+<span id="cb13-4"><a href=""></a></span>
+<span id="cb13-5"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb13-6"><a href=""></a>  <span class="fu">subset</span>(diamonds, carat <span class="sc">&gt;=</span> <span class="fl">2.2</span>),</span>
+<span id="cb13-7"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> table, <span class="at">y =</span> price, <span class="at">colour =</span> cut)</span>
+<span id="cb13-8"><a href=""></a>) <span class="sc">+</span></span>
+<span id="cb13-9"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb13-10"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">span =</span> <span class="dv">1</span>)</span>
+<span id="cb13-11"><a href=""></a></span>
+<span id="cb13-12"><a href=""></a>p1_npg <span class="ot">&lt;-</span> p1 <span class="sc">+</span> <span class="fu">scale_color_npg</span>() <span class="sc">+</span></span>
+<span id="cb13-13"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"scale_color_npg()"</span>) <span class="sc">+</span></span>
+<span id="cb13-14"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb13-15"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb13-16"><a href=""></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb13-17"><a href=""></a>      <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
+<span id="cb13-18"><a href=""></a></span>
+<span id="cb13-19"><a href=""></a>p1_uchicago <span class="ot">&lt;-</span> p1 <span class="sc">+</span> <span class="fu">scale_color_uchicago</span>() <span class="sc">+</span></span>
+<span id="cb13-20"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"scale_color_uchicago()"</span>) <span class="sc">+</span></span>
+<span id="cb13-21"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb13-22"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb13-23"><a href=""></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb13-24"><a href=""></a>      <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
+<span id="cb13-25"><a href=""></a></span>
+<span id="cb13-26"><a href=""></a><span class="fu">data</span>(<span class="st">"mtcars"</span>)</span>
+<span id="cb13-27"><a href=""></a>cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(<span class="fu">unname</span>(mtcars))</span>
+<span id="cb13-28"><a href=""></a>cor_melt <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb13-29"><a href=""></a>  <span class="at">Var1 =</span> <span class="fu">rep</span>(<span class="fu">seq_len</span>(<span class="fu">nrow</span>(cor)), <span class="at">times =</span> <span class="fu">ncol</span>(cor)),</span>
+<span id="cb13-30"><a href=""></a>  <span class="at">Var2 =</span> <span class="fu">rep</span>(<span class="fu">seq_len</span>(<span class="fu">ncol</span>(cor)), <span class="at">each =</span> <span class="fu">nrow</span>(cor)),</span>
+<span id="cb13-31"><a href=""></a>  <span class="at">value =</span> <span class="fu">as.vector</span>(cor)</span>
+<span id="cb13-32"><a href=""></a>)</span>
+<span id="cb13-33"><a href=""></a></span>
+<span id="cb13-34"><a href=""></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(cor_melt, <span class="fu">aes</span>(<span class="at">x =</span> Var1, <span class="at">y =</span> Var2, <span class="at">fill =</span> value)) <span class="sc">+</span></span>
+<span id="cb13-35"><a href=""></a>  <span class="fu">geom_tile</span>(<span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb13-36"><a href=""></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb13-37"><a href=""></a>  <span class="fu">theme</span>(</span>
+<span id="cb13-38"><a href=""></a>    <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb13-39"><a href=""></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb13-40"><a href=""></a>  )</span>
+<span id="cb13-41"><a href=""></a></span>
+<span id="cb13-42"><a href=""></a>p3_gsea <span class="ot">&lt;-</span> p3 <span class="sc">+</span> <span class="fu">scale_fill_gsea</span>() <span class="sc">+</span></span>
+<span id="cb13-43"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"scale_fill_gsea()"</span>) <span class="sc">+</span></span>
+<span id="cb13-44"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb13-45"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb13-46"><a href=""></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb13-47"><a href=""></a>      <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
+<span id="cb13-48"><a href=""></a></span>
+<span id="cb13-49"><a href=""></a>p1_npg <span class="sc">+</span> p1_uchicago <span class="sc">+</span> p3_gsea</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+</div>
+<img data-src="classification_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div class="pt5">
+<p>Code source: <a href="https://nanx.me/ggsci/articles/ggsci.html">https://nanx.me/ggsci/articles/ggsci.html</a></p>
+</div>
+</section>
+<section id="ggnewscale" class="slide level2">
+<h2><code>ggnewscale</code></h2>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary></summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">library</span>(ggnewscale)</span>
+<span id="cb14-2"><a href=""></a><span class="co"># Equivalent to melt(volcano)</span></span>
+<span id="cb14-3"><a href=""></a>topography <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(volcano),</span>
+<span id="cb14-4"><a href=""></a>                          <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(volcano))</span>
+<span id="cb14-5"><a href=""></a>topography<span class="sc">$</span>z <span class="ot">&lt;-</span> <span class="fu">c</span>(volcano)</span>
+<span id="cb14-6"><a href=""></a></span>
+<span id="cb14-7"><a href=""></a><span class="co"># point measurements of something at a few locations</span></span>
+<span id="cb14-8"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb14-9"><a href=""></a>measurements <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">runif</span>(<span class="dv">30</span>, <span class="dv">1</span>, <span class="dv">80</span>),</span>
+<span id="cb14-10"><a href=""></a>                           <span class="at">y =</span> <span class="fu">runif</span>(<span class="dv">30</span>, <span class="dv">1</span>, <span class="dv">60</span>),</span>
+<span id="cb14-11"><a href=""></a>                           <span class="at">rainfall =</span> <span class="fu">rnorm</span>(<span class="dv">30</span>))</span>
+<span id="cb14-12"><a href=""></a></span>
+<span id="cb14-13"><a href=""></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb14-14"><a href=""></a>  <span class="fu">geom_contour</span>(<span class="at">data =</span> topography, <span class="fu">aes</span>(<span class="at">z =</span> z, <span class="at">color =</span> <span class="fu">stat</span>(level))) <span class="sc">+</span></span>
+<span id="cb14-15"><a href=""></a>  <span class="co"># Color scale for topography</span></span>
+<span id="cb14-16"><a href=""></a>  <span class="fu">scale_color_viridis_c</span>(<span class="at">option =</span> <span class="st">"A"</span>) <span class="sc">+</span></span>
+<span id="cb14-17"><a href=""></a>  <span class="co"># geoms below will use another color scale</span></span>
+<span id="cb14-18"><a href=""></a>  <span class="fu">new_scale_color</span>() <span class="sc">+</span></span>
+<span id="cb14-19"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> measurements, <span class="at">size =</span> <span class="dv">3</span>, <span class="fu">aes</span>(<span class="at">color =</span> rainfall)) <span class="sc">+</span></span>
+<span id="cb14-20"><a href=""></a>  <span class="co"># Color scale applied to geoms added after new_scale_color()</span></span>
+<span id="cb14-21"><a href=""></a>  <span class="fu">scale_colour_continuous</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+</div>
+<img data-src="classification_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div class="pt5">
+<p>Code source: <a href="https://github.com/eliocamp/ggnewscale/">https://github.com/eliocamp/ggnewscale/</a></p>
+</div>
+</section>
+<section id="ggbreak" class="slide level2">
+<h2><code>ggbreak</code></h2>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary></summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">library</span>(ggbreak)</span>
 <span id="cb15-2"><a href=""></a></span>
-<span id="cb15-3"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> class)) <span class="sc">+</span> </span>
-<span id="cb15-4"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb15-5"><a href=""></a>  <span class="fu">geom_xsideboxplot</span>(<span class="fu">aes</span>(<span class="at">y =</span>class), <span class="at">orientation =</span> <span class="st">"y"</span>) <span class="sc">+</span></span>
-<span id="cb15-6"><a href=""></a>  <span class="fu">geom_ysidedensity</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">after_stat</span>(density)), <span class="at">position =</span> <span class="st">"stack"</span>) <span class="sc">+</span></span>
-<span id="cb15-7"><a href=""></a>  <span class="fu">scale_ysidex_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">angle =</span> <span class="dv">90</span>), <span class="at">minor_breaks =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb15-8"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"geom_xsideboxplot(), geom_ysidedensity()"</span>) <span class="sc">+</span></span>
+<span id="cb15-3"><a href=""></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,</span>
+<span id="cb15-4"><a href=""></a>                <span class="at">y =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">5</span>) <span class="sc">+</span> <span class="dv">2</span>, <span class="fu">rnorm</span>(<span class="dv">5</span>) <span class="sc">+</span> <span class="dv">50</span>, <span class="fu">rnorm</span>(<span class="dv">5</span>) <span class="sc">+</span> <span class="dv">4</span>, <span class="fu">rnorm</span>(<span class="dv">5</span>) <span class="sc">+</span> <span class="dv">100</span>)</span>
+<span id="cb15-5"><a href=""></a>)</span>
+<span id="cb15-6"><a href=""></a></span>
+<span id="cb15-7"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(y, x)) <span class="sc">+</span> <span class="fu">geom_col</span>(<span class="at">orientation=</span><span class="st">"y"</span>) <span class="sc">+</span></span>
+<span id="cb15-8"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"without scale breaks"</span>) <span class="sc">+</span></span>
 <span id="cb15-9"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb15-10"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
 <span id="cb15-11"><a href=""></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb15-12"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>)) <span class="sc">+</span></span>
-<span id="cb15-13"><a href=""></a>  <span class="fu">theme</span>(<span class="at">ggside.panel.scale =</span> .<span class="dv">5</span>)</span>
+<span id="cb15-13"><a href=""></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
 <span id="cb15-14"><a href=""></a></span>
-<span id="cb15-15"><a href=""></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-15"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(y, x)) <span class="sc">+</span> <span class="fu">geom_col</span>(<span class="at">orientation=</span><span class="st">"y"</span>) <span class="sc">+</span></span>
+<span id="cb15-16"><a href=""></a>  <span class="fu">scale_x_break</span>(<span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">40</span>)) <span class="sc">+</span> <span class="fu">scale_x_break</span>(<span class="fu">c</span>(<span class="dv">55</span>,<span class="dv">90</span>)) <span class="sc">+</span></span>
+<span id="cb15-17"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"scale_x_break()"</span>) <span class="sc">+</span></span>
+<span id="cb15-18"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb15-19"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb15-20"><a href=""></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb15-21"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>)) <span class="sc">+</span></span>
+<span id="cb15-22"><a href=""></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
+<span id="cb15-23"><a href=""></a></span>
+<span id="cb15-24"><a href=""></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(<span class="at">x=</span>date, <span class="at">y =</span> unemploy, <span class="at">colour =</span> uempmed)) <span class="sc">+</span></span>
+<span id="cb15-25"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb15-26"><a href=""></a>  <span class="fu">scale_wrap</span>(<span class="at">n=</span><span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb15-27"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"scale_wrap()"</span>) <span class="sc">+</span></span>
+<span id="cb15-28"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb15-29"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb15-30"><a href=""></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb15-31"><a href=""></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"courier"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
+<span id="cb15-32"><a href=""></a></span>
+<span id="cb15-33"><a href=""></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb15-34"><a href=""></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,</span>
+<span id="cb15-35"><a href=""></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">5</span>) <span class="sc">+</span> <span class="dv">4</span>, <span class="fu">rnorm</span>(<span class="dv">5</span>) <span class="sc">+</span> <span class="dv">20</span>, <span class="fu">rnorm</span>(<span class="dv">5</span>) <span class="sc">+</span> <span class="dv">5</span>, <span class="fu">rnorm</span>(<span class="dv">5</span>) <span class="sc">+</span> <span class="dv">22</span>)</span>
+<span id="cb15-36"><a href=""></a>)</span>
+<span id="cb15-37"><a href=""></a></span>
+<span id="cb15-38"><a href=""></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
 <img data-src="classification_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div class="pt5">
-<p>Code source: <a href="https://github.com/jtlandis/ggside">https://github.com/jtlandis/ggside</a></p>
+<p>Code source: <a href="https://cran.r-project.org/web/packages/ggbreak/vignettes/ggbreak.html">https://cran.r-project.org/web/packages/ggbreak/vignettes/ggbreak.html</a></p>
 </div>
 </section>
 <section id="new-themes" class="slide level2">
@@ -1378,7 +1378,7 @@
 </div><div class="column" style="width:35%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="survminer_error.jpg"></p>
+<p><img data-src="images/survminer_error.jpg"></p>
 <figcaption>error - not ggplot2 object</figcaption>
 </figure>
 </div>
