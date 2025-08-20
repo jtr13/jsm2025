@@ -2,7 +2,7 @@
 title: "ggplot2 extensions"
 execute:
   echo: true
-  cache: false
+  cache: true
   message: false
   warning: false
 format: 

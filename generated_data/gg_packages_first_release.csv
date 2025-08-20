@@ -1,0 +1,1538 @@
+package,cran_publish_date,authors,archive_date,first_release,in_gallery
+AMR,2025-06-02,"c(
+  person(given = c(""Matthijs"", ""S.""),               family = ""Berends"",     role = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0001-7620-1800""), email = ""m.s.berends@umcg.nl""),
+  person(given = c(""Dennis""),                       family = ""Souverein"",   role = c(""aut"", ""ctb""), comment = c(ORCID = ""0000-0003-0455-0336"")),
+  person(given = c(""Erwin"", ""E."", ""A.""),            family = ""Hassing"",     role = c(""aut"", ""ctb"")),
+  person(given = c(""Aislinn""),                      family = ""Cook"",        role = ""ctb"", comment = c(ORCID = ""0000-0002-9189-7815"")),
+  person(given = c(""Andrew"", ""P.""),                 family = ""Norgan"",      role = ""ctb"", comment = c(ORCID = ""0000-0002-2955-2066"")),
+  person(given = c(""Anita""),                        family = ""Williams"",    role = ""ctb"", comment = c(ORCID = ""0000-0002-5295-8451"")),
+  person(given = c(""Annick""),                       family = ""Lenglet"",     role = ""ctb"", comment = c(ORCID = ""0000-0003-2013-8405"")),
+  person(given = c(""Anthony""),                      family = ""Underwood"",   role = ""ctb"", comment = c(ORCID = ""0000-0002-8547-4277"")),
+  person(given = c(""Anton""),                        family = ""Mymrikov"",    role = ""ctb""),
+  person(given = c(""Bart"", ""C.""),                   family = ""Meijer"",      role = ""ctb""),
+  person(given = c(""Christian"", ""F.""),              family = ""Luz"",         role = ""ctb"", comment = c(ORCID = ""0000-0001-5809-5995"")),
+  person(given = c(""Dmytro""),                       family = ""Mykhailenko"", role = ""ctb""),
+  person(given = c(""Eric"", ""H."", ""L."", ""C."", ""M.""), family = ""Hazenberg"",   role = ""ctb""),
+  person(given = c(""Gwen""),                         family = ""Knight"",      role = ""ctb"", comment = c(ORCID = ""0000-0002-7263-9896"")),
+  person(given = c(""Jane""),                         family = ""Hawkey"",      role = ""ctb"", comment = c(ORCID = ""0000-0001-9661-5293"")),
+  person(given = c(""Jason""),                        family = ""Stull"",       role = ""ctb"", comment = c(ORCID = ""0000-0002-9028-8153"")),
+  person(given = c(""Javier""),                       family = ""Sanchez"",     role = ""ctb"", comment = c(ORCID = ""0000-0003-2605-8094"")),
+  person(given = c(""Jonas""),                        family = ""Salm"",        role = ""ctb""),
+  person(given = c(""Judith"", ""M.""),                 family = ""Fonville"",    role = ""ctb""),
+  person(given = c(""Kathryn""),                      family = ""Holt"",        role = ""ctb"", comment = c(ORCID = ""0000-0003-3949-2471"")),
+  person(given = c(""Larisse""),                      family = ""Bolton"",      role = ""ctb"", comment = c(ORCID = ""0000-0001-7879-2173"")),
+  person(given = c(""Matthew""),                      family = ""Saab"",        role = ""ctb""),
+  person(given = c(""Natacha""),                      family = ""Couto"",       role = ""ctb"", comment = c(ORCID = ""0000-0002-9152-5464"")),
+  person(given = c(""Peter""),                        family = ""Dutey-Magni"", role = ""ctb"", comment = c(ORCID = ""0000-0002-8942-9836"")),
+  person(given = c(""Rogier"", ""P.""),                 family = ""Schade"",      role = ""ctb""),
+  person(given = c(""Sofia""),                        family = ""Ny"",          role = ""ctb"", comment = c(ORCID = ""0000-0002-2017-1363"")),
+  person(given = c(""Alex"", ""W.""),                   family = ""Friedrich"",   role = ""ths"", comment = c(ORCID = ""0000-0003-4881-038X"")),
+  person(given = c(""Bhanu"", ""N."", ""M.""),            family = ""Sinha"",       role = ""ths"", comment = c(ORCID = ""0000-0003-1634-0010"")),
+  person(given = c(""Casper"", ""J.""),                 family = ""Albers"",      role = ""ths"", comment = c(ORCID = ""0000-0002-9213-6743"")),
+  person(given = c(""Corinna""),                      family = ""Glasner"",     role = ""ths"", comment = c(ORCID = ""0000-0003-1241-1328"")))",2018-02-22,2018-02-22,TRUE
+autoplotly,2021-04-18,"person(""Yuan"", ""Tang"", role = c(""aut"", ""cre""),
+                  email = ""terrytangyuan@gmail.com"",
+                  comment = c(ORCID = ""0000-0001-5243-233X""))",2018-01-10,2018-01-10,TRUE
+calendR,2023-10-05,"c(
+  person(""José Carlos"", ""Soage González"", email = ""jsoage@uvigo.es"", role = c(""aut"", ""cre"")),
+   person(""Natalia"", ""Pérez Veiga"", email = ""naperez@uvigo.es"", role = ""aut"")
+  )",2020-08-31,2020-08-31,TRUE
+ComplexUpset,2021-12-11,"person(
+  ""Michał"", ""Krassowski"", email = ""krassowski.michal+r@gmail.com"", role = c(""aut"", ""cre""),
+  comment = c(ORCID = ""0000-0002-9638-7785""))",2020-12-08,2020-12-08,TRUE
+cowplot,2025-07-07,"
+    person(
+      given = ""Claus O."",
+      family = ""Wilke"",
+      role = c(""aut"", ""cre""),
+      email = ""wilke@austin.utexas.edu"",
+      comment = c(ORCID = ""0000-0002-7470-9261"")
+    )",2015-06-03,2015-06-03,TRUE
+deeptime,2025-06-19,"person(""William"", ""Gearty"", email = ""willgearty@gmail.com"", role = c(""aut"", ""cre""),
+                  comment = c(ORCID = ""0000-0003-0076-3262""))",2021-07-23,2021-07-23,TRUE
+directlabels,2025-06-24,"person(
+ given = c(""Toby"", ""Dylan""),
+ family = ""Hocking"",
+ role = c(""aut"", ""cre""),
+ email = ""toby.hocking@r-project.org"",
+ comment = c(ORCID=""0000-0002-3146-0865""))",2010-11-26,2010-11-26,TRUE
+econocharts,NA,NA,NA,NA,TRUE
+eheat,NA,NA,NA,NA,TRUE
+esquisse,2025-02-21,"c(person(""Fanny"", ""Meyer"", role = c(""aut"")),
+  person(""Victor"", ""Perrier"", email = ""victor.perrier@dreamrs.fr"", role = c(""aut"", ""cre"")),
+  person(""Ian"", ""Carroll"", comment = ""Faceting support"", role = ""ctb""),
+  person(""Xiangnan"", ""Dang"", comment = ""Facets rows and cols, X/Y limits"", role = ""ctb""),
+  person(""Nicolas"", ""Bevacqua"", role = ""cph"", comment = ""author of dragula JavaScript library""),
+  person(""Daybrush (Younkue Choi)"", role = ""cph"", comment = ""author of moveable JavaScript library""),
+  person(""Zeno"", ""Rocha"", role = ""cph"", comment = ""author of clipboard JavaScript library""))",2018-09-28,2018-09-28,TRUE
+geofacet,2025-06-28,"c(
+    person(""Ryan"", ""Hafen"", email = ""rhafen@gmail.com"", role = c(""aut"", ""cre"")),
+    person(""Barret"", ""Schloerke"", email = ""schloerke@gmail.com"", role = ""ctb""))",2017-06-20,2017-06-20,TRUE
+geomnet,NA,NA,2015-12-30,2015-12-30,TRUE
+geomtextpath,2025-07-21,"c(
+    person(given = ""Allan"",
+           family = ""Cameron"",
+           role = c(""aut"", ""cre""),
+           email = ""Allan.Cameron@nhs.scot""),
+    person(given = ""Teun"",
+           family = ""van den Brand"",
+           role = c(""aut""),
+           email = ""tahvdbrand@gmail.com"",
+           comment = c(ORCID = ""0000-0002-9335-7468"")))",2022-01-24,2022-01-24,TRUE
+gg.gap,2019-09-30,"c(
+    person(""Jiacheng"", ""Lou"", email = ""loujiacheng1986@foxmail.com"", role = c(""aut"", ""cre"")),
+    person(""Jing"", ""Zhang"", role = ""aut""),
+    person(""Yizhu"", ""Lvy"", role = ""aut""),
+    person(""Zhi"", ""Jin"", role = ""aut"")
+    )",NA,2019-09-30,FALSE
+gg1d,2024-12-09,"
+    c(
+      person(""Sam"", ""El-Kamand"", , ""sam.elkamand@gmail.com"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0003-2270-8088"")),
+      person(""Children's Cancer Institute Australia"", role = c(""cph""))
+     )",NA,2024-12-09,FALSE
+gg3D,NA,NA,NA,NA,TRUE
+ggalign,2025-05-14,"c(
+        person(""Yun"", ""Peng"", , ""yunyunp96@163.com"", role = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0003-2801-3332"")),
+        person(""Shixiang"", ""Wang"", , ""w_shixiang@163.com"", role = ""aut"", comment = c(ORCID = ""0000-0001-9855-7357"")),
+        person(""Guangchuang"", ""Yu"", email = ""guangchuangyu@gmail.com"", role = ""ths"", comment = c(ORCID = ""0000-0002-6485-8781""))
+    )",2024-09-15,2024-09-15,TRUE
+ggaligner,2023-06-14,NA,NA,2023-06-14,FALSE
+ggalignment,2025-02-24,"
+    c(person(given = ""Afton"",
+            family = ""Coombs"",
+            role = c(""aut"", ""cre"", ""cph""),
+            email = ""aftoncoombs@gmail.com""),
+      person(given = ""Tan"", 
+            family = ""Ho"", 
+            role = c(""ctb""), 
+            email = ""tan@tanho.ca"", 
+            comment = c(ORCID = ""0000-0001-8388-5155"")))",2021-10-06,2021-10-06,FALSE
+ggallin,2017-10-02,"c(person(c(""Steven"", ""E.""), ""Pav"", role=c(""aut"",""cre""), 
+    email=""shabbychef@gmail.com""))",NA,2017-10-02,FALSE
+ggalluvial,2023-02-22,"c(
+    person(given = ""Jason Cory"",
+           family = ""Brunson"",
+           role = c(""aut"", ""cre""),
+           email = ""cornelioid@gmail.com""),
+    person(given = ""Quentin D."",
+           family = ""Read"",
+           role = 'aut'))",2017-11-26,2017-11-26,TRUE
+GGally,2025-07-18,"c(
+    person(""Barret"", ""Schloerke"", , ""schloerke@gmail.com"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0001-9986-114X"")),
+    person(""Di"", ""Cook"", , ""dicook@monash.edu"", role = c(""aut"", ""ths""),
+           comment = c(ORCID = ""0000-0002-3813-7155"")),
+    person(""Joseph"", ""Larmarange"", , ""joseph@larmarange.net"", role = ""aut"",
+           comment = c(ORCID = ""0000-0001-7097-700X"")),
+    person(""Francois"", ""Briatte"", , ""f.briatte@gmail.com"", role = ""aut""),
+    person(""Moritz"", ""Marbach"", , ""mmarbach@mail.uni-mannheim.de"", role = ""aut""),
+    person(""Edwin"", ""Thoen"", , ""edwinthoen@gmail.com"", role = ""aut""),
+    person(""Amos"", ""Elberg"", , ""amos.elberg@gmail.com"", role = ""aut""),
+    person(""Ott"", ""Toomet"", , ""otoomet@gmail.com"", role = ""ctb""),
+    person(""Jason"", ""Crowley"", , ""crowley.jason.s@gmail.com"", role = ""aut""),
+    person(""Heike"", ""Hofmann"", , ""hhofmann4@unl.edu"", role = ""ths"",
+           comment = c(ORCID = ""0000-0001-6216-5183"")),
+    person(""Hadley"", ""Wickham"", , ""h.wickham@gmail.com"", role = ""ths"",
+           comment = c(ORCID = ""0000-0003-4757-117X""))
+  )",2010-02-01,2010-02-01,TRUE
+ggalt,NA,NA,2016-01-04,2016-01-04,TRUE
+gganatogram,NA,NA,NA,NA,TRUE
+gganimate,2025-06-21,"c(
+    person(""Thomas Lin"", ""Pedersen"", , ""thomasp85@gmail.com"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0002-5147-4711"")),
+    person(""David"", ""Robinson"", , ""admiral.david@gmail.com"", role = ""aut""),
+    person(""Posit, PBC"", role = c(""cph"", ""fnd""))
+  )",2019-01-02,2019-01-02,TRUE
+ggarchery,2025-07-24,"person(""Matthew"", ""Hall"", , ""matthew.hall@lshtm.ac.uk"", role = c(""aut"", ""cre""))",2022-02-23,2022-02-23,TRUE
+ggarrow,2024-06-05,"
+    person(given = ""Teun"",
+           family = ""van den Brand"",
+           role = c(""aut"", ""cre""),
+           email = ""tahvdbrand@gmail.com"",
+           comment = c(ORCID = ""0000-0002-9335-7468""))",NA,2024-06-05,TRUE
+ggasym,NA,NA,2019-03-15,2019-03-15,TRUE
+ggautomap,2023-05-24,"
+    c(person(given = ""Carl"",
+             family = ""Suster"",
+             email = ""Carl.Suster@health.nsw.gov.au"",
+             role = c(""aut"", ""cre""),
+             comment = c(ORCID = ""0000-0001-7021-9380"")),
+      person(""Western Sydney Local Health District, NSW Health"",
+             role = ""cph""))",NA,2023-05-24,FALSE
+ggautothemes,NA,NA,NA,NA,TRUE
+ggbeeswarm,2023-04-29,"c(
+    person(given=""Erik"", family=""Clarke"", role=c(""aut"", ""cre""), email=""erikclarke@gmail.com""),
+    person(given=""Scott"", family=""Sherrill-Mix"", role=c(""aut""), email=""sherrillmix@gmail.com""),
+    person(given=""Charlotte"", family=""Dawson"", role=c(""aut""), email=""csdaw@outlook.com""))",2016-02-21,2016-02-21,TRUE
+ggbiplot,2024-01-08,"c(
+    person(c(""Vincent"", ""Q.""), ""Vu"", , ""vqv@stat.osu.edu"", role = c(""aut""),
+            comment = c(ORCID = ""0000-0002-4689-0497"")),
+    person(""Michael"", ""Friendly"", , ""friendly@yorku.ca"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0002-3237-0941"")),
+    person(""Aghasi"", ""Tavadyan"", ,  ""a.tavadyan@gmail.com"", role = ""ctb"")
+           )",2023-12-17,2023-12-17,FALSE
+ggblanket,2025-06-03,"
+    person(""David"", ""Hodge"", , ""davidhodge931@gmail.com"", role = c(""aut"", ""cre"", ""cph""),
+           comment = c(ORCID = ""0000-0002-3868-7501""))",2022-05-10,2022-05-10,TRUE
+ggblend,2023-05-22,"
+    person(""Matthew"", ""Kay"", , ""mjskay@northwestern.edu"", role = c(""aut"", ""cre"", ""cph""),
+           comment = c(ORCID = ""0000-0001-9446-0419""))",NA,2023-05-22,TRUE
+ggborderline,2022-10-25,NA,2021-08-09,2021-08-09,FALSE
+ggbrace,2025-07-09,"
+    person(""Nicolas"", ""Huber"", , ""info.huber@aol.de"", role = c(""aut"", ""cre"", ""cph""))",2024-02-20,2024-02-20,FALSE
+ggbraid,NA,NA,2022-05-17,2022-05-17,TRUE
+ggbrain,2025-03-20,"
+    person(""Michael"", ""Hallquist"", , ""michael.hallquist@gmail.com"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0001-5894-8038""))",2022-11-04,2022-11-04,FALSE
+ggbreak,2025-07-02,"c(
+       person(""Guangchuang"", ""Yu"",     email = ""guangchuangyu@gmail.com"", role = c(""aut"", ""cre"", ""cph""), comment = c(ORCID = ""0000-0002-6485-8781"")),
+       person(""Shuangbin"", ""Xu"",       email = ""xshuangbin@163.com"",      role = ""aut"", comment = c(ORCID=""0000-0003-3513-5362""))
+       )",2021-05-13,2021-05-13,TRUE
+ggbrick,2024-03-14,"
+  person(given = ""Daniel"",
+         family = ""Oehm"",
+         role = c(""aut"", ""cre""),
+         email = ""danieloehm@gmail.com"")",NA,2024-03-14,FALSE
+ggBubbles,2019-09-04,"person(""Thomas"",
+                  ""Schwarzl"",
+                  email = ""schwarzl@embl.de"",
+                  role = c(""aut"", ""cre""),
+                  comment = c(ORCID = ""0000-0001-7697-7000""))",NA,2019-09-04,FALSE
+ggbuildr,2018-02-05,NA,NA,2018-02-05,FALSE
+ggbump,2020-04-24,NA,NA,2020-04-24,TRUE
+ggchangepoint,2022-02-24,"
+    c(person(given = ""Youzhi"",
+             family = ""Yu"",
+             role = c(""aut"", ""cre""),
+             email = ""yuyouzhi666@icloud.com""))",NA,2022-02-24,FALSE
+ggcharts,2020-05-20,"c(
+    person(""Thomas"", ""Neitmann"", , ""th.neitmann@gmail.com"", c(""aut"", ""cre"")),
+    person(""Julia"", ""Silge"", role = c(""ctb"", ""cph"")),
+    person(""David"", ""Robinson"", role = c(""ctb"", ""cph""))
+    )",2020-03-26,2020-03-26,TRUE
+ggChernoff,2022-11-17,"person(""David"", ""Selby"", email = ""selby@cs.uni-kl.de"", role = c(""aut"", ""cre""))",2017-07-06,2017-07-06,TRUE
+ggchord,2025-07-16,"person(given = ""Jem"", family = ""Dang"", email = ""dangjem0730@gmail.com"", role = c(""aut"", ""cre""))",NA,2025-07-16,FALSE
+ggchromatic,NA,NA,NA,NA,TRUE
+ggcleveland,2021-08-16,"c(
+  person(given = ""Marcos"",
+         family = ""Prunello"",
+         role = c(""aut"", ""cre""),
+         email = ""marcosprunello@gmail.com"",
+         comment = c(ORCID = ""0000-0002-9611-527X"")
+         ),
+  person(given = ""Gonzalo"",
+         family = ""Mari"",
+         role = c(""aut"")
+         )
+  )",NA,2021-08-16,FALSE
+ggcolpairs,NA,NA,2011-02-16,2011-02-16,FALSE
+ggcompare,2024-12-09,"
+    person(""Hao"", ""Wang"", email = ""wanghao8772@gmail.com"", role = c(""aut"", ""cre""), comment = c(ORCID = ""0009-0000-9477-9585""))",2024-10-02,2024-10-02,FALSE
+ggCompNet,NA,NA,2016-12-31,2016-12-31,FALSE
+ggconf,NA,NA,2017-08-29,2017-08-29,FALSE
+ggcorrheatmap,2025-07-28,"
+    person(given = ""Leo"", family = ""Dahl"",
+           email = ""leokosdah@gmail.com"",
+           role = c(""aut"", ""cre"", ""cph""))",NA,2025-07-28,FALSE
+ggcorrplot,2023-09-05,"
+    c(person(given = ""Alboukadel"",
+             family = ""Kassambara"",
+             role = c(""aut"", ""cre""),
+             email = ""alboukadel.kassambara@gmail.com""),
+      person(given = ""Indrajeet"",
+             family = ""Patil"",
+             role = ""ctb"",
+             email = ""patilindrajeet.science@gmail.com"",
+             comment = c(ORCID = ""0000-0003-1995-6531"", Twitter = ""@patilindrajeets"")))",2016-01-12,2016-01-12,TRUE
+ggcorset,2024-04-07,NA,2022-04-05,2022-04-05,FALSE
+ggcoverage,NA,NA,2022-08-18,2022-08-18,FALSE
+ggdag,2024-07-22,"
+    person(""Malcolm"", ""Barrett"", , ""malcolmbarrett@gmail.com"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0003-0299-5825""))",2018-03-27,2018-03-27,TRUE
+ggdark,2019-01-11,NA,NA,2019-01-11,TRUE
+ggdaynight,2024-05-23,"
+    person(c(""Gabriel"", ""S.""), ""Pires"", , ""gabriel.slpires@gmail.com"", role = c(""aut"", ""cre"", ""cph""),
+           comment = c(ORCID = ""0000-0002-5354-1957""))",2024-05-21,2024-05-21,FALSE
+ggDCA,NA,NA,2020-08-24,2020-08-24,FALSE
+ggdemetra,2025-06-25,"c(person(""Alain"", ""Quartier-la-Tente"", role = c(""aut"", ""cre""),
+                 email = ""alain.quartier@yahoo.fr"",
+                 comment = c(ORCID = ""0000-0001-7890-3857"")))",2019-04-24,2019-04-24,FALSE
+ggdendro,2024-02-23,"c(person(""Andrie"", ""de Vries"", role=c(""aut"", ""cre""),
+    email=""apdevries@gmail.com""), person(c(""Brian"", ""D.""), ""Ripley"", role =
+    c(""aut""), comment = ""author of package tree""))",2013-01-28,2013-01-28,FALSE
+ggdensity,2023-02-09,"
+    c(person(given = ""James"",
+           family = ""Otto"",
+           role = c(""aut"", ""cre""),
+           email = ""jamesotto852@gmail.com"",
+           comment = c(ORCID = ""0000-0002-0665-2515"")),
+      person(given = ""David"",
+           family = ""Kahle"",
+           role = c(""aut""),
+           email = ""david@kahle.io"",
+           comment = c(ORCID = ""0000-0002-9999-1558"")))",2022-02-15,2022-02-15,TRUE
+ggdibbler,2025-07-31,"c(
+    person(""Harriet"", ""Mason"", , ""harriet.m.mason@gmail.com"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0009-0007-4568-8215"")),
+    person(""Dianne"", ""Cook"", , ""dicook@monash.edu"", role = ""aut"",
+           comment = c(ORCID = ""0000-0002-3813-7155"")),
+    person(""Sarah"", ""Goodwin"", , ""sarah.goodwin@monash.edu"", role = ""aut"",
+           comment = c(ORCID = ""0000-0001-8894-8282"")),
+    person(""Susan"", ""VanderPlas"", , ""susan.vanderplas@unl.edu"", role = ""aut"",
+           comment = c(ORCID = ""0000-0002-3803-0972""))
+  )",NA,2025-07-31,FALSE
+ggdist,2025-04-23,"c(
+        person(""Matthew"", ""Kay"", role = c(""aut"", ""cre""), email = ""mjskay@northwestern.edu""),
+        person(""Brenton M."", ""Wiernik"", role = ""ctb"", email = ""brenton@wiernik.org"")
+    )",2020-06-14,2020-06-14,TRUE
+ggdistribute,NA,NA,2018-05-30,2018-05-30,FALSE
+ggdmc,2025-04-13,"c(
+    person(given = ""Yi-Shin"", family = ""Lin"", role = c(""aut"", ""cre""), email = ""yishinlin001@gmail.com""),
+    person(given = ""Andrew"", family = ""Heathcote"", role = ""aut"")
+  )",2016-10-28,2016-10-28,FALSE
+ggDoE,2024-02-10,"c(person(given = ""Jose"",family = ""Toledo Luna"",
+             role = c(""aut"", ""cre""),
+             email = ""toledo60@protonmail.com"",
+             comment = c(ORCID = ""0000-0001-8559-0027"")))",2022-08-23,2022-08-23,FALSE
+ggDoubleHeat,2023-08-24,"
+    c(person(given = ""Youzhi"",
+             family = ""Yu"",
+             role = c(""aut"", ""cre""),
+             email = ""yuyouzhi666@icloud.com""),
+      person(given = ""Trent"",
+             family = ""Buskirk"",
+             role = c(""aut"", ""ths"")))",2022-03-02,2022-03-02,TRUE
+ggeasy,2025-06-15,"c(
+ person(""Jonathan"", ""Carroll"", email = ""rpkg@jcarroll.com.au"", role = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0002-1404-5264"")),
+ person(""Alicia"", ""Schep"", email = ""aschep@gmail.com"", role = c(""aut""), comment = c(ORCID = ""0000-0002-3915-0618"")),
+ person(""Jonathan"", ""Sidi"", email = ""yonicd@gmail.com"", role = c(""aut""),comment = c(ORCID = ""0000-0002-4222-1819"")),
+ person(""Bob"", ""Rudis"", email = ""bob@rud.is"", role = c(""ctb""), comment = c(ORCID = ""0000-0001-5670-2640"")), 
+ person(""Mohamed El Fodil"", ""Ihaddaden"", email = ""ihaddaden.fodeil@gmail.com"", role = c(""ctb"")),
+ person(""Thomas"", ""Neitmann"", email = ""th.neitmann@gmail.com"", role = c(""ctb""))
+ )",2020-01-31,2020-01-31,TRUE
+GGEBiplotGUI,NA,NA,2011-08-29,2011-08-29,FALSE
+GGEBiplots,2022-02-09,"c(person(""Sam"", ""Dumble"", email = ""s.dumble@stats4sd.org"", role = c(""aut"", ""cre"")),person(""Elisa"", ""Frutos Bernal"", email = ""efb@usal.es"", role = c(""ctb"")),person(""Purificacion"", ""Galindo Villardon"", email = ""pgalindo@usal.es"", role = c(""ctb"")))",2017-07-24,2017-07-24,FALSE
+ggEDA,2025-05-07,"
+    c(
+      person(""Sam"", ""El-Kamand"", , ""sam.elkamand@gmail.com"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0003-2270-8088"")),
+      person(""Children's Cancer Institute Australia"", role = c(""cph""))
+     )",NA,2025-05-07,FALSE
+ggedit,2024-03-04,NA,2017-03-31,2017-03-31,TRUE
+ggeffects,2025-06-13,"c(
+      person(""Daniel"", ""Lüdecke"", role = c(""aut"", ""cre""), email = ""d.luedecke@uke.de"", comment = c(ORCID = ""0000-0002-8895-3206"")),
+      person(""Frederik"", ""Aust"", role = ""ctb"", comment = c(ORCID = ""0000-0003-4900-788X"")),
+      person(""Sam"", ""Crawley"", role = ""ctb"", email = ""sam@crawley.nz"", comment = c(ORCID = ""0000-0002-7847-0411"")),
+      person(c(""Mattan"", ""S.""), ""Ben-Shachar"", role = ""ctb"", email = ""matanshm@post.bgu.ac.il"", comment = c(ORCID = ""0000-0002-4287-4801"")),
+      person(c(""Sean"", ""C.""), ""Anderson"", role = ""ctb"", email = ""sean@seananderson.ca"", comment = c(ORCID = ""0000-0001-9563-1937""))
+    )",2017-04-26,2017-04-26,FALSE
+ggenealogy,2024-02-21,NA,2015-03-02,2015-03-02,FALSE
+ggESDA,NA,NA,2022-01-10,2022-01-10,TRUE
+ggetho,2022-11-24,"c(
+    person(""Quentin"", ""Geissmann"", role = c(""aut"", ""cre""), email = ""qgeissmann@gmail.com"")
+    )",2018-05-17,2018-05-17,FALSE
+ggExtra,2023-08-21,"c(
+    person(""Dean"", ""Attali"", , ""daattali@gmail.com"", role = c(""aut"", ""cre"")),
+    person(""Christopher"", ""Baker"", , ""chriscrewbaker@gmail.com"", role = ""aut"")
+    )",2015-03-26,2015-03-26,TRUE
+ggFacetSample,NA,NA,2017-11-28,2017-11-28,FALSE
+ggfacto,2024-10-02,"
+    person(given = ""Brice"",
+           family = ""Nocenti"",
+           role = c(""aut"", ""cre""),
+           email = ""brice.nocenti@gmail.com"")",2021-10-22,2021-10-22,FALSE
+ggfan,NA,NA,2017-11-14,2017-11-14,FALSE
+ggfields,2025-06-19,"c(person(""Pepijn"", ""de Vries"", role = c(""aut"", ""cre""),
+    email = ""pepijn.devries@outlook.com"",
+    comment = c(ORCID = ""0000-0002-7961-6646"")))",2024-02-02,2024-02-02,TRUE
+ggfigdone,2024-09-10,"
+    person(""Wenjie"", ""SUN"", , ""sunwjie@gmail.com"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0002-3100-2346""))",NA,2024-09-10,FALSE
+ggFishPlots,2024-06-26,"c(person(""Mikko"", ""Vihtakari"", email = ""mikko.vihtakari@hi.no"",
+                  role = c(""aut"", ""cre""), 
+                  comment = c(affiliation = ""Institute of Marine Research"", 
+                  ORCID = ""0000-0003-0371-4319""))
+            )",2023-03-22,2023-03-22,FALSE
+ggfittext,2024-02-01,"c(person(""David"", ""Wilkins"", email = ""david@wilkox.org"",
+                  role = c(""aut"", ""cre"")), 
+             person(""Brady"", ""Johnston"", email = ""brady.johnston@me.com"", 
+                  role = c(""ctb""))
+             )",2017-08-21,2017-08-21,TRUE
+ggfixest,2025-05-14,"c(
+    person(
+        given   = ""Grant"",
+        family  = ""McDermott"",
+        role    = c(""aut"", ""cre""),
+        email   = ""gmcd@amazon.com"",
+        comment = c(ORCID = ""0000-0001-7883-8573"")
+    ),
+    person(
+        given   = ""Laurent"",
+        family  = ""Berge"",
+        role    = ""ctb"",
+        email   = ""laurent.berge@u-bordeaux.fr""
+    ),
+    person(
+        given   = ""Teun"",
+        family  = ""van den Brand"",
+        role    = ""ctb"",
+        comment = c(ORCID = ""0000-0002-9335-7468"")
+    )
+	)",2023-12-14,2023-12-14,FALSE
+ggflowchart,2023-05-11,"
+    person(given = ""Nicola"",
+           family = ""Rennie"",
+           role = c(""aut"", ""cre"", ""cph""),
+           email = ""nrennie35@gmail.com"")",NA,2023-05-11,TRUE
+ggfocus,2020-01-23,"person(""Victor"", ""Freguglia"", email = ""victorfreguglia@gmail.com"",
+                  role = c(""aut"", ""cre""))",2018-05-29,2018-05-29,FALSE
+ggfootball,2025-03-22,"
+    person(""Aymen"", ""Nasri"", , ""aymennasrii@proton.me"", role = c(""aut"", ""cre"", ""cph""))",2025-01-30,2025-01-30,TRUE
+ggforce,2025-06-18,"
+    c(person(given = ""Thomas Lin"",
+             family = ""Pedersen"",
+             role = c(""cre"", ""aut""),
+             email = ""thomasp85@gmail.com"",
+             comment = c(ORCID = ""0000-0002-5147-4711"")),
+      person(""RStudio"",
+             role = ""cph""))",2016-11-22,2016-11-22,TRUE
+ggformula,2025-07-31,"c(
+    person(""Daniel"", ""Kaplan"", email = ""kaplan@macalester.edu"", role = c(""aut"")),
+    person(""Randall"", ""Pruim"", email = ""rpruim@calvin.edu"", role = c(""aut"",""cre""))
+    )",2017-06-21,2017-06-21,TRUE
+ggfortify,2025-07-27,"c(
+  person(""Masaaki"", ""Horikoshi"", role = c(""aut""),
+         email = ""sinhrks@gmail.com""),
+  person(""Yuan"", ""Tang"", role = c(""aut"", ""cre""),
+         email = ""terrytangyuan@gmail.com"",
+         comment = c(ORCID = ""0000-0001-5243-233X"")),
+  person(""Austin"", ""Dickey"", role = c(""ctb"")),
+  person(""Matthias"", ""Grenié"", role = c(""ctb"")),
+  person(""Ryan"", ""Thompson"", role = c(""ctb"")),
+  person(""Luciano"", ""Selzer"", role = c(""ctb"")),
+  person(""Dario"", ""Strbenac"", role = c(""ctb"")),
+  person(""Kirill"", ""Voronin"", role = c(""ctb"")),
+  person(""Damir"", ""Pulatov"", role = c(""ctb""))
+  )",2015-10-04,2015-10-04,TRUE
+ggfoundry,2024-07-06,"person(""Carl"", ""Goodwin"", email = ""carl.goodwin@quantumjitter.com"",
+  role = c(""aut"", ""cre"", ""cph""))",2024-05-28,2024-05-28,TRUE
+ggfun,2025-07-15,"c(
+       person(""Guangchuang"", ""Yu"",     email = ""guangchuangyu@gmail.com"", role = c(""aut"", ""cre"", ""cph""), comment = c(ORCID = ""0000-0002-6485-8781"")),
+       person(""Shuangbin"", ""Xu"",       email = ""xshuangbin@163.com"",      role = ""aut"", comment = c(ORCID=""0000-0003-3513-5362""))
+       )",2021-07-01,2021-07-01,FALSE
+ggfx,2025-07-24,"
+    c(person(given = ""Thomas Lin"",
+             family = ""Pedersen"",
+             role = c(""aut"", ""cre""),
+             email = ""thomasp85@gmail.com"",
+             comment = c(ORCID = ""0000-0002-5147-4711"")),
+      person(given = ""RStudio"",
+             role = c(""cph"", ""fnd"")))",2021-03-31,2021-03-31,TRUE
+gggap,2020-11-20,"c(
+    person(""Carlos"", ""Morales"", role=c(""aut"", ""cre""), email = ""carlosmorales777@gmail.com""),
+    person(""Jiacheng"", ""Lou"", role = ""aut""),
+    person(""Jing"", ""Zhang"", role = ""aut""),
+    person(""Yizhu"", ""Lvy"", role = ""aut""),
+    person(""Zhi"", ""Jin"", role = ""aut"")
+    )",NA,2020-11-20,FALSE
+gggda,2025-07-19,"c(
+  person(""Jason Cory"", ""Brunson"", email = ""cornelioid@gmail.com"",
+    role = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0003-3126-9494"")),
+  person(""Emily"", ""Paul"", email = ""erpb.71@gmail.com"",
+    role = ""ctb""),
+  person(""John"", ""Gracey"", email = ""jbgracey6@gmail.com"",
+    role = ""aut"")
+  )",2025-07-09,2025-07-09,FALSE
+gggenes,2023-09-05,"c(person(""David"", ""Wilkins"", email = ""david@wilkox.org"",
+                  role = c(""aut"", ""cre"")),
+             person(""Zachary"", ""Kurtz"", email = ""zdkurtz@gmail.com"",
+                  role = c(""ctb"")))",2017-08-24,2017-08-24,TRUE
+gggenomes,2024-08-30,"c(
+  person(""Thomas"", ""Hackl"", email = ""t.hackl@rug.nl"", role = c(""aut"", ""cre"")),
+  person(""Markus J."", ""Ankenbrand"", email = ""iimog@iimog.org"", role = c(""aut"")),
+  person(""Bart"", ""van Adrichem"", role = c(""aut"")),
+  person(""Kristina"", ""Haslinger"", email = ""k.haslinger@rug.nl"", role = c(""ctb"", ""sad"")))",2024-06-28,2024-06-28,TRUE
+ggghost,2025-06-30,"person(""Jonathan"", ""Carroll"", email = ""rpkg@jcarroll.com.au"", role = c(""aut"", ""cre""))",2016-08-07,2016-08-07,FALSE
+gggibbous,2021-01-06,"person(""Michael"", ""Bramson"", email = ""mnbramson@gmail.com"",
+    role = c(""aut"", ""cre""))",2019-12-02,2019-12-02,FALSE
+gggrid,2022-01-11,"c(person(""Paul"", ""Murrell"", email = ""paul@stat.auckland.ac.nz"",
+                    role = c(""aut"", ""cre"")))",2021-11-22,2021-11-22,FALSE
+ggguitar,NA,NA,2016-11-30,2016-11-30,FALSE
+ggh4x,2025-05-30,"
+    person(given = ""Teun"",
+           family = ""van den Brand"",
+           role = c(""aut"", ""cre""),
+           email = ""tahvdbrand@gmail.com"",
+           comment = c(ORCID = ""0000-0002-9335-7468""))",2021-02-11,2021-02-11,TRUE
+gghalfnorm,2017-06-06,"person(""Nathan"", ""Eastwood"", , ""nathan.eastwood@icloud.com"",
+    role = c(""aut"", ""cre""))",2016-12-31,2016-12-31,FALSE
+gghalves,2022-11-20,"person(""Frederik"", ""Tiedemann"", email = ""fj.tiedemann@googlemail.com"", role = c(""aut"", ""cre""))",2019-09-23,2019-09-23,TRUE
+gghdr,NA,NA,2022-02-03,2022-02-03,FALSE
+gghdx,2024-09-23,"
+    person(
+      given = ""Seth"",
+      family = ""Caldwell"", 
+      email = ""caldwellst@gmail.com"",
+      role = c(""aut"", ""cre"", ""cph"")
+    )",2023-08-18,2023-08-18,FALSE
+ggheatmap,2022-09-10,"
+    person(given = ""Baiwei"",
+           family = ""Luo"",
+           role = c(""aut"", ""cre""),
+           email = ""2734782653@qq.com"")",2021-05-26,2021-05-26,TRUE
+gghexsize,2025-05-13,"
+    person(""Harry"", ""Thompson"", , ""harry@mayesfield.uk"", role = c(""cre"", ""aut"", ""cph""))",NA,2025-05-13,FALSE
+gghighlight,2025-06-14,"
+    person(given = ""Hiroaki"",
+           family = ""Yutani"",
+           role = c(""aut"", ""cre""),
+           email = ""yutani.ini@gmail.com"",
+           comment = c(ORCID = ""0000-0002-3385-7233""))",2017-10-05,2017-10-05,FALSE
+gghilbertstrings,2021-04-07,"
+    person(given = ""André"",
+           family = ""Calero Valdez"",
+           role = c(""aut"", ""cre""),
+           email = ""andrecalerovaldez@gmail.com"",
+           comment = c(ORCID = ""0000-0002-6214-1461""))",2021-03-15,2021-03-15,FALSE
+gghist,2023-04-18,"
+    person(""Frederik"", ""Ziebell"", , ""frederik.ziebell@gmail.com"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0003-3673-1721""))",NA,2023-04-18,FALSE
+ggHoriPlot,2022-10-11,"
+    person(given = ""Iker"",
+           family = ""Rivas-González"",
+           role = c(""aut"", ""cre""),
+           email = ""ikerrivas96@gmail.com"",
+           comment = c(ORCID = ""0000-0002-0515-0628""))",2021-09-13,2021-09-13,TRUE
+ggHorizon,NA,NA,2013-11-20,2013-11-20,FALSE
+gghourglass,2025-06-20,"c(person(""Pepijn"", ""de Vries"", role = c(""aut"", ""cre""),
+    email = ""pepijn.devries@outlook.com"",
+    comment = c(ORCID = ""0000-0002-7961-6646"")),
+    person(""Sander"", ""Lagerveld"", role = c(""dtc""),
+    comment = c(ORCID = ""0000-0003-1291-4021"")))",2025-03-25,2025-03-25,FALSE
+ggimage,2023-06-19,"person(""Guangchuang"", ""Yu"",
+                  email = ""guangchuangyu@gmail.com"",
+                  role = c(""aut"", ""cre""),
+                  comment = c(ORCID = ""0000-0002-6485-8781""))",2017-02-21,2017-02-21,FALSE
+ggimg,2022-08-17,"c(person(
+  given = ""Taylor B."",
+  family = ""Arnold"",
+  email = ""tarnold2@richmond.edu"",
+  role = c(""aut"", ""cre"")))",2020-03-20,2020-03-20,TRUE
+gginference,2020-10-31,"c(
+    person(""Charalampos"", ""Bratsas"", , ""cbratsas@math.auth.gr"", role = ""aut""),
+    person(""Anastasia"", ""Foudouli"", , ""anastasiafoudouli@gmail.com"", role = ""aut""),
+    person(""Kleanthis"", ""Koupidis"", , ""koupidis.okfgr@gmail.com"", role = c(""aut"", ""cre""))
+    )",2018-11-19,2018-11-19,FALSE
+gginnards,2024-11-14,"
+    c(
+    person(""Pedro J."", ""Aphalo"", email = ""pedro.aphalo@helsinki.fi"", role = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0003-3385-972X""))    )",2018-07-13,2018-07-13,TRUE
+ggip,2023-04-04,"
+    person(""David"", ""Hall"", , ""david.hall.physics@gmail.com"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0002-2193-0480""))",2020-09-25,2020-09-25,TRUE
+ggiraph,2025-03-28,"c(
+    person(""David"", ""Gohel"", , ""david.gohel@ardata.fr"", role = c(""aut"", ""cre"")),
+    person(""Panagiotis"", ""Skintzos"", , ""sigmapi@posteo.net"", role = ""aut""),
+    person(""Mike"", ""Bostock"", role = ""cph"",
+           comment = ""d3.js""),
+    person(""Speros"", ""Kokenes"", role = ""cph"",
+           comment = ""d3-lasso""),
+    person(""Eric"", ""Shull"", role = ""cph"",
+           comment = ""saveSvgAsPng js library""),
+    person(""Lee"", ""Thomason"", role = ""cph"",
+           comment = ""TinyXML2""),
+    person(""Vladimir"", ""Agafonkin"", role = ""cph"",
+           comment = ""Flatbush""),
+    person(""Eric"", ""Book"", role = ""ctb"",
+           comment = ""hline and vline geoms"")
+  )",2016-01-28,2016-01-28,TRUE
+ggiraphExtra,2020-10-06,"person(""Keon-Woong"", ""Moon"", email = ""cardiomoon@gmail.com"",
+                  role = c(""aut"", ""cre""))",2016-12-03,2016-12-03,FALSE
+ggisotonic,2022-05-24,"person(""Komala Sheshachala"", ""Srikanth"", email = ""sri.teach@gmail.com"", role = c(""aut"", ""cre""))",NA,2022-05-24,FALSE
+ggjoy,NA,NA,2017-07-14,2017-07-14,FALSE
+gglgbtq,2024-06-25,"c(person(""Laura"", ""Bakala"",
+             email = ""erdaradun.gaztea@gmail.com"",
+             role = c(""cre"", ""aut"", ""cph""),
+             comment = c(ORCID = ""0000-0002-3213-2484"")))",2022-08-16,2022-08-16,FALSE
+gglinedensity,2025-05-22,"c(
+    person(""Harry"", ""Thompson"", , ""harry@mayesfield.uk"", role = c(""cre"", ""aut"", ""cph"")),
+    person(""Dominik"", ""Moritz"", , ""domoritz@gmail.com"", role = ""aut"",
+           comment = ""Rust original, <https://github.com/domoritz/line-density-rust>""),
+    person(""The authors of the dependency Rust crates"", role = ""ctb"",
+           comment = ""see inst/AUTHORS file for details""),
+    person(""Hiroaki"", ""Yutani"", , ""yutani.ini@gmail.com"", role = ""ctb"",
+           comment = c(ORCID = ""0000-0002-3385-7233"",
+                       ""Scripts where noted, <https://yutannihilation.github.io/string2path>""))
+  )",2025-05-09,2025-05-09,TRUE
+gglm,2025-04-01,"
+    c(person(given = ""Grayson"",
+             family = ""White"",
+             role = c(""aut"", ""cre""),
+             email = ""graysonwhite13@gmail.com"",
+             comment = c(ORCID = ""0000-0003-4993-2792"")))",2020-10-08,2020-10-08,TRUE
+gglogger,2025-06-19,"
+    person(""Panwen"", ""Wang"", , ""pwwang@pwwang.com"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0002-4614-8970""))",2024-10-25,2024-10-25,FALSE
+gglogo,NA,NA,2016-06-29,2016-06-29,FALSE
+ggloop,NA,NA,2016-10-19,2016-10-19,FALSE
+gglorenz,2020-05-27,"c(
+        person(""JJ"", ""Chen"", email = ""jiajia.chern@gmail.com"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0001-8482-8398"")),
+        person(""Hernando"", ""Cortina"", email = ""hch@alum.mit.edu"", role = c(""aut""),
+           comment = c(ORCID = ""0000-0001-6790-4870""))   
+           )",2018-02-12,2018-02-12,TRUE
+ggmagnify,NA,NA,NA,NA,TRUE
+ggmap,2025-04-07,"c(person(""David"", ""Kahle"", email = ""david@kahle.io"", role = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0002-9999-1558"")),
+  person(""Hadley"", ""Wickham"", email = ""h.wickham@gmail.com"", role = ""aut"", comment = c(ORCID = ""0000-0003-4757-117X"")),
+  person(""Scott"", ""Jackson"", email = ""scottmmjackson@gmail.com"", role = ""aut""),
+  person(""Mikko"", ""Korpela"", email = ""mvkorpel@iki.fi"", role = ""ctb""))",2011-11-30,2011-11-30,FALSE
+ggmapcn,2025-01-14,"
+    person(""Liang"", ""Ren"", email = ""rl23@mails.tsinghua.edu.cn"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0002-2360-7900""))",NA,2025-01-14,FALSE
+ggmapinset,2024-12-18,"
+    c(person(given = ""Carl"",
+             family = ""Suster"",
+             email = ""Carl.Suster@health.nsw.gov.au"",
+             role = c(""aut"", ""cre""),
+             comment = c(ORCID = ""0000-0001-7021-9380"")),
+      person(""Western Sydney Local Health District, NSW Health"",
+             role = ""cph""))",2023-02-21,2023-02-21,TRUE
+ggmatplot,2022-05-17,"c(
+    person(""Xuan"", ""Liang"", 
+            email = ""xuan.liang@anu.edu.au"",
+            comment = c(ORCID = ""0000-0002-0792-3751""),
+            role = c(""aut"", ""cre"")),
+    person(""Francis K. C."", ""Hui"",
+            email = ""fhui28@gmail.com"",
+            comment = c(ORCID = ""0000-0003-0765-3533""),
+            role = c(""aut"")),
+    person(""Emi"", ""Tanaka"",
+            email = ""dr.emi.tanaka@gmail.com"",
+            comment = c(ORCID = ""0000-0002-1455-259X""),
+            role = c(""aut"")),
+    person(""Dilinie"", ""Seimon"",
+            email = ""dilinieseimon@gmail.com"",
+            comment = c(ORCID = ""0000-0003-4431-6077""),
+            role = c(""aut"")))",2021-12-08,2021-12-08,FALSE
+ggmcmc,2021-02-10,"person(""Xavier"", ""Fernández i Marín"", email = ""xavier.fim@gmail.com"", role = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0002-9522-8870""))",2012-09-05,2012-09-05,FALSE
+ggmice,2025-07-30,"c(
+    person(""Hanne"", ""Oberman"", email = ""h.i.oberman@uu.nl"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0003-3276-2141"")),
+    person(""Utrecht University"", role = ""fnd""), 
+    person(""University Medical Centre Utrecht"", role = ""fnd""),
+    person(""Thom"", ""Volker"", role = ""ctb"", comment = c(ORCID = ""0000-0002-2408-7820"")),
+    person(""Gerko"", ""Vink"", role = ""ctb"", comment = c(ORCID = ""0000-0001-9767-1924"")),
+    person(""Pepijn"", ""Vink"", role = ""ctb"", comment = c(ORCID = ""0000-0001-6960-9904"")),
+    person(""Jamie"", ""Wallis"", role = ""ctb"", comment = c(ORCID = ""0000-0003-2765-3813"")),
+    person(""Kyle"", ""Lang"", role = ""ctb"", comment = c(ORCID = ""0000-0001-5340-7849""))
+    )",2022-03-17,2022-03-17,FALSE
+GGMM,NA,NA,2018-05-09,2018-05-09,FALSE
+GGMncv,NA,NA,2020-07-06,2020-07-06,FALSE
+GGMnonreg,NA,NA,2021-04-08,2021-04-08,FALSE
+ggmosaic,2021-02-23,"
+    c(person(given = ""Haley"",
+             family = ""Jeppson"",
+             role = c(""aut"", ""cre""),
+             email = ""hjeppson@iastate.edu""),
+      person(given = ""Heike"",
+             family = ""Hofmann"",
+             role = ""aut"",
+             email = ""hofmann@iastate.edu""),
+      person(given = ""Di"",
+             family = ""Cook"",
+             role = ""aut"",
+             email = ""dicook@monash.edu""),
+      person(given = ""Hadley"",
+             family = ""Wickham"",
+             role = ""ctb"",
+             email = ""hadley@rstudio.com""))",2016-12-30,2016-12-30,TRUE
+ggmotif,NA,NA,2021-09-20,2021-09-20,FALSE
+ggmRSCU,2025-06-24,"c(
+    person(""Xunhuan"", ""Ding"", email = ""xunhuanding@163.com"",      role = c(""aut"", ""cre"", ""cph"")),
+    person(""Mingru"", ""Fu"",  role = ""ctb""),
+    person(""Guojun"", ""Xing"",  email = ""2977636410@qq.com"",        role = ""ctb""),
+    person(""Xinxin"", ""Ding"",                                      role = ""ctb""),
+    person(""Xiaoli"", ""Liu"",   email = ""liuxiaoli0365@sina.com"",   role = c(""aut"", ""ths"")),
+    person(""Tao"", ""Sun"",      email = ""sunt231@126.com"",          role = c(""aut"", ""ths""))
+    )",NA,2025-06-24,FALSE
+ggmsa,NA,NA,2019-10-07,2019-10-07,FALSE
+ggmugs,2024-05-07,"
+    person(""Wanjun"", ""Gu"", , ""wanjun.gu@ucsf.edu"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0002-7342-7000""))",NA,2024-05-07,FALSE
+ggmuller,2023-02-12,"person(""Robert"", ""Noble"", email = ""robjohnnoble@gmail.com"", role = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0002-8057-4252""))",2017-09-01,2017-09-01,TRUE
+ggmulti,2024-04-09,"c(
+  person('Zehao', 'Xu', email = 'z267xu@gmail.com', role = c(""aut"", ""cre"")),
+  person('R. Wayne', 'Oldford', email = 'rwoldford@uwaterloo.ca', role = c(""aut""))
+  )",2021-01-05,2021-01-05,FALSE
+ggnetwork,2024-02-14,"c(
+  person(""François"", ""Briatte"", email = ""f.briatte@gmail.com"", role = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0001-6494-9774"")),
+  person(""Michał"", ""Bojanowski"", role = ""ctb"", comment = c(ORCID = ""0000-0001-7503-852X"")),
+  person(""Mickaël"", ""Canouil"", role = ""ctb"", comment = c(ORCID = ""0000-0002-3396-4549"")),
+  person(""Zachary"", ""Charlop-Powers"", role = ""ctb"", comment = c(ORCID = ""0000-0001-8816-4680"")),
+  person(""Jacob C."", ""Fisher"", role = ""ctb"", comment = c(ORCID = ""0000-0003-0299-0346"")),
+  person(""Kipp"", ""Johnson"", role = ""ctb"", comment = c(ORCID = ""0000-0002-5102-741X"")),
+  person(""Tyler"", ""Rinker"", role = ""ctb"")
+  )",2016-03-25,2016-03-25,TRUE
+ggnewscale,2025-06-20,"
+    person(given = ""Elio"",
+           family = ""Campitelli"",
+           role = c(""cre"", ""aut""),
+           email = ""eliocampitelli@gmail.com"",
+           comment = c(ORCID = ""0000-0002-7742-9230""))",2019-03-17,2019-03-17,TRUE
+ggnormalviolin,2025-03-29,"
+    person(""W. Joel"", ""Schneider"", , ""w.joel.schneider@gmail.com"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0002-8393-5316""))",2018-11-30,2018-11-30,FALSE
+ggnuplot,2020-06-04,"c(
+    person(""Hannes"", ""Riebl"", , ""hriebl@uni-goettingen.de"", c(""aut"", ""cre""))
+    )",NA,2020-06-04,FALSE
+ggOceanMaps,2024-01-15,"c(person(""Mikko"", ""Vihtakari"", email = ""mikko.vihtakari@hi.no"",
+                  role = c(""aut"", ""cre""), 
+                  comment = c(affiliation = ""Institute of Marine Research"", 
+                  ORCID = ""0000-0003-0371-4319"")),
+             person(""Roger"", ""Bivand"", role = ""ctb""),
+             person(""Hadley"", ""Wickham"", role = ""ctb"")
+            )",2021-01-14,2021-01-14,FALSE
+ggokabeito,2021-10-18,"
+    person(""Malcolm"", ""Barrett"", , ""malcolmbarrett@gmail.com"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0003-0299-5825""))",NA,2021-10-18,FALSE
+ggordiplots,2024-01-14,"c(person(""John"", ""Quensen"", email = ""quensenj@msu.edu"", role = c(""aut"", ""cre"", ""cph""), comment = c(ORCID = ""0000-0002-7669-1595"")),
+           person(""Gavin"", ""Simpson"", role = ""aut""),
+           person(""Jari"", ""Oksanen"", role = ""aut""))",2023-08-16,2023-08-16,FALSE
+GGoutlieR,2023-10-15,"
+  c(person(given = ""Che-Wei"",
+           family = ""Chang"",
+           role = c(""aut"", ""cre""),
+           email = ""cheweichang92@gmail.com"",
+           comment = c(ORCID = ""0000-0001-6704-3732"")),
+    person(given = ""Karl"",
+           family = ""Schmid"",
+           role = c(""ths""),
+           email = ""karl.schmid@uni-hohenheim.de"",
+           comment = c(ORCID = ""0000-0001-5129-895X""),
+           ))",2023-06-09,2023-06-09,FALSE
+ggoutlierscatterplot,NA,NA,NA,NA,TRUE
+ggpackets,2025-07-05,"
+    person(""Doug"", ""Kelkhoff"",
+        email = ""doug.kelkhoff@gmail.com"",
+        role = c(""aut"", ""cre""))",2022-07-14,2022-07-14,FALSE
+ggpacman,NA,NA,2020-05-16,2020-05-16,FALSE
+ggpage,2019-06-13,"
+    person(given = ""Emil"",
+           family = ""Hvitfeldt"",
+           role = c(""aut"", ""cre""),
+           email = ""emilhhvitfeldt@gmail.com"")",2018-07-27,2018-07-27,TRUE
+ggparallel,2024-03-09,"c(
+      person(""Heike"", ""Hofmann"", , ""hofmann@mail.iastate.edu"",c(""aut"", ""cre""),
+             comment = c(ORCID = ""0000-0001-6216-5183"")),
+      person(""Marie"",""Vendettuoli"", role=""aut"")
+      )",2012-08-18,2012-08-18,FALSE
+ggparliament,NA,NA,2018-09-30,2018-09-30,FALSE
+ggparty,2025-07-10,"c(
+  person(""Martin"", ""Borkovec"", role = c(""aut"", ""cre""), email = ""martin.borkovec@skyforge.at""), 
+  person(""Niyaz"", ""Madin"", role = c(""aut""), email = ""niyaz.madin@gmail.com""),
+  person(""Hadley"", ""Wickham"", role = ""ctb""),
+  person(""Winston"", ""Chang"", role = ""ctb""),
+  person(""Lionel"", ""Henry"", role = ""ctb""),
+  person(""Thomas Lin"", ""Pedersen"", role = ""ctb""),
+  person(""Kohske"", ""Takahashi"", role = ""ctb""),
+  person(""Claus"", ""Wilke"", role = ""ctb""),
+  person(""Kara"", ""Woo"", role = ""ctb""),
+  person(""Hiroaki"", ""Yutani"", role = ""ctb"")
+  )",2019-07-18,2019-07-18,TRUE
+ggpath,2024-08-20,"
+    person(""Sebastian"", ""Carl"", , ""mrcaseb@gmail.com"", role = c(""aut"", ""cre"", ""cph""))",2022-09-06,2022-09-06,TRUE
+ggpattern,2025-01-29,"c(person(""Mike"", ""FC"", role = ""aut""),
+             person(""Trevor L."", ""Davis"", role = c(""aut"", ""cre""),
+                    email = ""trevor.l.davis@gmail.com"",
+                    comment = c(ORCID = ""0000-0001-6341-4639"")),
+             person(""ggplot2 authors"", role = ""aut""))",2022-02-22,2022-02-22,TRUE
+ggpca,2025-02-04,"person('Yaoxiang', 'Li', email = 'liyaoxiang@outlook.com', role = c('cre', 'aut'))",2024-10-28,2024-10-28,TRUE
+ggpcp,2022-11-28,"c(
+    person(""Heike"", ""Hofmann"", , ""hofmann@iastate.edu"",
+      role = c(""aut"",""cre""), comment = c(ORCID = ""0000-0001-6216-5183"")),
+    person(""Susan"", ""VanderPlas"", , ""susan.vanderplas@unl.edu"", c(""aut""),
+      comment = c(ORCID = ""0000-0002-3803-0972"")),
+    person(""Yawei"", ""Ge"", , ""yaweige@iastate.edu"", c(""aut""))
+    )",NA,2022-11-28,TRUE
+ggpedigree,2025-07-04,"c(
+    person(""S. Mason"", ""Garrison"", email= ""garrissm@wfu.edu"", role = c(""aut"", ""cre"", ""cph""),
+           comment = c(ORCID = ""0000-0002-4804-6003""))
+  )",2025-05-23,2025-05-23,FALSE
+ggperiodic,2023-03-22,"person(""Elio"", ""Campitelli"", email = ""elio.campitelli@cima.fcen.uba.ar"", 
+                  role = c(""cre"", ""aut""), comment = c(ORCID = ""https://orcid.org/0000-0002-7742-9230""))",2018-08-31,2018-08-31,TRUE
+ggpicrust2,2025-07-16,"c(
+    person(""Chen"", ""Yang"", email = ""cafferychen7850@gmail.com"", role = c(""aut"", ""cre"")),
+    person(""Liangliang"", ""Zhang"", email = ""lxz716@case.edu "", role = ""aut""))",2023-03-24,2023-03-24,FALSE
+ggpie,2022-11-16,"
+    person(given = ""Yabing"",
+           family = ""Song"",
+           role = c(""aut"", ""cre""),
+           email = ""songyb0519@gmail.com"")",2022-06-09,2022-06-09,TRUE
+ggpirate,NA,NA,NA,NA,TRUE
+ggplate,2024-10-01,"person(given = ""Jan-Philipp"",
+           family = ""Quast"",
+           role = c(""aut"", ""cre""),
+           email = ""quast@imsb.biol.ethz.ch"",
+           comment = c(ORCID = ""0000-0003-2713-778X""))",2023-01-20,2023-01-20,FALSE
+ggplayfair,2025-07-28,"
+    person(
+      given = ""Derek"", 
+      family = ""Stevens"", 
+      email = ""derekburgandy@gmail.com"", 
+      role = c(""aut"", ""cre"")
+    )",NA,2025-07-28,FALSE
+ggplot,NA,NA,2006-04-06,2006-04-06,FALSE
+ggplot.multistats,2024-09-25,"
+    person(given = ""Philipp"",
+           family = ""Angerer"",
+           role = c(""aut"", ""cre""),
+           email = ""phil.angerer@gmail.com"",
+           comment = c(ORCID = ""0000-0002-0369-2888""))",2019-10-28,2019-10-28,FALSE
+ggplot2,2025-04-09,"c(
+    person(""Hadley"", ""Wickham"", , ""hadley@posit.co"", role = ""aut"",
+           comment = c(ORCID = ""0000-0003-4757-117X"")),
+    person(""Winston"", ""Chang"", role = ""aut"",
+           comment = c(ORCID = ""0000-0002-1576-2126"")),
+    person(""Lionel"", ""Henry"", role = ""aut""),
+    person(""Thomas Lin"", ""Pedersen"", , ""thomas.pedersen@posit.co"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0002-5147-4711"")),
+    person(""Kohske"", ""Takahashi"", role = ""aut""),
+    person(""Claus"", ""Wilke"", role = ""aut"",
+           comment = c(ORCID = ""0000-0002-7470-9261"")),
+    person(""Kara"", ""Woo"", role = ""aut"",
+           comment = c(ORCID = ""0000-0002-5125-4188"")),
+    person(""Hiroaki"", ""Yutani"", role = ""aut"",
+           comment = c(ORCID = ""0000-0002-3385-7233"")),
+    person(""Dewey"", ""Dunnington"", role = ""aut"",
+           comment = c(ORCID = ""0000-0002-9415-4582"")),
+    person(""Teun"", ""van den Brand"", role = ""aut"",
+           comment = c(ORCID = ""0000-0002-9335-7468"")),
+    person(""Posit, PBC"", role = c(""cph"", ""fnd""))
+  )",2007-06-01,2007-06-01,FALSE
+ggplot2.utils,2025-07-09,"c(
+    person(""Daniel"", ""Sabanés Bové"", , ""daniel.sabanes_bove@rconis.com"", role = c(""aut"", ""cre"")),
+    person(""Samer"", ""Mouksassi"", role = ""aut"",
+           comment = ""wrote original Kaplan-Meier code""),
+    person(""Michael"", ""Sachs"", role = ""aut"",
+           comment = ""wrote original Kaplan-Meier code""),
+    person(""F. Hoffmann-La Roche AG"", role = c(""cph"", ""fnd""))
+  )",2023-05-09,2023-05-09,FALSE
+ggplot2movies,2015-08-25,"c(
+    person(""Hadley"", ""Wickham"", , ""hadley@rstudio.com"", role = c(""aut"", ""cre"")),
+    person(""RStudio"", role = ""cph"")
+  )",NA,2015-08-25,FALSE
+ggplotAssist,2017-11-12,"person(""Keon-Woong"", ""Moon"", email = ""cardiomoon@gmail.com"",
+    role = c(""aut"", ""cre""))",2017-10-24,2017-10-24,FALSE
+ggplotgui,2017-07-08,"person(""Gert"", ""Stulp"", email = ""g.stulp@rug.nl"", role = c(""aut"", ""cre""))",NA,2017-07-08,FALSE
+ggplotify,2023-08-09,"c(person(""Guangchuang"", ""Yu"", email = ""guangchuangyu@gmail.com"", role = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0002-6485-8781"")))",2018-04-24,2018-04-24,FALSE
+ggplotlyExtra,NA,NA,2019-12-02,2019-12-02,FALSE
+ggpmisc,2025-07-08,"
+    c(
+    person(""Pedro J."", ""Aphalo"", email = ""pedro.aphalo@helsinki.fi"", role = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0003-3385-972X"")),
+    person(""Kamil"", ""Slowikowski"", role = ""ctb"", comment = c(ORCID = ""0000-0002-2843-6370"")),
+    person(""Samer"", ""Mouksassi"", email = ""samermouksassi@gmail.com"", role = ""ctb"", comment = c(ORCID = ""0000-0002-7152-6654""))
+    )",2016-01-29,2016-01-29,TRUE
+ggPMX,2025-07-16,"c(
+              person(""Amine"", ""Gassem"", email=""contact@ag-study.com"", role=c(""aut"")),
+              person(""Bruno"", ""Bieth"", email=""biethb@hotmail.com"", role=""aut""),
+              person(""Irina"", ""Baltcheva"", email=""irina.baltcheva@gmail.com"", role=""aut""),
+              person(""Thomas"", ""Dumortier"", email="" thomas.dumortier@novartis.com"", role=""aut""),
+              person(""Christian"", ""Bartels"", email=""christian.bartels@novartis.com"", role=""aut""),
+              person(""Souvik"", ""Bhattacharya"", email=""souvik.bhattacharya@novartis.com"", role=""aut""),
+              person(""Inga"", ""Ludwig"", email=""inga.ludwig@novartis.com"", role=""aut""),
+              person(""Ines"", ""Paule"", email=""ines.paule@novartis.com"", role=""aut""),
+              person(""Didier"", ""Renard"", email=""didier.renard@novartis.com"", role=""aut""),
+	      person(""Matthew"",""Fidler"", role = c(""aut""), email = ""matt.fidler@novartis.com"", comment=c(ORCID=""0000-0001-8538-6691"")),
+	      person(""Seid"", ""Hamzic"", email = ""se.hamzic@gmail.com"",role =""aut""),
+              person(""Benjamin"", ""Guiastrennec"", email = ""guiastrennec@gmail.com"",role =""ctb""),
+              person(""Kyle T"", ""Baron"", email = ""kyleb@metrumrg.com"",role =""ctb"", comment = c(ORCID = ""0000-0001-7252-5656"")),
+              person(""Qing Xi"", ""Ooi"", email=""ooi.qingxi@gmail.com"", role=""ctb""),
+              person(""Aleksandr"",""Pogodaev"", role = c(""aut"", ""cre""), email = ""alex.pogodaev@novartis.com"", comment=c(ORCID=""0000-0002-1371-207X"")),
+              person(""Danielle"", ""Navarro"", role = c(""aut""), email = ""djnavarro@protonmail.com""),
+              person(""Ibtissem"", ""Rebai"", email=""ibtissem.rebai@certara.com"", role=""ctb""),
+              person(""Mahmoud"", ""Ali"", email=""mahmoud.ali@certara.com"", role=""ctb""),
+              person(""Novartis Pharma AG"", role = c(""cph""))
+            )",2019-05-16,2019-05-16,FALSE
+ggpointdensity,2025-05-16,"c(person(""Lukas P. M."", ""Kremer"", email = ""L-Kremer@web.de"", role = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0003-3170-6295"")),
+    person(""Simon"", ""Anders"", role = ""ctb"", comment = c(ORCID = ""0000-0003-4868-1805"")))",2019-08-28,2019-08-28,TRUE
+ggpointless,2024-02-09,"
+    person(
+     given = ""Markus"",
+     family = ""Döring"",
+     email = ""m4rkus.doering@gmail.com"",
+     role = c(""aut"", ""cre"", ""cph""))",2022-03-08,2022-03-08,FALSE
+ggpol,2020-11-08,"person(""Frederik"", ""Tiedemann"", email = ""fj.tiedemann@googlemail.com"", role = c(""aut"", ""cre""))",2018-04-26,2018-04-26,TRUE
+ggpolar,2022-10-10,"
+    person(""Shixiang"", ""Wang"", , ""w_shixiang@163.com"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0001-9855-7357""))",2021-11-10,2021-11-10,FALSE
+ggpolypath,2025-07-24,"c(person(""Michael D."",""Sumner"",
+    role = c(""aut"", ""cre""), email = ""mdsumner@gmail.com""),
+    person(given = ""Kohske"", family = ""Takahashi"",
+       email = ""takahashi.kohske@gmail.com"",
+       role = ""ctb"", comment = ""original author of 'geom_holygon'""))",2016-08-10,2016-08-10,FALSE
+ggpp,2025-06-28,"
+    c(
+    person(""Pedro J."", ""Aphalo"", email = ""pedro.aphalo@helsinki.fi"", role = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0003-3385-972X"")),
+    person(""Kamil"", ""Slowikowski"", role = ""ctb"", comment = c(ORCID = ""0000-0002-2843-6370"")),
+    person(""Michał"", ""Krassowski"", role = ""ctb"", comment = c(ORCID = ""0000-0002-9638-7785"")),
+    person(""Daniel"", ""Sabanés Bové"", role = ""ctb""),
+    person(""Stella"", ""Banjo"", role = ""ctb"")
+    )",2021-05-28,2021-05-28,TRUE
+ggprism,2025-05-17,"
+    person(given = ""Charlotte"",
+           family = ""Dawson"",
+           role = c(""aut"", ""cre""),
+           email = ""csdaw@outlook.com"",
+           comment = c(ORCID = ""0000-0002-7151-5971""))",2021-02-12,2021-02-12,FALSE
+ggpubr,2025-06-27,"c(
+    person(""Alboukadel"", ""Kassambara"", role = c(""aut"", ""cre""), email = ""alboukadel.kassambara@gmail.com""))",2016-07-20,2016-07-20,TRUE
+ggpval,2022-07-11,"person(""Jun"", ""Cheng"", email = ""s6juncheng@gmail.com"", role = c(""aut"", ""cre""))",2017-06-12,2017-06-12,FALSE
+ggQC,NA,NA,2017-03-29,2017-03-29,TRUE
+ggQQunif,2018-03-14,"person(""Robert"", ""Corty"", email = ""rcorty@gmail.com"", role = c(""aut"", ""cre""))",NA,2018-03-14,TRUE
+ggquickeda,2024-01-15,"c(
+    person(""Samer"", ""Mouksassi"", email = ""samermouksassi@gmail.com"",
+      role = c(""aut"", ""cre""),comment = c(ORCID = ""https://orcid.org/0000-0002-7152-6654"")),
+    person(""Dean"", ""Attali"", email = ""daattali@gmail.com"",
+      role = c(""aut"")),
+    person(""James"", ""Craig"", email = ""james.craig@certara.com"",
+      role = c(""aut""), comment = ""implemented bookmarking and created pkgdown website""),
+    person(""Benjamin"", ""Rich"", email = ""mail@benjaminrich.net"",
+      role = c(""aut""), comment = ""provided summary stats tables table1 tab code""), 
+    person(""Michael"", ""Sachs"", email = ""sachsmc@gmail.com"",
+      role = c(""aut""), comment = ""provided ggkm initial code"")
+    )",2018-04-25,2018-04-25,FALSE
+ggquiver,2023-11-17,"person(""Mitchell"", ""O'Hara-Wild"", email = ""mail@mitchelloharawild.com"", role = c(""aut"", ""cre""))",2017-08-15,2017-08-15,TRUE
+ggradar,NA,NA,NA,NA,TRUE
+ggragged,2024-10-09,"
+    person(""Mikko"", ""Marttila"", , ""mikkmart@protonmail.com"", role = c(""aut"", ""cre"", ""cph""))",2023-04-20,2023-04-20,TRUE
+ggrain,2024-01-23,"c(
+    person(""Nicholas"", ""Judd"", , ""nickkjudd@gmail.com"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0002-0196-9871"")),
+    person(""Jordy"", ""van Langen"", , ""jordyvanlangen@gmail.com"", role = c(""aut""),
+           comment = c(ORCID = ""0000-0003-2504-2381"")),
+    person(""Micah"", ""Allen"", , """", role = c(""ctb""),
+           comment = c(ORCID = ""0000-0001-9399-4179"")),
+    person(""Rogier"", ""Kievit"", , """", role = c(""aut""),
+           comment = c(ORCID = ""0000-0003-0700-4568"")))",2023-02-14,2023-02-14,TRUE
+ggRandomForests,NA,NA,2014-10-15,2014-10-15,FALSE
+ggraph,2024-03-07,"
+    c(person(given = ""Thomas Lin"",
+             family = ""Pedersen"",
+             role = c(""cre"", ""aut""),
+             email = ""thomasp85@gmail.com"",
+             comment = c(ORCID = ""0000-0002-5147-4711"")),
+      person(given = ""RStudio"",
+             role = ""cph""))",2017-02-24,2017-02-24,TRUE
+ggraptR,2020-06-24,"
+    c(person(""Eugene"", ""Dubossarsky"", role=c(""aut"", ""cph"", ""cre""),
+             email=""eugene@presciient.com""),
+	     person(""Julius"", ""Neggo"", role=""ctb"", comment=""Lead Developer""),
+	     person(""Howard"", ""Song"", role=""aut"", comment=""Developer""),
+	     person(""Susan"", ""Wang"", role=""ctb"", comment=""Project Manager""),
+	     person(""Jason"", ""Widjaja"", role=""ctb"", comment=""Vignette""),
+	     person(""Jose"", ""Magana"", role=""ctb"", comment=""Package Manager and Developer""),
+	     person(""Sergey"", ""Skripko"", role=""ctb"", comment=""Developer""))",2016-03-04,2016-03-04,FALSE
+ggrasp,2022-04-21,"person(""Thomas"", ""Clarke"", email = ""tclarke@jcvi.org"", role = c(""aut"", ""cre""))",2018-07-01,2018-07-01,FALSE
+ggrastr,2023-06-01,"c(person(""Viktor"", ""Petukhov"", email = ""viktor.s.petukhov@ya.ru"", role = c(""aut"", ""cph"")), person(""Teun"", ""van den Brand"", email = ""t.vd.brand@nki.nl"", role=c(""aut"")), person(""Evan"", ""Biederstedt"", email = ""evan.biederstedt@gmail.com"", role=c(""cre"", ""aut"")))",2020-06-17,2020-06-17,TRUE
+ggrcs,2025-02-12,"person(""Qiang"", ""LIU"", email = ""dege857@163.com"",
+                  role = c(""aut"", ""cre""))",2022-08-23,2022-08-23,FALSE
+ggredist,2022-11-23,"c(
+    person(""Cory"", ""McCartan"", email = ""cmccartan@g.harvard.edu"", role = ""aut""),
+    person(""Christopher T."", ""Kenny"", email = ""christopherkenny@fas.harvard.edu"", 
+    role = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0002-9386-6860"")))",NA,2022-11-23,FALSE
+ggrepel,2024-09-07,"c(
+    person(""Kamil"", ""Slowikowski"", email = ""kslowikowski@gmail.com"", role = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0002-2843-6370"")),
+    person(""Alicia"", ""Schep"", role = ""ctb"", comment = c(ORCID = ""0000-0002-3915-0618"")),
+    person(""Sean"", ""Hughes"", role = ""ctb"", comment = c(ORCID = ""0000-0002-9409-9405"")),
+    person(""Trung Kien"", ""Dang"", role = ""ctb"", comment = c(ORCID = ""0000-0001-7562-6495"")),
+    person(""Saulius"", ""Lukauskas"", role = ""ctb""),
+    person(""Jean-Olivier"", ""Irisson"", role = ""ctb"", comment = c(ORCID = ""0000-0003-4920-3880"")),
+    person(""Zhian N"", ""Kamvar"", role = ""ctb"", comment = c(ORCID = ""0000-0003-1458-7108"")),
+    person(""Thompson"", ""Ryan"", role = ""ctb"", comment = c(ORCID = ""0000-0002-0450-8181"")),
+    person(""Dervieux"", ""Christophe"", role = ""ctb"", comment = c(ORCID = ""0000-0003-4474-2498"")),
+    person(""Yutani"", ""Hiroaki"", role = ""ctb""),
+    person(""Pierre"", ""Gramme"", role = ""ctb""),
+    person(""Amir Masoud"", ""Abdol"", role = ""ctb""),
+    person(""Malcolm"", ""Barrett"", role = ""ctb"", comment = c(ORCID = ""0000-0003-0299-5825"")),
+    person(""Robrecht"", ""Cannoodt"", role = ""ctb"", comment = c(ORCID = ""0000-0003-3641-729X"")),
+    person(""Michał"", ""Krassowski"", role = ""ctb"", comment = c(ORCID = ""0000-0002-9638-7785"")),
+    person(""Michael"", ""Chirico"", role = ""ctb"", comment = c(ORCID = ""0000-0003-0787-087X"")),
+    person(""Pedro"", ""Aphalo"", role = ""ctb"", comment = c(ORCID = ""0000-0003-3385-972X"")),
+    person(""Francis"", ""Barton"", role = ""ctb"")
+    )",2016-01-09,2016-01-09,TRUE
+ggResidpanel,2019-05-31,"c(person(""Katherine"", ""Goode"", email = ""kgoode@iastate.edu"", role = c(""aut"", ""cre"")),
+    person(""Kathleen"", ""Rey"", email = ""kprey@iastate.edu"", role = c(""aut"")))",NA,2019-05-31,FALSE
+ggreveal,2024-11-10,"
+    person(""Weverthon"", ""Machado"", , ""weverthonmachado@gmail.com"", role = c(""aut"", ""cre"", ""cph""),
+           comment = c(ORCID = ""0000-0001-9919-4738""))",2024-08-30,2024-08-30,TRUE
+ggridges,2024-01-23,"
+    person(
+      given = ""Claus O."",
+      family = ""Wilke"",
+      role = c(""aut"", ""cre""),
+      email = ""wilke@austin.utexas.edu"",
+      comment = c(ORCID = ""0000-0002-7470-9261"")
+    )",2017-09-14,2017-09-14,TRUE
+ggrisk,2021-08-09,"
+    c(
+    person(""Jing"",""Zhang"",role = c(""aut"", ""cre""),
+            email = ""zj391120@163.com""),
+    person(""Zhi"", ""Jin"", role=""aut"")
+    )",2020-02-09,2020-02-09,FALSE
+ggROC,NA,NA,2013-05-26,2013-05-26,FALSE
+ggrounded,2023-05-11,"
+    person(""Botan"", ""Ağın"", , ""aginbotan@gmail.com"", role = c(""aut"", ""cre"", ""cph""))",2023-05-08,2023-05-08,FALSE
+ggRtsy,2023-09-15,"c(
+  person(""Katelyn"", ""Diaz"", email = ""katndiaz@gmail.com"", role = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0001-6108-1682"")),
+  person(""Silas"", ""Weden"", email = ""sweden@smith.edu"", role = ""aut""),
+  person(""Tess"", ""Goldmann"", email = ""tgoldmann@smith.edu"", role = ""aut""),
+  person(""Aushanae"", ""Haller"", email = ""aushanaenhaller@gmail.com"", role = ""edt"", comment = c(ORCID = ""0000-0002-2090-1952"")),
+  person(""Kathleen"", ""Hablutzel"", email = ""krhablutzel@gmail.com"", role = ""edt"", comment = c(ORCID = ""0000-0002-7802-6353""))
+    )",NA,2023-09-15,FALSE
+ggsankeyfier,2024-04-08,"c(person(""Pepijn"", ""de Vries"", role = c(""aut"", ""cre"", ""dtc""),
+    email = ""pepijn.devries@outlook.com"",
+    comment = c(ORCID = ""0000-0002-7961-6646"")),
+    person(""Gerjan"", ""Piet"", role = c(""dtc""),
+    comment = c(ORCID = ""0000-0003-0702-1624"")),
+    person(""Ruud"", ""Jongbloed"", role = c(""dtc""),
+    comment = c(ORCID = ""0000-0002-9378-5382"")),
+    person(""Anne"", ""Grundlehner"", role = c(""dtc""),
+    comment = c(ORCID = ""0000-0003-3375-3511"")),
+    person(""Jacqueline"", ""Tamis"", role = c(""dtc""),
+    comment = c(ORCID = ""0000-0002-8206-5830"")))",2024-03-01,2024-03-01,TRUE
+ggScatRidges,2025-05-13,"person(given = ""Matthieu"", family = ""Bourgery"",
+                    role = c(""aut"", ""cre""),
+                    email = ""matthieu.bourgery@gmail.com"",
+                    comment = c(ORCID = ""0000-0001-9156-2807""))",2023-11-20,2023-11-20,FALSE
+ggsci,2024-06-18,"c(
+    person(""Nan"", ""Xiao"", email = ""me@nanx.me"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0002-0250-5673"")),
+    person(""Joshua"", ""Cook"", email = ""joshuacook0023@gmail.com"", role = ""ctb""),
+    person(""Clara"", ""Jégousse"", email = ""cat3@hi.is"", role = ""ctb""),
+    person(""Hui"", ""Chen"", email = ""huichen@zju.edu.cn"", role = ""ctb""),
+    person(""Miaozhu"", ""Li"", email = ""miaozhu.li@duke.edu"", role = ""ctb"")
+    )",2016-04-04,2016-04-04,TRUE
+ggscidca,2024-05-20,"person(""Qiang"", ""Liu"", email = ""dege857@163.com"",
+                  role = c(""aut"", ""cre""))",2024-03-04,2024-03-04,FALSE
+ggseas,NA,NA,2016-02-18,2016-02-18,TRUE
+ggsector,2024-10-31,"
+    person(given = ""Pengdong"",
+           family = ""Yan"",
+           role = c(""aut"", ""cre"", ""cph""),
+           email = ""yanpd01@gmail.com"",
+           comment = c(ORCID = ""0000-0002-2425-7930""))",2022-11-28,2022-11-28,TRUE
+ggseg,2022-06-13,"c(
+    person(""Athanasia Mo"", ""Mowinckel"", 
+            email = ""a.m.mowinckel@psykologi.uio.no"", 
+            role = c(""aut"", ""cre""),
+            comment = c(ORCID = ""0000-0002-5756-0223"")),
+    person(""Didac"", ""Vidal-Piñeiro"", 
+            email = ""d.v.pineiro@psykologi.uio.no"", 
+            role = c(""aut""),
+        comment = c(ORCID = ""0000-0001-9997-9156""))
+        )",2021-05-19,2021-05-19,TRUE
+ggsegmentedtotalbar,2025-04-28,"person(given = ""Ozancan"",
+                  family = ""Ozdemir"",
+                  role = c(""aut"", ""cre""),
+                  email = ""ozancanozdemir@gmail.com"")",NA,2025-04-28,FALSE
+ggsem,2025-02-02,"person(
+      given = ""Seung Hyun"",
+      family = ""Min"",
+      role = c(""aut"", ""cre""),
+      email = ""seung.min@mail.mcgill.ca""
+    )",2024-11-05,2024-11-05,FALSE
+ggseqlogo,2024-02-09,NA,2017-06-13,2017-06-13,TRUE
+ggseqplot,2025-06-30,"
+  person(""Marcel"", ""Raab"", , ""marcel.raab@gmail.com"", role = c(""aut"", ""cre""),
+         comment = c(ORCID = ""0000-0002-3097-1591""))",2022-07-04,2022-07-04,TRUE
+ggshadow,2022-11-20,"person(""Marc"", ""Menem"", email = ""marc.menem@m4x.org"", role = c(""aut"", ""cre""))",2021-01-22,2021-01-22,TRUE
+ggside,2024-03-01,"
+    person(given = ""Justin"",
+           family = ""Landis"",
+           role = c(""aut"", ""cre""),
+           email = ""jtlandis314@gmail.com"",
+           comment = c(ORCID = ""0000-0001-5501-4934""))",2021-03-01,2021-03-01,TRUE
+ggsignif,2022-10-13,"
+  c(
+    person(given = ""Constantin"",
+           family = ""Ahlmann-Eltze"",
+           role = c(""aut"", ""cre"", ""ctb""),
+           email = ""artjom31415@googlemail.com"",
+           comment = c(ORCID = ""0000-0002-3762-068X"", Twitter = ""@const_ae"")),
+    person(given = ""Indrajeet"",
+           family = ""Patil"",
+           role = c(""aut"", ""ctb""),
+           email = ""patilindrajeet.science@gmail.com"",
+           comment = c(ORCID = ""0000-0003-1995-6531"", Twitter = ""@patilindrajeets""))
+  )",2017-04-05,2017-04-05,TRUE
+ggsmc,NA,NA,2024-07-27,2024-07-27,FALSE
+ggsn,NA,NA,2015-08-22,2015-08-22,FALSE
+ggsoccer,2024-10-06,"person(""Ben"", ""Torvaney"", email = ""torvaney@protonmail.com"", role = c(""aut"", ""cre""))",2019-05-14,2019-05-14,FALSE
+ggsolvencyii,2019-01-04,"person(""Marco"", ""van Zanden"", email = ""git@vanzanden.nl"", role = c(""aut"", ""cre""))",2018-10-28,2018-10-28,FALSE
+ggsom,2020-01-15,"c(person(""Felipe"",""Carvalho"", role=c(""aut"",""cre""), email=""lipecaso@gmail.com""),
+  person(""Rafael"", ""Santos"", role=""ctb"", email=""rafael.santos@inpe.br""),
+  person(""Karine"", ""Reis"", role=""ctb"", email=""karine.ferreira@inpe.br""))",2018-07-28,2018-07-28,TRUE
+ggspark,2024-05-13,"c(person(""Marc"", ""Bosch Matas"", role = c(""aut"", ""cre"",""cph""),email = ""mboschmatas@gmail.com""))",NA,2024-05-13,FALSE
+ggspatial,2023-08-17,"c(
+    person(""Dewey"", ""Dunnington"",
+           email = ""dewey@fishandwhistle.net"", 
+           role = c(""aut"", ""cre""), 
+           comment = c(ORCID = ""0000-0002-9415-4582"")
+    ),
+    person(""Brent"", ""Thorne"", role = ""ctb"", comment = c(ORCID = ""0000-0002-1099-3857"")),
+    person(""Diego"", ""Hernangómez"", role = ""ctb"", comment = c(ORCID = ""0000-0001-8457-4658""))
+  )",2017-04-02,2017-04-02,FALSE
+ggspectra,2025-06-24,"
+   c(
+    person(""Pedro J."", ""Aphalo"", email = ""pedro.aphalo@helsinki.fi"", role = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0003-3385-972X"")),
+    person(""Titta K."", ""Kotilainen"", role = ""ctb"", comment = c(ORCID = ""0000-0002-2822-9734""))
+    )",2016-02-06,2016-02-06,TRUE
+ggstackplot,2025-01-31,"
+  c(person(
+      given = ""Sebastian"", family = ""Kopf"", 
+      email = ""sebastian.kopf@colorado.edu"", 
+      role = c(""aut"", ""cre"", ""cph""), 
+      comment = c(ORCID = ""0000-0002-2044-0201"")),
+  person(
+      given = ""Tristan"", family = ""Caro"", 
+      email = ""tristan.caro@colorado.edu"", 
+      role = c(""aut""), 
+      comment = c(ORCID = ""0000-0001-6177-7444"")),
+  person(
+      given = ""Jamie"", family = ""McFarlin"", 
+      email = ""jamie.mcfarlin@uwyo.edu"", 
+      role = c(""aut""), 
+      comment = c(ORCID = ""0000-0002-8185-8185"")),
+  person(
+      given = ""Jon"", family = ""Raberg"", 
+      email = ""Jonathan.Raberg@colorado.edu"", 
+      role = c(""aut""), 
+      comment = c(ORCID = ""0000-0003-2959-3631""))
+  )",2025-01-14,2025-01-14,FALSE
+ggstance,2024-04-05,"c(
+    person(""Lionel"", ""Henry"", , ""lionel@rstudio.com"", role = c(""aut"", ""cre"")),
+    person(""Hadley"", ""Wickham"", , ""hadley@rstudio.com"", ""aut""),
+    person(""Winston"", ""Chang"", , ""winston@rstudio.com"", ""aut""),
+    person(""RStudio"", role = ""cph"")
+    )",2016-11-16,2016-11-16,TRUE
+ggstar,2022-11-08,"
+    person(given = ""Shuangbin"",
+           family = ""Xu"",
+           role = c(""aut"", ""cre""),
+           email = ""xshuangbin@163.com"",
+           comment = c(ORCID=""0000-0003-3513-5362""))",2020-03-19,2020-03-19,TRUE
+ggstats,2025-07-02,"c(
+    person(
+      ""Joseph"", ""Larmarange"", ,
+      ""joseph@larmarange.net"",
+      role = c(""aut"", ""cre""),
+      comment = c(ORCID = ""0000-0001-7097-700X"")
+    )
+  )",2022-10-17,2022-10-17,TRUE
+ggstatsplot,2025-05-09,"
+    c(person(given = ""Indrajeet"",
+             family = ""Patil"",
+             role = c(""cre"", ""aut"", ""cph""),
+             email = ""patilindrajeet.science@gmail.com"",
+             comment = c(ORCID = ""0000-0003-1995-6531"")),
+      person(given = ""Chuck"",
+             family = ""Powell"",
+             email = ""ibecav@gmail.com"",
+             role = ""ctb"",
+             comment = c(ORCID = ""0000-0002-3606-2188"")))",2018-04-03,2018-04-03,TRUE
+ggstream,2021-05-06,"
+    person(given = ""David"",
+           family = ""Sjoberg"",
+           role = c(""aut"", ""cre""),
+           email = ""dav.sjob@gmail.com"")",NA,2021-05-06,FALSE
+ggstudent,2025-04-09,"
+    person(given = ""Jouni"",
+           family = ""Helske"",
+           role = c(""aut"", ""cre""),
+           email = ""jouni.helske@iki.fi"",
+           comment = c(ORCID = ""0000-0001-7130-793X""))",2020-05-11,2020-05-11,FALSE
+ggsubplot,NA,NA,2012-09-04,2012-09-04,FALSE
+ggsurveillance,2025-07-02,"
+    person(""Alexander"", ""Bartel"", , ""alexander.bartel@fu-berlin.de"", role = c(""aut"", ""cre""),
+           comment = c(ORCID = ""0000-0002-1280-6138""))",2025-01-31,2025-01-31,TRUE
+ggsurvey,2022-05-04,NA,NA,2022-05-04,FALSE
+ggsurvfit,2024-05-08,"c(
+    person(""Daniel D."", ""Sjoberg"", , ""danield.sjoberg@gmail.com"", role = c(""aut"", ""cre"", ""cph""),
+           comment = c(ORCID = ""0000-0003-0862-2018"")),
+    person(""Mark"", ""Baillie"", , ""bailliem@gmail.com"", role = ""aut""),
+    person(""Charlotta"", ""Fruechtenicht"", , ""charlotta.fruechtenicht@roche.com"", role = ""aut"",
+           comment = c(ORCID = ""0000-0002-6689-6423"")),
+    person(""Steven"", ""Haesendonckx"", , ""shaesen2@its.jnj.com"", role = ""aut"",
+           comment = c(ORCID = ""0000-0001-8222-3686"")),
+    person(""Tim"", ""Treis"", , ""tim.treis@outlook.de"", role = ""aut"",
+           comment = c(ORCID = ""0000-0002-9686-4799""))
+  )",2022-08-27,2022-08-27,TRUE
+ggswissmaps,2025-06-23,"c(
+  person(""Sandro"", ""Burri"", email = ""gibo.gaf@gmail.com"", role = c(""aut"", ""cre"")), 
+  person(""Eric"", ""Stephani"", email = ""eric.stephani@bluewin.ch"", role = ""aut""), 
+  person(""Lisa"", ""Bottinelli"", email = ""lisa.bottinelli@gmail.com"", role = ""ctb""))",2014-11-07,2014-11-07,FALSE
+ggtangle,2025-06-30,"c(
+    person(given = ""Guangchuang"", family = ""Yu"", email = ""guangchuangyu@gmail.com"",   role  = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0002-6485-8781"")))",2024-09-18,2024-09-18,FALSE
+ggtaxplot,2024-12-20,"person(given = ""Clement"",
+                    family = ""Coclet"",
+                    role = c(""aut"", ""cre""),
+                    email = ""clement.coclet@gmail.com"",
+                    comment = ""GITLAB: https://gitlab.com/ccoclet/"")",NA,2024-12-20,FALSE
+ggtea,2021-11-09,"
+    person(""Pushkar"", ""Sarkar"",email = ""inboxpushkarsarkar@gmail.com"", role = c(""aut"", ""cre""))",NA,2021-11-09,FALSE
+ggtech,NA,NA,NA,NA,TRUE
+ggtern,2024-03-24,"
+  person(""Nicholas"",""Hamilton"", ,""nick@ggtern.com"", role = c(""aut"", ""cre""))",2013-12-18,2013-12-18,FALSE
+ggterror,NA,NA,NA,NA,TRUE
+ggtext,2022-09-16,"
+    c(
+      person(
+        given = ""Claus O."",
+        family = ""Wilke"",
+        role = c(""aut""),
+        email = ""wilke@austin.utexas.edu"",
+        comment = c(ORCID = ""0000-0002-7470-9261"")
+      ),
+      person(
+        given = ""Brenton M."",
+        family = ""Wiernik"",
+        role = c(""aut"", ""cre""),
+        email = ""brenton@wiernik.org"",
+        comment = c(ORCID = ""0000-0001-9560-6336"", Twitter = ""@bmwiernik"")
+      )
+    )",2020-06-04,2020-06-04,TRUE
+ggThemeAssist,2016-08-13,NA,2016-03-09,2016-03-09,FALSE
+ggthemes,2024-02-10,"c(person(""Jeffrey B."", ""Arnold"", role = c(""aut"", ""cre""),
+    email = ""jeffrey.arnold@gmail.com"", 
+    comment = ""<https://orcid.org/0000-0001-9953-3904>""),
+    person(""Gergely"", ""Daroczi"", role = ""ctb""),
+    person(""Bo"", ""Werth"", role = ""ctb""),
+    person(""Brian"", ""Weitzner"", role = ""ctb""),
+    person(""Joshua"", ""Kunst"", role = ""ctb""),
+    person(""Baptise"", ""Auguie"", role = ""ctb""),
+    person(""Bob"", ""Rudis"", role = ""ctb""),
+    person(""Hadley"", ""Wickham"", role = c(""ctb""),
+    comment = ""Code from the ggplot2 package.""),
+    person(""Justin"",  ""Talbot"", role = ""ctb"",
+    comment = ""Code from the labeling package""),
+    person(""Joshua"", ""London"", role = ""ctb""))",2012-12-22,2012-12-22,TRUE
+ggthemeUL,2023-12-07,"person(given = ""Marjan"", family = ""Cugmas"", role = c(""aut"", ""cre""), email = ""marjan.cugmas@fdv.uni-lj.si"", comment = c(ORCID = ""0000-0002-1715-2460""))",NA,2023-12-07,FALSE
+ggthemr,NA,NA,NA,NA,TRUE
+ggtibble,2025-06-11,"
+    person(""Bill"", ""Denney"", email=""wdenney@humanpredictions.com"", role=c(""aut"", ""cre""), comment=c(ORCID=""0000-0002-5759-428X""))",2024-02-07,2024-02-07,FALSE
+ggtikz,2024-06-16,"
+    person(given = ""Oliver"",
+           family = ""Thomas"",
+           role = c(""aut"", ""cre""),
+           email = ""ost.dev@posteo.net"")",2021-08-17,2021-08-17,FALSE
+ggtime,2025-06-10,"c(
+      person(
+        given = ""Mitchell"",
+        family = ""O'Hara-Wild"",
+        role = c(""aut"", ""cre""),
+        email = ""mail@mitchelloharawild.com"",
+        comment = c(ORCID = ""0000-0001-6729-7695"")
+      ),
+      person(
+        given = ""Cynthia A."", 
+        family = ""Huang"",
+        role = c(""aut""), 
+        comment = c(ORCID = ""0000-0002-9218-987X"")
+      ),
+      person(
+        given = ""Matthew"", 
+        family = ""Kay"",
+        role = c(""aut""), 
+        comment = c(ORCID = ""0000-0001-9446-0419"")
+      ),
+      person(
+        given = ""Rob"",
+        family = ""Hyndman"",
+        role = c(""aut""),
+        comment = c(ORCID = ""0000-0002-2140-5352"")
+      )
+    )",NA,2025-06-10,FALSE
+ggTimeSeries,2022-01-23,"c(
+    person(""Aditya"", ""Kothari"", , ""mail.thecomeonman@gmail.com"", role = c(""cre"",""aut"")),
+    person(""Ather Energy"", role = ""cph""),
+    person(""Jesse"",""Vent"", , role = ""ctb"")
+    )",2018-09-03,2018-09-03,TRUE
+ggtrace,2022-06-24,"
+    c(person(given = ""Ryan"",
+             family = ""Sheridan"",
+             role = c(""aut"", ""cre""),
+             email = ""ryan.sheridan@cuanschutz.edu"",
+             comment = c(ORCID = ""0000-0003-4012-3147"")),
+      person(given = ""Rui"",
+             family = ""Fu"",
+             role = ""ctb"",
+             email = ""raysinensis@gmail.com"",
+             comment = c(ORCID = ""0000-0001-8183-4549"")),
+      person(given = ""Jay"",
+             family = ""Hesselberth"",
+             role = ""ctb"",
+             email = ""jay.hesselberth@gmail.com"",
+             comment = c(ORCID = ""0000-0002-6299-179X"")),
+      person(given = ""RNA Bioscience Initiative"",
+             role = c(""fnd"", ""cph"")))",NA,2022-06-24,TRUE
+ggtranscript,NA,NA,NA,NA,TRUE
+ggtranslate,2025-07-10,"person(given = ""Mathias"",
+                    family = ""Leroy"",
+                    role = c(""aut"", ""cre""),
+                    email = ""mathias.leroy.rpkg@gmail.com"")",NA,2025-07-10,FALSE
+ggtree,NA,NA,NA,NA,TRUE
+ggtreebar,2025-05-16,"
+    person(""Harry"", ""Thompson"", , ""harry@mayesfield.uk"", role = c(""aut"", ""cre"", ""cph""))",NA,2025-05-16,FALSE
+ggtrendline,2022-04-27,"c(
+		person(""Weiping"", ""Mei"", role = c(""aut"", ""cre"", ""cph""), email = ""meiweipingg@163.com""),
+		person(""Guangchuang"", ""Yu"", role = ""aut""),
+		person(""Brandon M."", ""Greenwell"", role = ""aut""),
+		person(""Jiangshan"", ""Lai"", role = ""ctb""),
+		person(""Zhendu"", ""Mao"",   role = ""ctb""),
+		person(""Yu"", ""Umezawa"",  role = ""ctb""),
+		person(""Jun"", ""Zeng"",  role = ""ctb""),
+		person(""Jun"", ""Wang"",  role = ""ctb"")
+	   )",NA,2022-04-27,FALSE
+ggtricks,2023-05-10,"
+    person(""Abdoul"", ""ISSA BIDA"", , ""contact@abdoulblog.com"", role = c(""aut"", ""cre""))",NA,2023-05-10,FALSE
+gguapo,NA,NA,NA,NA,TRUE
+ggupset,2025-02-11,"person(""Constantin"", ""Ahlmann-Eltze"", email = ""artjom31415@googlemail.com"", 
+                  role = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0002-3762-068X""))",2019-03-06,2019-03-06,TRUE
+ggvenn,2023-03-31,"person(given = ""Linlin"", family = ""Yan"",
+                  role = c(""aut"", ""cre""),
+                  email = ""yanlinlin82@gmail.com"",
+                  comment = c(ORCID = ""0000-0002-4990-6239""))",2021-01-13,2021-01-13,FALSE
+ggVennDiagram,2025-06-21,"c(
+  person(""Chun-Hui"",""Gao"", email=""gaospecial@gmail.com"", role=c(""aut"",""cre""), comment=c(ORCID = ""0000-0002-1445-7939"")),
+  person(""Guangchuang"", ""Yu"", email = ""guangchuangyu@gmail.com"", role = c(""ctb""), comment = c(ORCID = ""0000-0002-6485-8781"")),
+  person(""Adrian"", ""Dusa"",  email = ""dusa.adrian@unibuc.ro"", role = c(""aut"",""cph""), 
+    comment = c(ORCID = ""0000-0002-3525-9253"", 
+    note = ""Adrian Dusa is the author and copyright holder of venn, where ggVennDiagram imports the polygon coordinates enabling 5 - 7 sets Venn diagram."")),
+  person(""Turgut Yigit"", ""Akyol"", email = ""tyakyol@gmail.com"", role = c(""ctb""), comment=c(ORCID = ""0000-0003-0897-7716""))
+  )",2019-10-09,2019-10-09,FALSE
+ggversa,2017-08-05,NA,NA,2017-08-05,FALSE
+ggvfields,2025-03-15,"
+    c(person(given = ""Dusty"",
+           family = ""Turner"",
+           role = c(""aut"", ""cre""),
+           email = ""dusty.s.turner@gmail.com""),
+      person(given = ""David"",
+           family = ""Kahle"",
+           role = c(""aut""),
+           email = ""david_kahle@baylor.edu""),
+      person(given = ""Rodney X."",
+           family = ""Sturdivant"",
+           role = c(""aut""),
+           email = ""rodney_sturdivant@baylor.edu""))",NA,2025-03-15,FALSE
+ggview,2025-07-05,"person(""Iaroslav"", ""Domin"", email = ""ya.domin@gmail.com"", role = c(""aut"", ""cre"", ""cph""))",2024-10-02,2024-10-02,FALSE
+ggvis,2024-02-05,"c(
+    person(""Hadley"", ""Wickham"", , ""hadley@posit.co"", role = c(""aut"", ""cre"")),
+    person(""Winston"", ""Chang"", , ""winston@posit.co"", role = ""aut""),
+    person(, ""Posit"", role = ""cph""),
+    person(, ""jQuery Foundation"", role = ""cph"",
+           comment = ""jQuery library and jQuery UI library""),
+    person(, ""jQuery contributors"", role = c(""ctb"", ""cph""),
+           comment = ""jQuery library; authors listed in inst/www/lib/jquery/AUTHORS.txt""),
+    person(, ""jQuery UI contributors"", role = c(""ctb"", ""cph""),
+           comment = ""jQuery UI library; authors listed in inst/www/lib/jquery-ui/AUTHORS.txt""),
+    person(""Mike"", ""Bostock"", role = c(""ctb"", ""cph""),
+           comment = ""D3 library""),
+    person(, ""D3 contributors"", role = ""ctb"",
+           comment = ""D3 library; authors listed at https://github.com/d3/d3/graphs/contributors""),
+    person(, ""Trifacta Inc."", role = ""cph"",
+           comment = ""Vega library""),
+    person(, ""Vega contributors"", role = ""ctb"",
+           comment = ""Vega library; authors listed at https://github.com/trifacta/vega/graphs/contributors""),
+    person(""Sebastián"", ""Décima"", role = c(""ctb"", ""cph""),
+           comment = ""javascript-detect-element-resize library"")
+  )",2014-06-21,2014-06-21,FALSE
+ggvolcano,2025-02-09,"person('Yaoxiang', 'Li', email = 'liyaoxiang@outlook.com', role = c('cre', 'aut'))",2024-09-05,2024-09-05,TRUE
+ggvoronoi,NA,NA,2018-07-20,2018-07-20,FALSE
+ggwordcloud,2024-05-30,"
+    c(person(given = ""Erwan"",
+             family = ""Le Pennec"",
+             role = c(""aut"", ""cre""),
+             email = ""lepennec@gmail.com""),
+      person(given = ""Kamil"",
+             family = ""Slowikowski"",
+             role = ""aut"",
+             email = ""kslowikowski@gmail.com""))",2018-09-30,2018-09-30,TRUE
+ggx,2021-01-22,"person(""Andreas M."", ""Brandmaier"", email = ""andy@brandmaier.de"",
+  role = c(""aut"", ""cre""))",NA,2021-01-22,TRUE
+hrbrthemes,2024-03-04,"c(
+      person(""Bob"", ""Rudis"", email = ""bob@rud.is"", role = c(""aut"", ""cre""), 
+             comment = c(ORCID = ""0000-0001-5670-2640"")),
+      person(""Patrick"", ""Kennedy"", role=c(""ctb"")),
+      person(""Philipp"", ""Reiner"", role = c(""ctb"")),
+      person(""Dan"", ""Wilson"", email = ""dan@thedatacollective.com.au"", 
+             role = c(""ctb""), comment = c(""Secondary axis support"")), 
+      person(""Xavier"", ""Adam"", role = c(""ctb"")),
+      person(""Google"", comment = ""Roboto Condensed"", role = c(""cph"")),
+      person(""IBM"", comment = ""Plex Sans Font"", role = c(""cph"")),
+      person(""Goldman Sachs"", comment = ""Goldman Sans Font"", role = c(""cph"")),
+      person(""Impallari Type"", comment = ""Public Sans Font"", role = c(""cph"")),
+      person(""Jacob"", ""Barnett"", email = ""jacob.r.barnett@gmail.com"", role = c(""ctb"")),
+      person(""Thomas J."", ""Leeper"", role = c(""ctb""), email = ""thosjleeper@gmail.com"",
+             comment = c(ORCID = ""0000-0003-4097-6326"")),
+      person(""Joris"", ""Meys"", email = ""Joris.Meys@UGent.be"", role = c(""ctb""))
+    )",2017-02-25,2017-02-25,TRUE
+humapr,NA,NA,NA,NA,TRUE
+ichimoku,2025-03-14,"
+    c(person(given = ""Charlie"",
+             family = ""Gao"",
+             role = c(""aut"", ""cre""),
+             email = ""charlie.gao@shikokuchuo.net"",
+             comment = c(ORCID = ""0000-0002-0750-061X"")),
+      person(given = ""Hibiki AI Limited"",
+             role = ""cph""))",2021-05-19,2021-05-19,TRUE
+legendry,2025-05-30,"
+    person(""Teun"", ""van den Brand"", , ""tahvdbrand@gmail.com"", role = c(""aut"", ""cre"", ""cph""),
+           comment = c(ORCID = ""0000-0002-9335-7468""))",2024-11-01,2024-11-01,TRUE
+lemon,2025-07-22,"c(
+    person('Stefan McKinnon', 'Edwards', email='sme@iysik.com',
+    comment=c(ORCID='0000-0002-4628-8148'),
+    role=c('aut','ctb','cre')),
+    person('Baptiste','Auguie', role='ctb',
+    comment='For g_legend and grid_arrange_shared_legend'),
+    person('Shaun','Jackman', role='ctb',
+    comment='For grid_arrange_shared_legend'),
+    person(""Hadley"", ""Wickham"", , ""hadley@rstudio.com"", ""ctb"",
+    comment='ggplot2 functions'),
+    person(""Winston"", ""Chang"", , ""winston@rstudio.com"", ""ctb"",
+    comment='ggplot2 functions')
+    )",2017-05-22,2017-05-22,TRUE
+lindia,2023-08-10,"c(person(""Yeuk Yu"", ""Lee"", 
+    email = ""lyeukyu@gmail.com"", 
+    role = c(""aut"", ""cre"")),
+    person(""Samuel"", ""Ventura"", 
+    email = ""sventura@stat.cmu.edu"", 
+    role = c(""aut"")))",2017-05-10,2017-05-10,TRUE
+mdthemes,NA,NA,2020-06-14,2020-06-14,TRUE
+nflplotR,2024-08-21,"
+    person(""Sebastian"", ""Carl"", , ""mrcaseb@gmail.com"", role = c(""aut"", ""cre""))",2022-01-21,2022-01-21,TRUE
+oblicubes,2025-03-10,"c(person(""Trevor L."", ""Davis"", role = c(""aut"", ""cre""),
+                    email = ""trevor.l.davis@gmail.com"",
+                    comment = c(ORCID = ""0000-0001-6341-4639"")),
+             person(""Mike"", ""FC"", role = ""aut"", comment = ""Some code adapted from isocubes""))",2022-08-27,2022-08-27,TRUE
+patchwork,2025-06-21,"
+    person(given = ""Thomas Lin"",
+           family = ""Pedersen"",
+           role = c(""cre"", ""aut""),
+           email = ""thomasp85@gmail.com"",
+           comment = c(ORCID = ""0000-0002-5147-4711""))",2019-12-01,2019-12-01,TRUE
+piecepackr,2025-05-08,"c(person(""Trevor L."", ""Davis"", role=c(""aut"", ""cre""),
+             email=""trevor.l.davis@gmail.com"",
+             comment = c(ORCID = ""0000-0001-6341-4639"")),
+             person(""Linux Foundation"", role=""dtc"",
+                    comment = 'Uses some data from the ""SPDX License List"" <https://github.com/spdx/license-list-XML>'),
+             person(""Delapouite <https://delapouite.com/>"", role=""ill"",
+                     comment = 'Meeple shape extracted from ""Meeple icon"" <https://game-icons.net/1x1/delapouite/meeple.html> / ""CC BY 3.0"" <https://creativecommons.org/licenses/by/3.0/>'),
+             person(""Creative Commons"", role=""ill"",
+                    comment = '`save_print_and_play()` uses ""license badges"" from Creative Commons to describe the generated print-and-play file\'s license'))",2019-06-28,2019-06-28,TRUE
+plotROC,2023-10-06,"c(person(""Michael C."", ""Sachs"", role = c(""aut"", ""cre""),
+                     email = ""sachsmc@gmail.com""),
+              person(""Robert W."", ""Corty"", role = ""ctb"",
+                     email = ""rcorty@gmail.com""), 
+                     person(""Luis Crouch"", role = ""ctb"", 
+                     comment = ""Modification to calc_auc""))",2014-11-13,2014-11-13,TRUE
+qqplotr,2023-01-25,"c(person(""Alexandre"", ""Almeida"", email = ""almeida.xan@gmail.com"", role = c(""aut"")),
+		person(""Adam"", ""Loy"", email = ""loyad01@gmail.com"", role = c(""aut"", ""cre"")),
+    person(""Heike"", ""Hofmann"", role = ""aut""))",2017-07-25,2017-07-25,TRUE
+rphylopic,2024-09-04,"c(
+    person(given = ""William"", family = ""Gearty"", email = ""willgearty@gmail.com"",
+      role = c(""aut"", ""cre""), comment = c(ORCID = ""0000-0003-0076-3262"")),
+    person(given = ""Lewis A."", family = ""Jones"", email = ""LewisAlan.Jones@uvigo.es"",
+      role = c(""aut""), comment = c(ORCID = ""0000-0003-3902-8986"")),
+    person(given = ""Scott"", family = ""Chamberlain"", email = ""myrmecocystus@gmail.com"",
+      role = c(""aut""), comment = c(ORCID = ""0000-0003-1444-9135"")),
+    person(given = ""David"", family = ""Miller"", email = ""dave@ninepointeightone.net"",
+      role = c(""ctb""))
+  )",2018-11-19,2018-11-19,TRUE
+see,2025-03-11,"
+    c(person(given = ""Daniel"",
+             family = ""Lüdecke"",
+             role = c(""aut"", ""ctb""),
+             email = ""d.luedecke@uke.de"",
+             comment = c(ORCID = ""0000-0002-8895-3206"")),
+      person(given = ""Dominique"",
+             family = ""Makowski"",
+             role = c(""aut"", ""inv""),
+             email = ""dom.makowski@gmail.com"",
+             comment = c(ORCID = ""0000-0001-5375-9967"")),
+      person(given = ""Indrajeet"",
+             family = ""Patil"",
+             role = c(""aut"", ""cre""),
+             email = ""patilindrajeet.science@gmail.com"",
+             comment = c(ORCID = ""0000-0003-1995-6531"")),
+      person(given = ""Mattan S."",
+             family = ""Ben-Shachar"",
+             role = c(""aut"", ""ctb""),
+             email = ""matanshm@post.bgu.ac.il"",
+             comment = c(ORCID = ""0000-0002-4287-4801"")),
+      person(given = ""Brenton M."",
+             family = ""Wiernik"",
+             role = c(""aut"", ""ctb""),
+             email = ""brenton@wiernik.org"",
+             comment = c(ORCID = ""0000-0001-9560-6336"")),
+      person(given = ""Philip"",
+             family = ""Waggoner"",
+             role = c(""aut"", ""ctb""),
+             email = ""philip.waggoner@gmail.com"",
+             comment = c(ORCID = ""0000-0002-7825-7573"")),
+      person(given = ""Jeffrey R."",
+             family = ""Stevens"",
+             role = ""ctb"",
+             email = ""jeffrey.r.stevens@gmail.com"",
+             comment = c(ORCID = ""0000-0003-2375-1360"")),
+      person(given = ""Matthew"",
+             family = ""Smith"",
+             role = ""rev"",
+             email = ""M.Smith3@napier.ac.uk""),
+      person(given = ""Jakob"",
+             family = ""Bossek"",
+             role = ""rev"",
+             email = ""bossek@wi.uni-muenster.de""))",2019-05-24,2019-05-24,TRUE
+sugrrants,2024-03-12,"
+    c(person(given = ""Earo"",
+             family = ""Wang"",
+             role = c(""aut"", ""cre""),
+             email = ""earo.wang@gmail.com"",
+             comment = c(ORCID = ""0000-0001-6448-5260"")),
+      person(given = ""Di"",
+             family = ""Cook"",
+             role = c(""aut"", ""ths""),
+             comment = c(ORCID = ""0000-0002-3813-7155"")),
+      person(given = ""Rob"",
+             family = ""Hyndman"",
+             role = c(""aut"", ""ths""),
+             comment = c(ORCID = ""0000-0002-2140-5352"")))",2017-07-28,2017-07-28,TRUE
+survminer,2024-10-30,"c(
+    person(""Alboukadel"", ""Kassambara"", role = c(""aut"", ""cre""), email = ""alboukadel.kassambara@gmail.com""),
+    person(""Marcin"", ""Kosinski"", role = c(""aut""), email = ""m.p.kosinski@gmail.com""),
+    person(""Przemyslaw"", ""Biecek"", role = c(""aut""), email = ""przemyslaw.biecek@gmail.com""),
+    person(""Scheipl"", ""Fabian"", role = c(""ctb""), email = ""fabian.scheipl@gmail.com""))",2016-01-18,2016-01-18,TRUE
+tidyplots,2025-07-02,"
+    person(""Jan Broder"", ""Engler"", , ""broder.engler@gmail.com"", role = c(""aut"", ""cre"", ""cph""),
+           comment = c(ORCID = ""0000-0002-3169-2076""))",2024-11-08,2024-11-08,TRUE
+tidyterra,2025-04-14,"c(
+    person(""Diego"", ""Hernangómez"", , ""diego.hernangomezherrero@gmail.com"", role = c(""aut"", ""cre"", ""cph""),
+           comment = c(ORCID = ""0000-0001-8457-4658"")),
+    person(""Dewey"", ""Dunnington"", role = ""ctb"",
+           comment = c(ORCID = ""0000-0002-9415-4582"", ""for ggspatial code"")),
+    person(""ggplot2 authors"", role = ""cph"",
+           comment = ""for contour code""),
+    person(""Andrea"", ""Manica"", role = ""ctb"")
+  )",2022-05-24,2022-05-24,TRUE
+treemapify,2023-09-30,"c(
+  person(""David"", ""Wilkins"", , ""david@wilkox.org"", role = c(""aut"", ""cre""),
+         comment = c(ORCID = ""0000-0002-3385-8981"")),
+  person(""Bob"", ""Rudis"", , ""bob@rud.is"", role = c(""ctb""),
+         comment = c(ORCID = ""0000-0001-5670-2640""))
+  )",2017-08-28,2017-08-28,TRUE
+tvthemes,2024-02-27,"
+  person(given = ""Ryo"",
+         family = ""Nakagawara"",
+         role = c(""aut"", ""cre""),
+         email = ""ryonakagawara@gmail.com"")",2019-09-03,2019-09-03,TRUE
+xmrr,2020-06-08,"person(""Alex"", ""Zanidean"", email = ""AZanidean@mhc.ab.ca"",
+                  role = c(""aut"",""cre""))",2017-12-15,2017-12-15,TRUE

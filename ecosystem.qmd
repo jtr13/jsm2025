@@ -1,0 +1,594 @@
+---
+title: "An introduction to the ggplot2 extension ecosystem"
+execute:
+  echo: false
+  cache: true
+  message: false
+  warning: false
+format: 
+  revealjs:
+    width: 1152
+    height: 648
+    highlight-style: joyce.theme
+    theme: [simple, custom3.scss]
+    scrollable: true
+    chalkboard: true
+    slide-number: false
+
+knitr:
+  opts_chunk: 
+    fig.width: 6
+    fig.height: 4
+    fig.align: center
+    out.width: 100%
+    
+language:
+  code-summary: ""
+---  
+
+## ggplot2 extension packages
+
+```{r}
+#| fig-width: 12
+knitr::include_graphics("images/gallery.png")
+```
+
+
+## Package extension stats: 309 packages
+
+```{r}
+library(tidyverse)
+df <- read_csv("generated_data/gg_packages_first_release.csv")
+gallery <- sum(df$in_gallery)
+gallery_never_cran <- sum(df$in_gallery & is.na(df$cran_publish_date) & is.na(df$archive_date))
+gallery_and_cran <- sum(df$in_gallery & !is.na(df$cran_publish_date))
+gallery_and_archive <- sum(df$in_gallery & is.na(df$cran_publish_date) & !is.na(df$archive_date))
+cran_not_in_gallery <- sum(!df$in_gallery & !is.na(df$cran_publish_date))
+total_cran <- sum(!is.na(df$cran_publish_date))
+archive_only <- sum(is.na(df$cran_publish_date) & !df$in_gallery & !is.na(df$archive_date))
+```
+
+::: {.pt7}
+|Source|Number of Packages|
+|-|-|-:|
+|CRAN and Gallery|`r gallery_and_cran`|
+|CRAN not in Gallery|`r cran_not_in_gallery`|
+|Gallery never CRAN| `r gallery_never_cran`|
+|Gallery and archive|`r gallery_and_archive`|
+|CRAN archive only|`r archive_only`|
+:::
+
+::: {.pt5}
+Inclusion criteria:
+
+* In ggplot2 extension gallery [https://exts.ggplot2.tidyverse.org/](https://exts.ggplot2.tidyverse.org/); or
+
+* On CRAN, starts with "gg" or "GG" AND mentions ggplot2 in title, description, depends, imports, or suggests; or
+
+* In CRAN archive, starts with "gg" or "GG"
+:::
+
+## First 10 packages 
+
+```{r}
+get_authors <- function(x) {
+  matches <- gregexpr("person\\(\"([^\"]+)\",\\s*\"([^\"]+)\"", x, perl = TRUE)
+  names_list <- regmatches(x, matches)[[1]]
+  names_parsed <- regmatches(names_list,
+      gregexpr("\"([^\"]+)\"", names_list))
+
+# Combine into "First Last"
+full_names <- sapply(names_parsed, function(x) {
+  first <- gsub("\"", "", x[1])
+  last  <- gsub("\"", "", x[2])
+  paste(first, last)
+})
+
+# Join into one string separated by commas
+  combined_names <- paste(full_names, collapse = ", ")
+  return(combined_names)
+}
+
+df <- df |> arrange(first_release) |> 
+  mutate(on_cran = ifelse(is.na(cran_publish_date), FALSE, TRUE))
+
+df |> slice_head(n = 10) |> 
+#  rowwise() |> 
+#  mutate(authors_today = paste(format(eval(parse(text = authors)), include = c("given", "family")), collapse = ", ")) |> 
+  select(package, first_release, on_cran) |>
+  arrange(first_release) |> 
+  knitr::kable() |> 
+  kableExtra::kable_styling(font_size = 26)
+  
+```
+
+## Latest 10 packages
+
+```{r}
+df |> 
+  filter(!is.na(first_release)) |> 
+  slice_tail(n = 10) |> 
+#  rowwise() |> 
+#  mutate(authors_today = paste(format(eval(parse(text = authors)), include = c("given", "family")), collapse = ", ")) |> 
+  select(package, first_release, on_cran) |>
+  arrange(first_release) |> 
+  knitr::kable() |> 
+  kableExtra::kable_styling(font_size = 26)
+```
+
+
+## ggplot2 ecosystem
+
+
+```{r}
+df$year <- year(df$first_release)
+ggplot(df, aes(year)) + geom_bar(fill = "cornflowerblue") + 
+  labs(title = "First release on CRAN", x = NULL,
+       y = "number of packages")
+```
+
+## The new era of ggplot2 extensions
+
+![](images/roughstart.png){width=500px}
+
+* ggplot2 2.0.0 released December 2015
+
+* ggplot2 book, 2nd ed released June 2016
+  - references extension vignette
+  - lists "add-on" packages
+
+## Early extensions
+
+From the ggplot2 book 2nd edition (2016):
+
+![](images/addon.png)
+
+## Beginnings of a typology
+
+```{r}
+df <- tools::CRAN_package_db()
+num_depends <- df |> 
+  filter(str_detect(Depends, "ggplot2")) |> 
+  nrow()
+num_imports <- df |> 
+  filter(str_detect(Imports, "ggplot2")) |> 
+  nrow()
+```
+
+1. "By the book" extensions: plots are initialized with `ggplot()`; new elements are added beginning with `geom_`, `stat_`, `coord_`, `facet_`, etc.
+
+2. "Complete plots", "autoplots", "out of grammar", many not counted in our list of extensions (On CRAN alone, there are `r num_depends` packages that depend on ggplot2 and `r num_imports` that import it.)
+
+3. Many packages that are neither, with great diversity. Could be called "variations in dialect tailored to domain-specific needs."
+
+## "By the book" packages
+
+ggplot2 book, 3rd edition (online), extensions chapter:
+
+20.1 New themes
+
+20.2 New stats
+
+20.3 New geoms
+
+20.4 New coords
+
+20.5 New scales
+
+20.6 New positions
+
+20.7 New facets
+
+## New geoms
+
+### ggforce
+
+```{r}
+#| fig-width: 12
+#| fig-height: 4
+library(ggforce)
+library(patchwork)
+df <- data.frame(r = 1:48, 
+                 start = runif(48, 0, 2*pi), 
+                 end = runif(48, 0, 2*pi))
+
+p1 <- ggplot(df, aes(x0 = 0, y0 = 0, r = r, 
+               start = start, end = end,
+               color = r)) + 
+  geom_arc() + 
+#  coord_fixed() + 
+  scale_color_viridis_c() +
+  labs(title = "geom_arc()") +
+  theme_bw() +
+  theme(legend.position = "none",
+        title = element_text(family = "courier", face = "bold"))
+
+control_points <- data.frame(
+  x = c(0, 2, 3, 5, 1, 1.25, 1.25, 3.75, 3.5, 4.25, 4.5),
+  y = c(4, 5, 3, 4.25, 1, 1.5, 4.25, 3.75, 2, 0, 1.5),
+  group = c(1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3)
+)
+
+p2 <- ggplot(control_points, aes(x = x, y = y, group = group, color = factor(group))) +
+  geom_bezier(linewidth = 2, alpha = .75) +
+  geom_point() +
+#  coord_fixed() +
+  scale_x_continuous(name = NULL) +
+  scale_y_continuous(name = NULL, breaks = 0:5) +
+  labs(title = "geom_bezier()") +
+  theme_bw() +
+  theme(legend.position = "none",
+        panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
+
+p3 <- ggplot(iris, aes(Petal.Length, Petal.Width, color = Species)) + 
+  geom_point() + 
+  geom_mark_ellipse(aes(label = Species), label.fontsize = 8) +
+  scale_x_continuous(expand = c(.2, .2)) +
+  scale_y_continuous(expand = c(.2, .2)) +
+  labs(title = "geom_mark_ellipse()", x = NULL, y = NULL) +
+  theme_bw() +
+  theme(legend.position = "none",
+        panel.grid.minor = element_blank(),
+        plot.title = element_text(family = "courier", face = "bold"))
+
+p1 + p2 + p3
+```
+
+:::{.pt5}
+[https://ggforce.data-imaginist.com/](https://ggforce.data-imaginist.com/)
+:::
+
+## New facets
+
+### geofacet
+
+```{r}
+#| fig-width: 12
+#| fig-height: 6
+library(geofacet)
+
+p1 <- ggplot(state_unemp, aes(year, rate)) +
+  geom_line() +
+  facet_geo(~ state, grid = "us_state_grid2") +
+  scale_x_continuous(labels = function(x) paste0("'", substr(x, 3, 4))) +
+  ylab("Unemployment Rate (%)") +
+  labs(title = "facet_geo(grid = 'us_state_grid2')") +
+  theme_bw() +
+  theme(legend.position = "none",
+        panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"),
+        strip.text = element_text(size = 6, margin = margin(1, 1, 1, 1)),
+        strip.background = element_rect(size = 0.2))
+
+p1
+```
+:::{.pt5}
+Code source: [https://github.com/hafen/geofacet/](https://github.com/hafen/geofacet/)
+:::
+
+## New facets
+
+### ggh4x
+
+```{r}
+#| fig-width: 12
+#| fig-height: 4
+library(ggh4x)
+
+new_iris <- transform(
+  iris, 
+  Nester = ifelse(Species == "setosa", "Short Leaves", "Long Leaves")
+)
+
+p1 <- ggplot(new_iris, aes(Sepal.Width, Sepal.Length)) +
+  geom_point() +
+  facet_nested(~ Nester + Species) +
+  labs(title = "facet_nested()") +
+  theme_bw() +
+  theme(legend.position = "none",
+        panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"),
+        strip.text = element_text(size = 6, margin = margin(1, 1, 1, 1)),
+        strip.background = element_rect(size = 0.2))
+
+p2 <- ggplot(mpg, aes(displ, hwy, colour = as.factor(cyl))) + geom_point() +
+  labs(x = "Engine displacement", y = "Highway miles per gallon") +
+  facet_nested_wrap(
+    vars(cyl, drv), dir = "v", strip.position = "left",
+    axes = "all", remove_labels = "x"
+  ) +
+  theme(strip.placement = "outside") +
+  labs(title = "facet_nested_wrap()") +
+  theme_bw() +
+  theme(legend.position = "none",
+        panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"),
+        strip.text = element_text(size = 6, margin = margin(1, 1, 1, 1)),
+        strip.background = element_rect(size = 0.2))
+
+p1 + p2
+```
+:::{.pt5}
+Code source:  [https://teunbrand.github.io/ggh4x/articles/Facets.html](https://teunbrand.github.io/ggh4x/articles/Facets.html)
+:::
+
+
+## New Scales
+
+### ggsci
+
+```{r}
+#| fig-width: 12
+#| fig-height: 4
+library(ggsci)
+
+data("diamonds")
+
+p1 <- ggplot(
+  subset(diamonds, carat >= 2.2),
+  aes(x = table, y = price, colour = cut)
+) +
+  geom_point(alpha = 0.7) +
+  geom_smooth(method = "loess", alpha = 0.05, linewidth = 1, span = 1)
+
+p1_npg <- p1 + scale_color_npg() +
+  labs(title = "scale_color_npg()") +
+  theme_bw() +
+  theme(legend.position = "none",
+      panel.grid.minor = element_blank(),
+      title = element_text(family = "courier", face = "bold"))
+
+p1_uchicago <- p1 + scale_color_uchicago() +
+  labs(title = "scale_color_uchicago()") +
+  theme_bw() +
+  theme(legend.position = "none",
+      panel.grid.minor = element_blank(),
+      title = element_text(family = "courier", face = "bold"))
+
+data("mtcars")
+cor <- cor(unname(mtcars))
+cor_melt <- data.frame(
+  Var1 = rep(seq_len(nrow(cor)), times = ncol(cor)),
+  Var2 = rep(seq_len(ncol(cor)), each = nrow(cor)),
+  value = as.vector(cor)
+)
+
+p3 <- ggplot(cor_melt, aes(x = Var1, y = Var2, fill = value)) +
+  geom_tile(colour = "black", linewidth = 0.3) +
+  theme_void() +
+  theme(
+    axis.title.x = element_blank(),
+    axis.title.y = element_blank()
+  )
+
+p3_gsea <- p3 + scale_fill_gsea() +
+  labs(title = "scale_fill_gsea()") +
+  theme_bw() +
+  theme(legend.position = "none",
+      panel.grid.minor = element_blank(),
+      title = element_text(family = "courier", face = "bold"))
+
+p1_npg + p1_uchicago + p3_gsea
+```
+
+:::{.pt5}
+Code source: [https://nanx.me/ggsci/articles/ggsci.html](https://nanx.me/ggsci/articles/ggsci.html)
+:::
+
+## New themes
+
+### tvthemes
+
+```{r}
+#| fig-width: 12
+#| fig-height: 4
+library(tvthemes)
+
+bobspog_plot <- ggplot(mpg, aes(displ)) +
+  geom_histogram(aes(fill = class), col = "black", size = 0.1) +
+  scale_fill_spongeBob() +
+  labs(title = "F is for Fire that burns down the whole town!",
+       subtitle = "U is for Uranium... bombs! N is for No survivors when you're-",
+       caption = "Plankton, those things aren't what fun is about!") +
+  theme_spongeBob(title.font = "Some Time Later",
+                  text.font = "Some Time Later",
+                  title.size = 22,
+                  subtitle.size = 16,
+                  axis.title.size = 16,
+                  axis.text.size = 14,
+                  legend.title.size = 14)+
+  labs(title = "theme_spongeBob()")
+
+bobspog_plot
+```
+:::{.pt5}
+Code source: [https://ryo-n7.github.io/tvthemes/articles/examples.html](https://ryo-n7.github.io/tvthemes/articles/examples.html)
+:::
+
+## Complete plots
+
+* Serve many different purposes, from wrapping basic ggplot2 plots to simplifying the grammar to creating complex plots without introducing new components
+
+* Vary in degree of compatibility with ggplot2, due to degree of data transformation, and type of object returned. In general at a minimum you can add labels with ggplot2 functions though not always if a ggplot2 object is not returned. 
+
+## Complete plot
+
+### ggVennDiagram
+
+```{r}
+genes <- paste("gene",1:1000,sep="")
+set.seed(20231214)
+x <- list(A=sample(genes,300),
+          B=sample(genes,525),
+          C=sample(genes,440),
+          D=sample(genes,350))
+library(ggVennDiagram)
+```
+
+```{r}
+#| fig-width: 12
+#| fig-height: 4
+#| echo: true
+ggVennDiagram(x) + 
+  scale_fill_gradient(low="grey90",high = "red")
+```
+:::{.pt5}
+Code source: [https://github.com/gaospecial/ggVennDiagram](https://github.com/gaospecial/ggVennDiagram)
+:::
+
+## Dialect variations
+
+* new plotting initialization functions *and* components, new grammars?
+
+* combine multiple plots (different from faceting)
+
+* add animation / interactivity 
+
+* add RStudio addin
+
+## gggenomes
+
+```{r}
+library(gggenomes)
+# to inspect the example data shipped with gggenomes
+data(package="gggenomes")
+
+gfull <- gggenomes(
+  genes = emale_genes, seqs = emale_seqs, links = emale_ava,
+  feats = list(emale_tirs, ngaros=emale_ngaros, gc=emale_gc)) |> 
+  add_sublinks(emale_prot_ava) |>
+  sync() + # synchronize genome directions based on links
+  geom_feat(position="identity", size=6) +
+  geom_seq() +
+  geom_link(data=links(2)) +
+  geom_bin_label() +
+  geom_gene(aes(fill=name)) +
+  geom_gene_tag(aes(label=name), nudge_y=0.1, check_overlap = TRUE) +
+  geom_feat(data=feats(ngaros), alpha=.3, size=10, position="identity") +
+  geom_feat_note(aes(label="Ngaro-transposon"), data=feats(ngaros),
+      nudge_y=.1, vjust=0) +
+  geom_wiggle(aes(z=score, linetype="GC-content"), feats(gc),
+      fill="lavenderblush4", position=position_nudge(y=-.2), height = .2) +
+  scale_fill_brewer("Genes", palette="Dark2", na.value="cornsilk3")
+
+gfull
+```
+
+:::{.pt5}
+Code source: [https://thackl.github.io/gggenomes/](https://thackl.github.io/gggenomes/)
+:::
+
+## gggenomes individual geoms
+
+```{r}
+g <- gggenomes(
+  genes = emale_genes, seqs = emale_seqs, links = emale_ava,
+  feats = list(emale_tirs, ngaros=emale_ngaros, gc=emale_gc)) |> 
+  add_sublinks(emale_prot_ava) |>
+  sync() + # synchronize genome directions based on links
+  geom_seq(color = NA) +
+  geom_bin_label(color = NA) +
+  scale_fill_brewer("Genes", palette="Dark2", na.value="cornsilk3") + 
+  theme(legend.position = "none",
+        title = element_text(size = 8, family = "courier", face = "bold"))
+g1 <- g + geom_feat(position="identity", size=6) +
+  labs(title = "geom_feat()")
+g2 <- g + geom_seq() + labs(title = "geom_seq()")
+g3 <- g + geom_link(data=links(2)) + labs(title = "geom_link()")
+g4 <- g + geom_bin_label(size = 2) + labs(title = "geom_bin_label()")
+g5 <- g + geom_gene(aes(fill=name)) + labs(title = "geom_gene()")
+g6 <- g + geom_gene_tag(aes(label=name), nudge_y=0.1, check_overlap = TRUE) + labs(title = "geom_gene_tag()")
+g7 <- g + geom_feat(data=feats(ngaros), alpha=.3, size=10, position="identity") + labs(title = "geom_feat()")
+g8 <- g + geom_feat_note(aes(label="Ngaro-transposon"), data=feats(ngaros), nudge_y=.1, vjust=0) +
+   labs(title = "geom_feat_note()")
+g9 <- g + geom_wiggle(aes(z=score, linetype="GC-content"), feats(gc), fill="lavenderblush4", position=position_nudge(y=-.2), height = .2) + labs(title = "geom_wiggle()")
+g1 + g2 + g3 + g4 + g5 + g6 + g7 + g8 + g9
+```
+
+## ggraph
+
+```{r}
+#| fig-width: 12
+#| fig-height: 4
+library(ggraph)
+library(tidygraph)
+
+graph <- as_tbl_graph(highschool) |> 
+  mutate(Popularity = centrality_degree(mode = 'in'))
+
+p1 <- ggraph(graph, layout = 'kk') + 
+  geom_edge_fan(aes(alpha = after_stat(index)), show.legend = FALSE) + 
+  geom_node_point(aes(size = Popularity)) + 
+  facet_edges(~year) + 
+  theme_graph(foreground = 'steelblue', fg_text_colour = 'white')  +
+  labs(title = "ggraph()") +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
+
+p1
+```
+:::{.pt5}
+Code source: [https://ggraph.data-imaginist.com/](https://ggraph.data-imaginist.com/)
+:::
+
+## ggdendro
+
+```{r}
+#| fig-width: 12
+#| fig-height: 4
+library(ggdendro)
+
+hc <- hclust(dist(USArrests), "ave")
+p1 <- ggdendrogram(hc, rotate = FALSE, size = 2) +
+  labs(title = "ggdendro()") +
+  theme(panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
+p1
+```
+:::{.pt5}
+Code source: [https://cran.r-project.org/web/packages/ggdendro/vignettes/ggdendro.html](https://cran.r-project.org/web/packages/ggdendro/vignettes/ggdendro.html)
+:::
+
+## Combining plots
+
+### patchwork
+
+```{r}
+#| fig-width: 12
+#| fig-height: 4
+library(patchwork)
+
+p1 <- ggplot(mtcars) + geom_point(aes(mpg, disp)) +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold")) +
+  labs(title = "(p1 | p2 | p3) / p4")
+p2 <- ggplot(mtcars) + geom_boxplot(aes(gear, disp, group = gear)) +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
+p3 <- ggplot(mtcars) + geom_smooth(aes(disp, qsec)) +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
+p4 <- ggplot(mtcars) + geom_bar(aes(carb)) +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        title = element_text(family = "courier", face = "bold"))
+
+(p1 | p2 | p3) / p4
+```
+:::{.pt5}
+Code source: [https://patchwork.data-imaginist.com/](https://patchwork.data-imaginist.com/)
+:::
+
+## Takeaways
+
+* Easy geom recipes
+
+* Extension group
+
+* Extension gallery: https://exts.ggplot2.tidyverse.org/gallery/
+

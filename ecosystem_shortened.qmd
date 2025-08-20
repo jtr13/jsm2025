@@ -1,0 +1,212 @@
+---
+title: "An introduction to the ggplot2 extension ecosystem"
+execute:
+  echo: false
+  cache: true
+  message: false
+  warning: false
+format: 
+  revealjs:
+    width: 1152
+    height: 648
+    highlight-style: joyce.theme
+    theme: [simple, custom3.scss]
+    scrollable: true
+    chalkboard: true
+    slide-number: true
+
+knitr:
+  opts_chunk: 
+    fig.width: 6
+    fig.height: 4
+    fig.align: center
+    out.width: 100%
+    
+language:
+  code-summary: ""
+---  
+
+```{r}
+library(tidyverse)
+df <- read_csv("generated_data/gg_packages_first_release.csv")
+gallery <- sum(df$in_gallery)
+gg_not_ggplot2 <- readLines("generated_data/gg_not_ggplot2.txt")
+total_cran <- sum(!is.na(df$cran_publish_date))
+
+
+gallery_never_cran <- sum(df$in_gallery & is.na(df$cran_publish_date) & is.na(df$archive_date))
+gallery_and_cran <- sum(df$in_gallery & !is.na(df$cran_publish_date))
+gallery_and_archive <- sum(df$in_gallery & is.na(df$cran_publish_date) & !is.na(df$archive_date))
+cran_not_in_gallery <- sum(!df$in_gallery & !is.na(df$cran_publish_date))
+
+archive_only <- sum(is.na(df$cran_publish_date) & !df$in_gallery & !is.na(df$archive_date))
+```
+
+
+```{r}
+cran_db <- tools::CRAN_package_db()
+cran_db <- cran_db |> 
+  mutate(depends_ggplot2 = grepl("\\bggplot2\\b", Depends),
+         imports_ggplot2 = grepl("\\bggplot2\\b", Imports),
+         suggests_ggplot2 = grepl("\\bggplot2\\b", Suggests)) |> 
+  mutate(total = rowSums(across(c(depends_ggplot2, imports_ggplot2, suggests_ggplot2)), na.rm = TRUE))
+         
+```
+
+## ggplot2 extenders club
+
+![](images/extension_club.png)
+
+## What is a ggplot2 extension package?
+
+## What is a ggplot2 extension package?
+
+* ggplot2 extension gallery packages? (`r gallery` packages)
+
+```{r}
+knitr::include_graphics("images/gallery.png")
+```
+
+## What is a ggplot2 extension package?
+
+* ggplot2 extension gallery packages? (`r gallery` packages) [https://exts.ggplot2.tidyverse.org/](https://exts.ggplot2.tidyverse.org/)
+
+* Packages on CRAN that start with "gg" or "GG"? (`r total_cran + length(gg_not_ggplot2)` packages)
+
+## What is a ggplot2 extension package?
+
+* ggplot2 extension gallery packages? (`r gallery` packages) [https://exts.ggplot2.tidyverse.org/](https://exts.ggplot2.tidyverse.org/)
+
+* Packages on CRAN that start with "gg" or "GG"? (`r total_cran + length(gg_not_ggplot2)` packages)
+
+* Packages on CRAN that starts with "gg" or "GG" *and* mentions ggplot2 in the title, description, depends, imports, or suggests fields? (`r total_cran` packages)
+
+```{r}
+# gaussian graphical / generalized gaussian
+```
+
+## What is a ggplot2 extension package?
+
+* Depends on ggplot2? (`r sum(cran_db$depends_ggplot2, na.rm = TRUE)` packages)
+
+## What is a ggplot2 extension package?
+
+* Depends on ggplot2? (`r sum(cran_db$depends_ggplot2, na.rm = TRUE)` packages)
+
+* Imports ggplot2? (`r sum(cran_db$imports_ggplot2, na.rm = TRUE)` packages)
+
+## What is a ggplot2 extension package?
+
+* Depends on ggplot2? (`r sum(cran_db$depends_ggplot2, na.rm = TRUE)` packages)
+
+* Imports ggplot2? (`r sum(cran_db$imports_ggplot2, na.rm = TRUE)` packages)
+
+* Suggests ggplot2? (`r sum(cran_db$suggests_ggplot2, na.rm = TRUE)` packages)
+
+## What is a ggplot2 extension package?
+
+* Depends on ggplot2? (`r sum(cran_db$depends_ggplot2, na.rm = TRUE)` packages)
+
+* Imports ggplot2? (`r sum(cran_db$imports_ggplot2, na.rm = TRUE)` packages)
+
+* Suggests ggplot2? (`r sum(cran_db$suggests_ggplot2, na.rm = TRUE)` packages)
+
+* The above account for `r round(100*sum(cran_db$total)/nrow(cran_db), 2)`% of all packages currently on CRAN!
+
+## Working definition ==> 309 packages
+
+![](images/venn.png)
+
+
+## First 10 extensions to appear on CRAN
+
+```{r}
+get_authors <- function(x) {
+  matches <- gregexpr("person\\(\"([^\"]+)\",\\s*\"([^\"]+)\"", x, perl = TRUE)
+  names_list <- regmatches(x, matches)[[1]]
+  names_parsed <- regmatches(names_list,
+      gregexpr("\"([^\"]+)\"", names_list))
+
+# Combine into "First Last"
+full_names <- sapply(names_parsed, function(x) {
+  first <- gsub("\"", "", x[1])
+  last  <- gsub("\"", "", x[2])
+  paste(first, last)
+})
+
+# Join into one string separated by commas
+  combined_names <- paste(full_names, collapse = ", ")
+  return(combined_names)
+}
+
+df <- df |> arrange(first_release) |> 
+  mutate(on_cran = ifelse(is.na(cran_publish_date), FALSE, TRUE))
+
+df |> slice_head(n = 10) |> 
+#  rowwise() |> 
+#  mutate(authors_today = paste(format(eval(parse(text = authors)), include = c("given", "family")), collapse = ", ")) |> 
+  select(package, first_release, on_cran) |>
+  arrange(first_release) |> 
+  knitr::kable() |> 
+  kableExtra::kable_styling(font_size = 26)
+  
+```
+
+## Last 10 extensions to appear on CRAN
+
+```{r}
+df |> 
+  filter(!is.na(first_release)) |> 
+  slice_tail(n = 10) |> 
+#  rowwise() |> 
+#  mutate(authors_today = paste(format(eval(parse(text = authors)), include = c("given", "family")), collapse = ", ")) |> 
+  select(package, first_release, on_cran) |>
+  arrange(first_release) |> 
+  knitr::kable() |> 
+  kableExtra::kable_styling(font_size = 26)
+```
+
+
+## First release on CRAN by year
+
+### `r sum(!is.na(df$first_release))` packages
+
+```{r}
+df$year <- year(df$first_release)
+ggplot(df, aes(year)) + geom_bar(fill = "cornflowerblue") + 
+  labs(x = NULL,
+       y = "number of packages") +
+  scale_y_continuous(limits = c(0, 37), expand = c(0, 0)) +
+  theme_grey(18) +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
+```
+
+## The new era of ggplot2 extensions
+
+![](images/roughstart.png){width=500px}
+
+* ggplot2 2.0.0 released December 2015, introduced ggproto
+
+* ggplot2 book, 2nd ed released June 2016
+  - references extension vignette
+  - lists "add-on" packages
+
+## Early extensions
+
+From the ggplot2 book 2nd edition (2016):
+
+![](images/addon.png)
+
+## Beginnings of a typology
+
+![](images/spreadsheet.png)
+
+## Beginnings of a typology
+
+* Category I. "In grammar" extensions: new `geom_`, `stat_`, `coord_`, `facet_`, etc. elements are provided that work with the `ggplot()` plot initialization function.
+
+* Category II. "Complete plot" extensions: "autoplots", "out of grammar", "wrappers", many (most?) of which are not counted in our list of extensions.
+
+* Category III. Extensions that are neither in nor out of grammar, but are, rather, "variations in dialect tailored to domain-specific needs" that extend ggplot2 in very elegant and unexpected ways
+
